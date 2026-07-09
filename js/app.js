@@ -1,16 +1,18 @@
 // Liquinex Premium Core App Logic
-// Canvas Bubbles, Magnetic Buttons, Solutions Selector, Case-Study Dashboard, Scroll Reveal, Lightbox, Drawer Bug Fixes
+// Canvas Bubbles, Scroll Flow Timeline, Solutions Selector, Case-Study Dashboard, Technical Blueprint Tabs, Lightbox, Drawer Bug Fixes
 
 document.addEventListener('DOMContentLoaded', () => {
     initScrollProgress();
     initCustomCursor();
     initCanvasParticles();
     initMagneticButtons();
+    initJourneyFlow();
     initSolutionsHub();
     initScrollReveal();
     initCaseStudyDashboard();
     initMobileNav();
     initModalDrawer();
+    initShopBrochure();
 });
 
 /* 1. Scroll Progress Bar */
@@ -54,7 +56,7 @@ function initCustomCursor() {
     animateCursor();
 
     // Hover effect on links and interactive elements
-    const hoverables = document.querySelectorAll('a, button, .circular-node, .project-index-item, .cs-gallery-thumbnail, .btn');
+    const hoverables = document.querySelectorAll('a, button, .circular-node, .project-index-item, .cs-gallery-thumbnail, .btn, .cs-tab-btn');
     hoverables.forEach(item => {
         item.addEventListener('mouseenter', () => {
             cursor.style.width = '42px';
@@ -179,7 +181,26 @@ function initMagneticButtons() {
     });
 }
 
-/* 5. Circular Solutions Selector */
+/* 5. Scroll storytelling journey flow progress line */
+function initJourneyFlow() {
+    const journeySection = document.getElementById('about');
+    const flowProgress = document.querySelector('.journey-flow-progress');
+    if (!journeySection || !flowProgress) return;
+
+    window.addEventListener('scroll', () => {
+        const rect = journeySection.getBoundingClientRect();
+        const sectionHeight = rect.height;
+        const scrolledIntoSection = window.innerHeight - rect.top;
+        
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            let percentage = (scrolledIntoSection / (sectionHeight + window.innerHeight)) * 100;
+            percentage = Math.max(0, Math.min(100, percentage));
+            flowProgress.style.height = percentage + '%';
+        }
+    });
+}
+
+/* 6. Solutions Selector Nodes */
 const solutionsData = {
     'ceramic-uf': {
         title: 'Silicon Carbide Ceramic Ultrafiltration (UF)',
@@ -240,7 +261,7 @@ function initSolutionsHub() {
     });
 }
 
-/* 6. Scroll-Reveal Observer & Counters */
+/* 7. Scroll-Reveal Observer */
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
     const counterElements = document.querySelectorAll('.stat-number, .hero-stat-number, .impact-metric-card h4');
@@ -295,7 +316,7 @@ function animateCounter(counterEl) {
     }, intervalTime);
 }
 
-/* 7. Case-Study Dashboard (Redesigned Portfolio) */
+/* 8. Redesigned Case-Study Dashboard Data */
 const caseStudiesData = [
     {
         id: 'perak-river',
@@ -305,12 +326,15 @@ const caseStudiesData = [
         industry: 'Municipal Potable Water Supply',
         technology: 'Ultrafiltration (UF) Membrane Filtration',
         capacity: '30 m³/hr (200,000 Liters/Day)',
+        year: '2016',
+        techTag: 'UF',
         slidePage: 12,
         challenge: 'Rural communities around Kampung Perlop lacked a stable clean water source. Sourcing water from the Sungei Siput River presented seasonal mud slides, high organic loading, and severe turbidity spikes exceeding 160 NTU, rendering traditional sand filters obsolete and causing high maintenance failures.',
         solution: 'Liquinex designed and deployed a compact, modular ultrafiltration (UF) system utilizing robust hollow-fiber membranes. The system utilizes physical filtration barriers that completely capture suspended solids and pathogens without chemical additions.',
         implementation: 'Constructed as a pre-fabricated, skid-mounted layout to enable rapid field installation. The plant integrates automated backwash cycles using raw water flushes to keep the membranes clear, minimizing downtime and human monitoring.',
         results: 'Delivers 200,000 liters of safe drinking water per day. Laboratory results verify turbidity is reduced to under 1.12 NTU (far below the target of 5 NTU), ensuring compliant, chemical-free drinking water for local consumers.',
         image: 'assets/images/page_12_img_1.jpeg',
+        slide: 'assets/slides/slide_12.png',
         gallery: [12, 42]
     },
     {
@@ -321,12 +345,15 @@ const caseStudiesData = [
         industry: 'Zoo & Leisure Aquaculture Support',
         technology: 'Compact Recirculating Aquaculture System (RAS) Membrane Loop',
         capacity: '1 m³/hr',
+        year: '2018',
+        techTag: 'RAS',
         slidePage: 22,
         challenge: 'Maintaining water hygiene in major aquariums and fish tanks requires constant removal of fish excrement, bacteria, and algae blooms. Bulky sand filters require large footprints, frequent sand replacements, high manpower, and waste massive amounts of backwash water.',
         solution: 'Developed a high-performance Recirculating Aquaculture System using compact hollow-fiber membranes. The system replaces sand tanks, operating a physical barrier loop that filters out microalgae, bacteria, and particulates.',
         implementation: 'Installed inline directly on the River Safari tank circulation loops. The system includes compact automatic reverse flushes that clean the filter in seconds using minimal water.',
         results: 'Maintains optimal tank water clarity with a significantly reduced footprint. Water loss during backwashing was slashed, and manual maintenance cycles were cut down, ensuring a clean, organic environment for aquatic animals.',
         image: 'assets/images/page_22_img_3.jpeg',
+        slide: 'assets/slides/slide_22.png',
         gallery: [22, 21]
     },
     {
@@ -337,12 +364,15 @@ const caseStudiesData = [
         industry: 'Solar Cell Manufacturing',
         technology: 'Silicon Carbide (SiC) Ceramic Ultrafiltration',
         capacity: '20 m³/hr',
+        year: '2019',
+        techTag: 'SiC',
         slidePage: 14,
         challenge: 'Industrial cooling towers generate silica-heavy blowdown wastewater. Reclaiming this water requires filtration that resists highly abrasive particles and chemical cleaners, which quickly wear down or rupture traditional polymer membranes.',
         solution: 'Installed a premium silicon carbide (SiC) ceramic membrane ultrafiltration system. Silicon carbide offers extreme physical hardness, oleophobic oil resistance, and handles high chemical backwash cycles.',
         implementation: 'Integrated with REC Solar\'s cooling loop system. Features automated high-pressure backwashing and air scouring to clear deposits, running continuously with minimal fouling.',
         results: 'Maintains stable flux rates, reducing overall cooling tower water consumption by recycling blowdown, and reducing membrane replacement expenses (OPEX) by over 50%.',
         image: 'assets/images/page_14_img_1.jpeg',
+        slide: 'assets/slides/slide_14.png',
         gallery: [14, 46]
     },
     {
@@ -353,12 +383,15 @@ const caseStudiesData = [
         industry: 'Renewable Solar Tech Utilities',
         technology: 'Design-Build-Own-Operate (DBOO) / Water-as-a-Service',
         capacity: 'Up to 40 m³/hr (24/7)',
+        year: '2020',
+        techTag: 'DBOO',
         slidePage: 16,
         challenge: 'Industrial manufacturers require immediate wastewater recycling to meet municipal conservation targets, but capital expenditure (CAPEX) allocations for custom treatment plants are often delayed.',
         solution: 'Liquinex deployed a containerized water treatment plant under a Design-Build-Own-Operate model. The system integrates advanced ultrafiltration skids within mobile shipping containers.',
         implementation: 'Operated under a 5+5 year Water-as-a-Service utility agreement. Liquinex handles full installation, automated operations, and periodic cleaning (O&M), billing the client purely for recycled volume.',
         results: 'Supplies up to 40 m³/hr of recycled water 24/7 at a highly competitive rate of $1.35/m³, yielding direct OPEX savings from day one without client capital investment.',
         image: 'assets/images/page_16_img_2.jpeg',
+        slide: 'assets/slides/slide_16.png',
         gallery: [16]
     },
     {
@@ -369,12 +402,15 @@ const caseStudiesData = [
         industry: 'Medical Device Manufacturing',
         technology: 'Compact Industrial Effluent Treatment System',
         capacity: '35 m³/day',
+        year: '2021',
+        techTag: 'Effluent',
         slidePage: 17,
         challenge: 'Chemical effluents and wash water from medical lens manufacturing must undergo treatment before sewer discharge. The facility lacked the space required for large settling tanks.',
         solution: 'Engineered a highly compact skid-mounted wastewater treatment plant. The design features integrated chemical dosing, automatic pH neutralization, and physical membrane separators.',
         implementation: 'Installed within the Alcon facility floor. The plant runs in a fully automated sequence, auto-adjusting acid/alkali dosing based on real-time pH sensor feedback.',
         results: 'Processes 35 m³/day of manufacturing wastewater safely, consistently ensuring compliance with national environmental standards within a space-saving layout.',
         image: 'assets/images/page_17_img_1.jpeg',
+        slide: 'assets/slides/slide_17.png',
         gallery: [17]
     },
     {
@@ -385,12 +421,15 @@ const caseStudiesData = [
         industry: 'Disaster Relief & Off-Grid Humanitarian Aid',
         technology: 'Solar-Powered Mobile Ceramic Ultrafiltration',
         capacity: '500 Liters/Hour',
+        year: '2018',
+        techTag: 'Aid',
         slidePage: 29,
         challenge: 'Natural disasters like floods and earthquakes contaminate local wells, cut power grids, and isolate villages. Transporting heavy water purification skids into remote zones is logistically impossible.',
         solution: 'Invented an award-winning portable water filtration system integrated inside a rugged suitcase. Utilizing advanced ceramic membranes and Deep UVC LED sterilization, it filters pathogens physically.',
         implementation: 'Housed in a durable case weighing under 30kg. Operates on 24V DC batteries, easily linked to portable solar panels, and requires zero chemical consumables.',
         results: 'Successfully deployed by the Red Cross in Laos during the 2018 flood disaster, Sulawesi (Indonesia) post-earthquake, and Kerala (India) floods, delivering 500 liters/hour of clean water.',
         image: 'assets/images/page_29_img_1.png',
+        slide: 'assets/slides/slide_29.png',
         gallery: [29, 30, 31, 32, 33, 34, 35]
     }
 ];
@@ -401,15 +440,23 @@ function initCaseStudyDashboard() {
     
     if (!listContainer || !viewerContainer) return;
 
-    // Render left index list
+    // Render Left sidebar list navigator
     listContainer.innerHTML = '';
     caseStudiesData.forEach((cs, index) => {
         const item = document.createElement('li');
         item.className = `project-index-item ${index === 0 ? 'active' : ''}`;
         item.dataset.id = cs.id;
         item.innerHTML = `
-            <span class="project-index-title">${cs.client.split(' (')[0]}</span>
-            <span class="project-index-meta">${cs.capacity.split(' ')[0]} ${cs.capacity.split(' ')[1]}</span>
+            <div class="project-nav-thumb">
+                <img src="${cs.image}" alt="${cs.title}">
+            </div>
+            <div class="project-nav-info">
+                <span class="project-index-title">${cs.client.split(' (')[0]}</span>
+                <div class="project-index-badges">
+                    <span class="nav-badge nav-badge-year">${cs.year}</span>
+                    <span class="nav-badge nav-badge-tech">${cs.techTag}</span>
+                </div>
+            </div>
         `;
         item.addEventListener('click', () => {
             document.querySelectorAll('.project-index-item').forEach(i => i.classList.remove('active'));
@@ -431,17 +478,25 @@ function loadCaseStudy(cs) {
     viewer.style.transform = 'translateY(15px)';
 
     setTimeout(() => {
-        // Render right side case study HTML
+        // Render detailed case study layout
         viewer.innerHTML = `
             <div class="cs-layout-card">
-                <!-- Blueprint frame displaying contain image -->
-                <div class="blueprint-frame">
-                    <img id="cs-active-img" src="${cs.image}" alt="${cs.title}">
+                <!-- Tab Controls -->
+                <div class="cs-tab-controls">
+                    <button class="cs-tab-btn active" id="tab-btn-photo">Case Study Photo</button>
+                    <button class="cs-tab-btn" id="tab-btn-blueprint">Technical Blueprint</button>
+                </div>
+
+                <!-- Case Study Photo Panel -->
+                <div id="cs-photo-panel" class="cs-photo-frame">
+                    <img id="cs-photo-img" src="${cs.image}" alt="${cs.title}" style="cursor: zoom-in;">
+                </div>
+
+                <!-- Technical Blueprint Panel (Initially hidden) -->
+                <div id="cs-blueprint-panel" class="blueprint-frame" style="display: none;">
+                    <img id="cs-blueprint-img" src="${cs.slide}" alt="${cs.title} technical drawing" style="cursor: zoom-in;">
                 </div>
                 
-                <span class="case-study-badge">${cs.industry.toUpperCase()}</span>
-                <h3 style="font-size: 2.2rem; margin-top: 1rem; margin-bottom: 2rem;">${cs.title}</h3>
-
                 <!-- Gallery thumbnails -->
                 <div class="cs-gallery-grid" id="cs-gallery">
                     <!-- Thumbnails will be injected here -->
@@ -478,6 +533,10 @@ function loadCaseStudy(cs) {
                             <span>${cs.country}</span>
                         </div>
                         <div class="cs-spec-row">
+                            <label>Industry</label>
+                            <span>${cs.industry}</span>
+                        </div>
+                        <div class="cs-spec-row">
                             <label>Technology Used</label>
                             <span>${cs.technology}</span>
                         </div>
@@ -490,33 +549,51 @@ function loadCaseStudy(cs) {
             </div>
         `;
 
-        // Render thumbnails
+        // Tab Switching Logic
+        const tabPhoto = viewer.querySelector('#tab-btn-photo');
+        const tabBlueprint = viewer.querySelector('#tab-btn-blueprint');
+        const panelPhoto = viewer.querySelector('#cs-photo-panel');
+        const panelBlueprint = viewer.querySelector('#cs-blueprint-panel');
+
+        tabPhoto.addEventListener('click', () => {
+            tabPhoto.classList.add('active');
+            tabBlueprint.classList.remove('active');
+            panelPhoto.style.display = 'block';
+            panelBlueprint.style.display = 'none';
+        });
+
+        tabBlueprint.addEventListener('click', () => {
+            tabBlueprint.classList.add('active');
+            tabPhoto.classList.remove('active');
+            panelBlueprint.style.display = 'flex';
+            panelPhoto.style.display = 'none';
+        });
+
+        // Click zoom visual lightbox triggers
+        const activePhoto = viewer.querySelector('#cs-photo-img');
+        const activeBlueprint = viewer.querySelector('#cs-blueprint-img');
+        if (activePhoto) activePhoto.addEventListener('click', () => openLightbox(activePhoto.src));
+        if (activeBlueprint) activeBlueprint.addEventListener('click', () => openLightbox(activeBlueprint.src));
+
+        // Render secondary technical slides/images thumbnails
         const galleryContainer = viewer.querySelector('#cs-gallery');
-        if (galleryContainer && cs.gallery && cs.gallery.length > 1) {
+        if (galleryContainer && cs.gallery && cs.gallery.length > 0) {
             cs.gallery.forEach((slideNum, idx) => {
                 const thumb = document.createElement('div');
                 thumb.className = `cs-gallery-thumbnail ${idx === 0 ? 'active' : ''}`;
-                // First thumb is the cropped photo, others are the slide PNGs
-                const imgUrl = idx === 0 ? cs.image : `assets/slides/slide_${slideNum}.png`;
-                thumb.innerHTML = `<img src="${imgUrl}" alt="Gallery image">`;
+                const slideUrl = `assets/slides/slide_${slideNum}.png`;
+                thumb.innerHTML = `<img src="${slideUrl}" alt="Technical slide ${slideNum}">`;
                 
                 thumb.addEventListener('click', () => {
                     galleryContainer.querySelectorAll('.cs-gallery-thumbnail').forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
-                    viewer.querySelector('#cs-active-img').src = imgUrl;
+                    
+                    // Update blueprint panel source and activate tab
+                    activeBlueprint.src = slideUrl;
+                    tabBlueprint.click();
                 });
                 galleryContainer.appendChild(thumb);
             });
-        } else {
-            // Hide gallery grid if only 1 image
-            if (galleryContainer) galleryContainer.style.display = 'none';
-        }
-
-        // Add click listener to active blueprint image to open lightbox
-        const activeImg = viewer.querySelector('#cs-active-img');
-        if (activeImg) {
-            activeImg.style.cursor = 'zoom-in';
-            activeImg.addEventListener('click', () => openLightbox(activeImg.src));
         }
 
         viewer.style.opacity = 1;
@@ -524,9 +601,8 @@ function loadCaseStudy(cs) {
     }, 400);
 }
 
-/* 8. Lightbox Overlay (Zoom functionality) */
+/* 9. Lightbox Overlay (Zoom functionality) */
 function openLightbox(imgSrc) {
-    // Create lightbox if not exists
     let lightbox = document.querySelector('.lightbox-overlay');
     if (!lightbox) {
         lightbox = document.createElement('div');
@@ -549,17 +625,15 @@ function openLightbox(imgSrc) {
     lightbox.classList.add('active');
 }
 
-/* 9. Modal Drawer Controller (Fixing the Locking Page Bug) */
+/* 10. Modal Drawer Controller (Fixing the Locking Page Bug) */
 function initModalDrawer() {
     const modal = document.querySelector('.modal-overlay');
     if (!modal) return;
 
     const closeBtn = modal.querySelector('.modal-close-btn');
 
-    // Robust Close Modal function
     function closeModal() {
         modal.classList.remove('active');
-        // Restore body scrolling and pointer events
         document.body.style.overflow = '';
         document.body.style.pointerEvents = 'auto';
     }
@@ -568,25 +642,22 @@ function initModalDrawer() {
         closeBtn.addEventListener('click', closeModal);
     }
 
-    // Close on clicking overlay background
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             closeModal();
         }
     });
 
-    // Close on pressing Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
         }
     });
 
-    // Attach function to global window for accessibility
     window.closeDrawerModal = closeModal;
 }
 
-/* 10. Mobile Menu Navigation */
+/* 11. Mobile Navigation Menu Toggle */
 function initMobileNav() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -598,7 +669,7 @@ function initMobileNav() {
         navMenu.classList.toggle('active');
         if (navMenu.classList.contains('active')) {
             navToggle.textContent = '✕';
-            header.style.background = 'rgba(1, 6, 14, 0.98)';
+            header.style.background = 'rgba(1, 5, 13, 0.98)';
         } else {
             navToggle.textContent = '☰';
             if (window.scrollY <= 50) {
@@ -624,5 +695,21 @@ function initMobileNav() {
                 header.style.background = 'transparent';
             }
         }
+    });
+}
+
+/* 12. Shop Brochure PDF Download trigger */
+function initShopBrochure() {
+    const brochureBtn = document.getElementById('shop-download-brochure');
+    if (!brochureBtn) return;
+    
+    brochureBtn.addEventListener('click', () => {
+        // Target is the processed PDF we placed in assets/presentation.pdf
+        const link = document.createElement('a');
+        link.href = 'assets/presentation.pdf';
+        link.download = 'Liquinex_Corporate_Brochure.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     });
 }

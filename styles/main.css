@@ -1,16 +1,16 @@
 /* 
-   Liquinex - Internationally-Recognized Digital Agency Stylesheet
-   Typography: Syne (Editorial Headings), Plus Jakarta Sans (Readable Technical Copy)
-   Vibe: Deep Ocean Dark, Luminous Aqua Glows, Handcrafted Engineering Precision
+   Liquinex Custom-Tailored Agency Stylesheet
+   Headings: Syne (Futuristic Engineering Bold), Body: Plus Jakarta Sans (Crisp Technical Copy)
+   Atmosphere: Deep Ocean Layered Gradients, Ambient Glowing Blobs, Glassmorphic Dashboard Details
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
 
 :root {
     /* Color Palette */
-    --color-bg-deep: #01060e;
+    --color-bg-deep: #01050d;
     --color-bg-dark: #030d1b;
-    --color-bg-light: #06152b;
+    --color-bg-light: #06152a;
     --color-primary: #0081C9;
     --color-primary-rgb: 0, 129, 201;
     --color-secondary: #07575B;
@@ -23,19 +23,19 @@
     --color-text-secondary: #cbd5e1;
     --color-text-muted: #64748b;
     
-    /* Glassmorphism & UI Shadows */
-    --glass-bg: rgba(6, 21, 43, 0.45);
-    --glass-border: rgba(255, 255, 255, 0.04);
-    --glass-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    /* UI Glassmorphism & Depth */
+    --glass-bg: rgba(6, 21, 43, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
     --glass-blur: blur(20px);
     
-    /* Transitions */
+    /* Spacing & Transitions */
     --transition-magnetic: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     --transition-normal: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    --transition-slow: 1s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-slow: 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Reset & Scroll behavior */
+/* Reset & Scrollbar */
 * {
     margin: 0;
     padding: 0;
@@ -95,11 +95,11 @@ body {
         display: block;
     }
     body {
-        cursor: none; /* Hide default cursor to use custom premium cursor */
+        cursor: none;
     }
 }
 
-/* Ambient Lighting & Grid Overlay */
+/* Grid Background Texture & Ambient Lights */
 .grid-texture {
     position: fixed;
     top: 0;
@@ -108,8 +108,8 @@ body {
     height: 100%;
     background-size: 100px 100px;
     background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.01) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
     pointer-events: none;
     z-index: 0;
 }
@@ -119,25 +119,25 @@ body {
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    filter: blur(150px);
-    opacity: 0.12;
+    filter: blur(160px);
+    opacity: 0.15;
     pointer-events: none;
     z-index: 1;
     mix-blend-mode: screen;
 }
 .glow-1 {
-    top: 10%;
+    top: 15%;
     left: -15%;
     background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
 }
 .glow-2 {
-    top: 50%;
+    top: 45%;
     right: -15%;
     background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
 }
 .glow-3 {
-    top: 85%;
-    left: 5%;
+    top: 75%;
+    left: 10%;
     background: radial-gradient(circle, var(--color-teal) 0%, transparent 70%);
 }
 
@@ -169,7 +169,7 @@ h1, h2, h3, h4 {
 
 .section-subtitle::before {
     content: '';
-    width: 20px;
+    width: 25px;
     height: 2px;
     background-color: var(--color-accent);
 }
@@ -195,7 +195,7 @@ section {
     padding: 12rem 0;
 }
 
-/* SVG Divider Curves */
+/* Curved Separator Dividers */
 .divider-container {
     height: 160px;
     overflow: hidden;
@@ -209,7 +209,7 @@ section {
     fill: var(--color-bg-dark);
 }
 
-/* Header & Nav */
+/* Navigation Header */
 header {
     position: fixed;
     top: 0;
@@ -222,7 +222,7 @@ header {
 }
 
 header.scrolled {
-    background: rgba(1, 6, 14, 0.85);
+    background: rgba(1, 5, 13, 0.85);
     border-bottom: 1px solid var(--glass-border);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
@@ -352,7 +352,7 @@ header.scrolled .nav-container {
     line-height: 1.8;
 }
 
-/* Premium Magnetic Button wrappers */
+/* Premium Buttons & Hover Offset wrapper */
 .btn-wrapper {
     display: inline-block;
     transition: var(--transition-magnetic);
@@ -490,88 +490,117 @@ header.scrolled .nav-container {
     color: var(--color-accent);
 }
 
-/* Vertical Storytelling Timeline (Redesigned) */
-.timeline-vertical-premium {
+/* 1. Immersive Storytelling Corporate Journey (Redesigned) */
+.journey-storytelling {
     position: relative;
-    max-width: 1000px;
-    margin: 8rem auto 0 auto;
-    padding: 3rem 0;
+    padding: 12rem 0;
+    background: var(--color-bg-dark);
 }
 
-.timeline-vertical-premium::before {
-    content: '';
+.journey-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12rem;
+    position: relative;
+    margin-top: 5rem;
+}
+
+/* Custom vertical water-flow line in background */
+.journey-flow-line {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 50%;
     width: 2px;
-    background: linear-gradient(to bottom, var(--color-accent), var(--color-primary), transparent);
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-primary), var(--color-teal), transparent);
     transform: translateX(-50%);
     z-index: 1;
 }
 
-.timeline-v-item {
-    position: relative;
-    width: 50%;
-    padding: 3rem 4rem;
-    box-sizing: border-box;
-    z-index: 2;
-}
-
-.timeline-v-item:nth-child(even) {
-    left: 50%;
-}
-
-.timeline-v-item:nth-child(odd) {
-    left: 0;
-    text-align: right;
-}
-
-.timeline-v-item::after {
-    content: '';
+.journey-flow-progress {
     position: absolute;
-    top: 4.2rem;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    width: 4px;
     background: var(--color-accent);
-    border: 4px solid var(--color-bg-deep);
-    z-index: 5;
+    transform: translateX(-50%);
+    z-index: 2;
     box-shadow: 0 0 15px var(--color-accent);
+    height: 0%; /* Fills while scrolling via JS */
+    transition: height 0.1s ease-out;
 }
 
-.timeline-v-item:nth-child(odd)::after {
-    right: -8px;
+.journey-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    position: relative;
+    z-index: 3;
 }
 
-.timeline-v-item:nth-child(even)::after {
-    left: -8px;
+.journey-block.reverse {
+    direction: rtl; /* Alternating layouts */
 }
 
-.timeline-v-year {
-    font-family: 'Syne', sans-serif;
-    font-size: 3rem;
-    font-weight: 800;
-    line-height: 1;
-    color: var(--color-accent);
-    margin-bottom: 0.75rem;
-    display: block;
+.journey-block.reverse > * {
+    direction: ltr; /* Reset text direction for content */
 }
 
-.timeline-v-card {
-    padding: 2.5rem;
-    border-radius: 12px;
-    background: rgba(6, 21, 43, 0.35);
+.journey-visual-wrapper {
+    position: relative;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
     border: 1px solid var(--glass-border);
-    display: inline-block;
-    text-align: left;
-    width: 100%;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
 }
 
-.timeline-v-card h4 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-    color: #fff;
+.journey-visual-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.journey-text-wrapper {
+    padding: 3rem;
+    position: relative;
+}
+
+/* Oversized watermark background year typography */
+.journey-watermark-year {
+    position: absolute;
+    top: -2.5rem;
+    left: 2rem;
+    font-family: 'Syne', sans-serif;
+    font-size: 9rem;
+    font-weight: 800;
+    color: rgba(0, 229, 255, 0.04);
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+}
+.journey-block.reverse .journey-watermark-year {
+    right: 2rem;
+    left: auto;
+}
+
+.journey-card {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.journey-card h3 {
+    font-size: 2.2rem;
+    color: var(--color-accent);
+}
+
+.journey-card p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
 }
 
 /* Solutions Circular Cycle Hub */
@@ -659,7 +688,6 @@ header.scrolled .nav-container {
     color: var(--color-accent);
 }
 
-/* Cycle coordinates */
 .node-1 { top: 0; left: 50%; transform: translateX(-50%); }
 .node-2 { right: 0; top: 50%; transform: translateY(-50%); }
 .node-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
@@ -697,7 +725,7 @@ header.scrolled .nav-container {
     line-height: 1.7;
 }
 
-/* Custom Cohesive SVG Icon set */
+/* Custom SVG Icons set */
 .svg-icon-set {
     width: 48px;
     height: 48px;
@@ -708,34 +736,40 @@ header.scrolled .nav-container {
     stroke-linejoin: round;
 }
 
-/* Portfolio Case Study Dashboard (Redesigned - Highest Priority) */
+/* 2. Premium Case-Study Dashboard (Redesigned Portfolio) */
 .projects-dashboard {
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    gap: 5rem;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 6rem;
     margin-top: 4rem;
     align-items: start;
 }
 
-/* Left index list */
+/* 3. Redesigned Project Navigation Sidebar */
 .project-index-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    padding-right: 2rem;
+    gap: 0.75rem;
+    background: rgba(6, 21, 43, 0.2);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: 16px;
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
 }
 
 .project-index-item {
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 1.25rem;
+    border-radius: 12px;
     cursor: pointer;
     transition: var(--transition-normal);
     display: flex;
-    justify-content: space-between;
+    gap: 1.25rem;
     align-items: center;
     border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
 }
 
 .project-index-item:hover {
@@ -743,33 +777,89 @@ header.scrolled .nav-container {
 }
 
 .project-index-item.active {
-    background: rgba(0, 229, 255, 0.04);
+    background: rgba(0, 229, 255, 0.05);
     border-color: rgba(0, 229, 255, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.05);
 }
 
-.project-index-meta {
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
+/* Navigation Thumbnail preview */
+.project-nav-thumb {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    flex-shrink: 0;
 }
 
-.project-index-item.active .project-index-meta {
-    color: var(--color-accent);
+.project-nav-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-nav-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    flex-grow: 1;
 }
 
 .project-index-title {
     font-family: 'Syne', sans-serif;
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--color-text-secondary);
     transition: var(--transition-normal);
     text-align: left;
-    padding-right: 1rem;
+    line-height: 1.2;
 }
 
 .project-index-item.active .project-index-title {
     color: #fff;
+}
+
+/* Badge Layouts inside list items */
+.project-index-badges {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-top: 0.25rem;
+}
+
+.nav-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.nav-badge-year {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-secondary);
+}
+
+.nav-badge-tech {
+    background: rgba(0, 229, 255, 0.15);
+    color: var(--color-accent);
+}
+
+/* Active slider indicator border */
+.project-index-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0%;
+    background: var(--color-accent);
+    transition: var(--transition-normal);
+}
+
+.project-index-item.active::before {
+    height: 60%;
 }
 
 /* Right Case Study Viewer */
@@ -785,37 +875,93 @@ header.scrolled .nav-container {
     border: 1px solid var(--glass-border);
 }
 
+/* Tab controls inside Case Study */
+.cs-tab-controls {
+    display: flex;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.cs-tab-btn {
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: var(--transition-fast);
+}
+
+.cs-tab-btn:hover {
+    color: #fff;
+}
+
+.cs-tab-btn.active {
+    color: var(--color-accent);
+}
+
+.cs-tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-accent);
+}
+
+/* Primary Visual Frame (Hero Photo) */
+.cs-photo-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    height: 420px;
+    background: #041021;
+}
+
+.cs-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover for real photographs */
+}
+
 /* Blueprint Frame for technical slides */
 .blueprint-frame {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid rgba(0, 229, 255, 0.2);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
-    height: 400px;
-    background: #020b16; /* Dark background to hold containment */
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    height: 420px;
+    background: #020814;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
 }
 
 .blueprint-frame img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Technical slides containment */
+    object-fit: contain; /* Technical slides contain */
 }
 
 /* Clean Gallery inside Case Study */
 .cs-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
     margin-top: 2rem;
 }
 
 .cs-gallery-thumbnail {
-    height: 90px;
+    height: 80px;
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -838,9 +984,9 @@ header.scrolled .nav-container {
 /* Case study narrative blocks */
 .cs-narrative-row {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.25fr 0.75fr;
     gap: 4rem;
-    margin-top: 3rem;
+    margin-top: 3.5rem;
 }
 
 .cs-text-cols {
@@ -850,11 +996,11 @@ header.scrolled .nav-container {
 }
 
 .cs-block h4 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: var(--color-accent);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
 }
 
 .cs-block p {
@@ -863,7 +1009,7 @@ header.scrolled .nav-container {
 }
 
 .cs-specs-panel {
-    padding: 2.2rem;
+    padding: 2.5rem;
     border-radius: 12px;
     background: rgba(3, 13, 27, 0.4);
     border: 1px solid var(--glass-border);
@@ -875,6 +1021,8 @@ header.scrolled .nav-container {
     margin-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.08);
     padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .cs-spec-row {
@@ -897,55 +1045,56 @@ header.scrolled .nav-container {
     font-weight: 700;
 }
 
-/* Partners Placeholder Section */
+/* 6. Clean Partners Placeholder Section */
 .partners-placeholder {
-    padding: 6rem 0;
+    padding: 8rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.03);
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    background: rgba(3, 13, 27, 0.2);
+    background: rgba(3, 13, 27, 0.15);
 }
 
 .partners-placeholder-card {
     text-align: center;
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
-    padding: 2.5rem;
+    padding: 3rem 2.5rem;
 }
 
 .partners-placeholder-card h3 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     margin-bottom: 0.5rem;
     color: #fff;
 }
 
 .partners-placeholder-card p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-text-muted);
 }
 
-/* Shop Showcase (Apple-style) */
+/* 4. Enterprise Product Catalog (Redesigned Shop) */
 .shop-editorial-layout {
     display: grid;
-    grid-template-columns: 0.95fr 1.05fr;
+    grid-template-columns: 0.90fr 1.10fr;
     gap: 6rem;
     align-items: center;
 }
 
 .product-showcase-visual {
-    height: 520px;
+    height: 540px;
     border-radius: 20px;
     background: #020a14;
     border: 1px solid var(--glass-border);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     box-shadow: var(--glass-shadow);
+    padding: 3rem;
 }
 
 .product-placeholder-box {
     text-align: center;
-    padding: 3rem;
 }
 
 .product-placeholder-icon {
@@ -980,6 +1129,70 @@ header.scrolled .nav-container {
     font-size: 0.85rem;
     line-height: 1.6;
     color: var(--color-text-muted);
+}
+
+/* Modern Specs list grid */
+.specs-list-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.specs-list-grid li {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.specs-list-grid li::before {
+    content: '✓';
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+/* Feature Comparison Table Matrix */
+.comparison-container {
+    margin-top: 6rem;
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comparison-table th {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(6, 21, 43, 0.3);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.comparison-table tr:hover td {
+    background: rgba(0, 229, 255, 0.02);
+}
+
+.comparison-table td strong {
+    color: #fff;
+}
+
+.comparison-table .highlight-col {
+    color: var(--color-accent);
+    font-weight: 600;
 }
 
 /* Sustainability Economy Circle */
@@ -1073,7 +1286,7 @@ header.scrolled .nav-container {
     margin-top: 0.25rem;
 }
 
-/* Enquiry Form Styling */
+/* Enquiry Form Section */
 .enquiry {
     border-top: 1px solid rgba(255,255,255,0.03);
 }
@@ -1180,7 +1393,7 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* Premium Footer Overhaul (Redesigned) */
+/* 7. Redesigned Premium Footer & Contact cards */
 footer {
     background: #01040a;
     border-top: 1px solid rgba(255, 255, 255, 0.03);
@@ -1333,7 +1546,7 @@ footer {
     transform: translateY(-5px);
 }
 
-/* Slide-in modal case study drawer */
+/* Slide-in modal drawer */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -1346,7 +1559,7 @@ footer {
     z-index: 2000;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Drawer slides in from right */
+    justify-content: flex-end;
     opacity: 0;
     pointer-events: none;
     transition: opacity var(--transition-normal);
@@ -1418,7 +1631,7 @@ footer {
 .modal-hero-img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Full slide visibility */
+    object-fit: contain;
 }
 
 .modal-body {
