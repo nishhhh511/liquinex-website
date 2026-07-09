@@ -495,37 +495,57 @@ const partnersData = [
 ];
 
 function initPartnersGrid() {
-    const grid = document.querySelector('.partners-interactive-grid');
-    if (!grid) return;
+    const trackLeft = document.getElementById('marquee-track-left');
+    const trackRight = document.getElementById('marquee-track-right');
+    if (!trackLeft || !trackRight) return;
     
-    renderPartnersGrid('all');
+    // Distribute logos across the two rows (even indices to Row 1, odd to Row 2)
+    const row1Logos = partnersData.filter((_, idx) => idx % 2 === 0);
+    const row2Logos = partnersData.filter((_, idx) => idx % 2 !== 0);
+    
+    // Render tracks (duplicate multiple times to ensure seamless scrolling loops)
+    renderMarqueeTrack(trackLeft, [...row1Logos, ...row1Logos, ...row1Logos, ...row1Logos]);
+    renderMarqueeTrack(trackRight, [...row2Logos, ...row2Logos, ...row2Logos, ...row2Logos]);
+    
+    // Add interactive filters (dims non-matching logos, highlights matching ones)
     const btns = document.querySelectorAll('.partners-filter-btn');
     btns.forEach(btn => {
         btn.addEventListener('click', () => {
             btns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            renderPartnersGrid(btn.dataset.filter);
+            
+            const filter = btn.dataset.filter;
+            const allCards = document.querySelectorAll('.partner-logo-card');
+            
+            allCards.forEach(card => {
+                const category = card.dataset.category;
+                if (filter === 'all') {
+                    card.classList.remove('dimmed', 'highlighted');
+                } else if (category === filter) {
+                    card.classList.remove('dimmed');
+                    card.classList.add('highlighted');
+                } else {
+                    card.classList.remove('highlighted');
+                    card.classList.add('dimmed');
+                }
+            });
         });
     });
 }
 
-function renderPartnersGrid(filter = 'all') {
-    const grid = document.querySelector('.partners-interactive-grid');
-    if (!grid) return;
-    grid.innerHTML = '';
-    const filtered = filter === 'all' ? partnersData : partnersData.filter(p => p.category === filter);
-    filtered.forEach(partner => {
+function renderMarqueeTrack(trackElement, logosList) {
+    trackElement.innerHTML = '';
+    logosList.forEach(partner => {
         const card = document.createElement('div');
-        card.className = 'partner-card';
+        card.className = 'partner-logo-card';
+        card.dataset.category = partner.category;
         card.innerHTML = `
-            <div class="partner-logo-container">
-                <img src="${partner.logo}" alt="${partner.name}">
-            </div>
+            <img src="${partner.logo}" alt="${partner.name}">
             <div class="partner-tooltip">
                 <span>${partner.relation}</span>
             </div>
         `;
-        grid.appendChild(card);
+        trackElement.appendChild(card);
     });
 }
 
