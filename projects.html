@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Case Studies | Liquinex Water Technologies</title>
+    <meta name="description" content="Read our handcrafted engineering case studies on water reclamation projects in Singapore, Perak, and industrial facilities.">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="scroll-progress"></div>
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+    <div class="grid-texture"></div>
+
+    <!-- Header navigation bar -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo-link">
+                    <h2 class="logo-text" style="font-size: 1.8rem;">LIQUINEX</h2>
+                </a>
+                <button class="nav-toggle" aria-label="Toggle Menu">☰</button>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html">Home</a></li>
+                    <li class="nav-item"><a href="about.html">About Us</a></li>
+                    <li class="nav-item"><a href="solutions.html">Solutions</a></li>
+                    <li class="nav-item active"><a href="projects.html">Projects</a></li>
+                    <li class="nav-item"><a href="sustainability.html">Sustainability</a></li>
+                    <li class="nav-item"><a href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a href="enquiry.html">Enquiry</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Subpage Header Banner -->
+    <section class="subpage-header">
+        <div class="container">
+            <h1 class="reveal-on-scroll">Engineering Case Studies</h1>
+            <p class="reveal-on-scroll" style="margin-top: 1rem;">Detailed project installations showing the performance of Silicon Carbide ceramic ultrafiltration membranes in municipal and industrial environments.</p>
+        </div>
+    </section>
+
+    <!-- Wave divider transition -->
+    <div class="divider-container divider-to-light">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"></path>
+        </svg>
+    </div>
+
+    <!-- Case-Study Dashboard Section -->
+    <section id="projects" style="background-color: var(--color-bg-deep);">
+        <div class="container">
+            <div class="projects-dashboard">
+                <!-- Left Sidebar Navigator -->
+                <div class="project-sidebar reveal-on-scroll">
+                    <span class="section-subtitle">Project Index</span>
+                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem;">Select Case Study</h3>
+                    <ul class="project-index-list">
+                        <!-- Project 1 -->
+                        <li class="project-index-item active" data-project="1">
+                            <div class="project-nav-thumb">
+                                <img src="assets/projects/perak_1.jpg" alt="Perak pump house thumbnail">
+                            </div>
+                            <div class="project-nav-info">
+                                <div class="project-index-title">Perak River Raw Water Station</div>
+                                <div class="project-index-badges">
+                                    <span class="nav-badge nav-badge-year">2021</span>
+                                    <span class="nav-badge nav-badge-tech">Ceramic UF</span>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Project 2 -->
+                        <li class="project-index-item" data-project="2">
+                            <div class="project-nav-thumb">
+                                <img src="assets/projects/zoo_1.jpg" alt="Zoo aquaculture thumbnail">
+                            </div>
+                            <div class="project-nav-info">
+                                <div class="project-index-title">Singapore Zoo RAS Recirculation Loop</div>
+                                <div class="project-index-badges">
+                                    <span class="nav-badge nav-badge-year">2019</span>
+                                    <span class="nav-badge nav-badge-tech">Organic UF</span>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- Project 3 -->
+                        <li class="project-index-item" data-project="3">
+                            <div class="project-nav-thumb">
+                                <img src="assets/projects/solar_1.jpg" alt="REC Solar thumbnail">
+                            </div>
+                            <div class="project-nav-info">
+                                <div class="project-index-title">REC Solar Cooling Tower Blowdown</div>
+                                <div class="project-index-badges">
+                                    <span class="nav-badge nav-badge-year">2020</span>
+                                    <span class="nav-badge nav-badge-tech">UF + RO</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right Case Study Viewer Panel -->
+                <div class="case-study-viewer reveal-on-scroll">
+                    <div class="cs-layout-card">
+                        <!-- Tabs Controller -->
+                        <div class="cs-tab-controls">
+                            <button class="cs-tab-btn active" data-tab="photo">Case Study Photo</button>
+                            <button class="cs-tab-btn" data-tab="blueprint">Technical Blueprint</button>
+                        </div>
+
+                        <!-- Photograph Panel -->
+                        <div id="cs-photo-panel">
+                            <div class="cs-photo-frame">
+                                <img src="assets/projects/perak_1.jpg" alt="Main Project View" style="cursor: pointer;">
+                            </div>
+                        </div>
+
+                        <!-- Technical Blueprint Panel -->
+                        <div id="cs-blueprint-panel" style="display: none;">
+                            <div class="blueprint-frame">
+                                <img src="assets/slides/slide_36.png" alt="Technical Design Blueprint" style="cursor: pointer;">
+                            </div>
+                        </div>
+
+                        <!-- Thumbnail Gallery Grid -->
+                        <div class="cs-gallery-grid">
+                            <!-- Populated dynamically by app.js -->
+                        </div>
+
+                        <!-- Spec details grid -->
+                        <div class="cs-narrative-row">
+                            <div class="cs-text-cols">
+                                <div class="cs-block">
+                                    <h4>The Challenge</h4>
+                                    <p id="cs-text-challenge">High-turbidity raw river water supply with spikes exceeding 1,000 NTU during rainstorms, blocking standard polymeric membranes.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>The Solution</h4>
+                                    <p id="cs-text-solution">Installed modular vertical SiC ceramic ultrafiltration skids that operate with constant flux and high tolerance to abrasive sand grains.</p>
+                                </div>
+                                <div class="cs-block">
+                                    <h4>The Results</h4>
+                                    <p id="cs-text-results">Delivered clean potable water below 0.1 NTU reliably to remote villages in Siput, with zero polymeric fiber breakage.</p>
+                                </div>
+                            </div>
+
+                            <div class="cs-specs-panel">
+                                <h4>Specifications</h4>
+                                <div class="cs-spec-row">
+                                    <label>Daily capacity</label>
+                                    <span id="cs-spec-capacity">1,500 m³/day</span>
+                                </div>
+                                <div class="cs-spec-row">
+                                    <label>Membrane type</label>
+                                    <span id="cs-spec-membrane">Silicon Carbide (SiC) Ceramic UF</span>
+                                </div>
+                                <div class="cs-spec-row">
+                                    <label>Flow loop method</label>
+                                    <span id="cs-spec-flow">Gravity-fed filtration loop</span>
+                                </div>
+                                <div class="cs-spec-row">
+                                    <label>Year of Install</label>
+                                    <span id="cs-spec-year">2021</span>
+                                </div>
+
+                                <div style="margin-top: 2rem;">
+                                    <div class="btn-wrapper" style="width: 100%;">
+                                        <a id="cs-quote-btn" href="enquiry.html?subject=Request%20Quote" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 1rem 1.5rem;">Request Quote</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave divider transition -->
+    <div class="divider-container divider-to-navy">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,32L120,42.7C240,53,480,75,720,74.7C960,75,1200,53,1320,42.7L1440,32L1440,120L1320,120C1200,120,960,120,720,120C480,120,240,120,120,120L0,120Z"></path>
+        </svg>
+    </div>
+
+    <!-- Fullscreen Lightbox Overlay -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button class="lightbox-close">✕</button>
+        <img class="lightbox-img" src="" alt="Zoomed view">
+    </div>
+
+    <!-- Editorial Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="logo-text" style="font-size: 2rem;">LIQUINEX</h2>
+                    <p style="font-size: 0.95rem; line-height: 1.7; max-width: 320px;">Singapore-based developer of ceramic ultrafiltration and chemical-free water purification systems.</p>
+                </div>
+                <div>
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="solutions.html">Solutions</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="enquiry.html">Enquiry</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact Us</h4>
+                    <ul class="footer-contact-list">
+                        <li class="footer-contact-item">
+                            <span>HQ:</span>
+                            <span>2021 Bukit Batok St23 #04-224, Bukit Batok Industrial Estate Park A, Singapore 659526</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span>T:</span>
+                            <span>+65 6896 2380</span>
+                        </li>
+                        <li class="footer-contact-item">
+                            <span>E:</span>
+                            <span><a href="mailto:info@liquinex.com">info@liquinex.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Location</h4>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.752317374776!2d103.7554901!3d1.3244835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da106368d1ea01%3A0x6b1ea8e057f9202a!2sBukit%20Batok%20St%2023!5e0!3m2!1sen!2ssg!4v1689000000000!5m2!1sen!2ssg" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Liquinex Group. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Scroll Top -->
+    <div class="scroll-top-btn"><span style="font-size: 1.5rem;">↑</span></div>
+
+    <script src="js/app.js"></script>
+    <script>
+        const topBtn = document.querySelector('.scroll-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                topBtn.classList.add('active');
+            } else {
+                topBtn.classList.remove('active');
+            }
+        });
+        topBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

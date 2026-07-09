@@ -1,35 +1,38 @@
 /* 
-   Liquinex Custom-Tailored Agency Stylesheet
-   Headings: Syne (Futuristic Engineering Bold), Body: Plus Jakarta Sans (Crisp Technical Copy)
-   Atmosphere: Deep Ocean Layered Gradients, Ambient Glowing Blobs, Glassmorphic Dashboard Details
+   Liquinex Custom Bright Design System
+   Headings: Manrope (Modern, Calmer Geometric), Body: Inter (Highly Readable Neutral)
+   Color System: 50% White, 50% Water Blue. Clean, Airy, and Trustworthy.
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
 
 :root {
-    /* Color Palette */
-    --color-bg-deep: #01050d;
-    --color-bg-dark: #030d1b;
-    --color-bg-light: #06152a;
-    --color-primary: #0081C9;
-    --color-primary-rgb: 0, 129, 201;
-    --color-secondary: #07575B;
-    --color-accent: #00E5FF;
-    --color-accent-rgb: 0, 229, 255;
-    --color-teal: #00A896;
+    /* Bright, Water-Inspired Backgrounds */
+    --color-bg-deep: #ffffff;
+    --color-bg-dark: #f8fcff;
+    --color-bg-light: #eaf8fb;
     
-    /* Text Colors */
-    --color-text-primary: #ffffff;
-    --color-text-secondary: #cbd5e1;
+    /* Deep Water Navy & Ocean Blue accents */
+    --color-bg-navy: #061c30; /* Primary background for dark sections */
+    --color-primary: #2a7fba;
+    --color-primary-rgb: 42, 127, 186;
+    --color-secondary: #0f5e9c;
+    --color-accent: #00b8d9;
+    --color-accent-rgb: 0, 184, 217;
+    --color-teal: #00a896;
+    
+    /* Readable Slate Text Colors (Light Background Default) */
+    --color-text-primary: #1e293b;
+    --color-text-secondary: #475569;
     --color-text-muted: #64748b;
     
-    /* UI Glassmorphism & Depth */
-    --glass-bg: rgba(6, 21, 43, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.05);
-    --glass-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
-    --glass-blur: blur(20px);
+    /* Soft Light Shadows & Borders */
+    --card-bg: #ffffff;
+    --card-border: rgba(42, 127, 186, 0.08);
+    --card-shadow: 0 20px 45px rgba(42, 127, 186, 0.06);
+    --border-radius: 16px;
     
-    /* Spacing & Transitions */
+    /* Transitions */
     --transition-magnetic: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     --transition-normal: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-slow: 0.9s cubic-bezier(0.16, 1, 0.3, 1);
@@ -46,7 +49,7 @@
 body {
     background-color: var(--color-bg-deep);
     color: var(--color-text-primary);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     line-height: 1.8;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
@@ -64,11 +67,11 @@ body {
     transition: width 0.1s ease-out;
 }
 
-/* Custom Interactive Cursor (Desktop) */
+/* Custom Interactive Cursor */
 .custom-cursor {
     width: 24px;
     height: 24px;
-    border: 1.5px solid var(--color-accent);
+    border: 1.5px solid var(--color-primary);
     border-radius: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
@@ -81,7 +84,7 @@ body {
 .custom-cursor-dot {
     width: 5px;
     height: 5px;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     border-radius: 50%;
     position: fixed;
     transform: translate(-50%, -50%);
@@ -99,7 +102,7 @@ body {
     }
 }
 
-/* Grid Background Texture & Ambient Lights */
+/* Background grid line texture for visual depth */
 .grid-texture {
     position: fixed;
     top: 0;
@@ -108,58 +111,53 @@ body {
     height: 100%;
     background-size: 100px 100px;
     background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.012) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+        linear-gradient(to right, rgba(42, 127, 186, 0.015) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(42, 127, 186, 0.015) 1px, transparent 1px);
     pointer-events: none;
     z-index: 0;
 }
 
+/* Soft glowing blobs for water ambiance */
 .glow-blob {
     position: absolute;
     width: 700px;
     height: 700px;
     border-radius: 50%;
-    filter: blur(160px);
+    filter: blur(150px);
     opacity: 0.15;
     pointer-events: none;
     z-index: 1;
-    mix-blend-mode: screen;
 }
 .glow-1 {
-    top: 15%;
+    top: 10%;
     left: -15%;
-    background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--color-bg-light) 0%, transparent 70%);
 }
 .glow-2 {
-    top: 45%;
+    top: 50%;
     right: -15%;
-    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
-}
-.glow-3 {
-    top: 75%;
-    left: 10%;
-    background: radial-gradient(circle, var(--color-teal) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 184, 217, 0.1) 0%, transparent 70%);
 }
 
 /* Typography Hierarchy */
 h1, h2, h3, h4 {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1.05;
-    color: #ffffff;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
 }
 
 .section-header {
-    margin-bottom: 7rem;
+    margin-bottom: 6rem;
     max-width: 800px;
 }
 
 .section-subtitle {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     text-transform: uppercase;
-    color: var(--color-accent);
-    letter-spacing: 0.3em;
+    color: var(--color-primary);
+    letter-spacing: 0.25em;
     margin-bottom: 1.25rem;
     font-weight: 700;
     display: flex;
@@ -171,12 +169,12 @@ h1, h2, h3, h4 {
     content: '';
     width: 25px;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
 }
 
 .section-header h2 {
-    font-size: 4rem;
-    background: linear-gradient(135deg, #ffffff 40%, var(--color-text-secondary) 100%);
+    font-size: 3.5rem;
+    background: linear-gradient(135deg, var(--color-text-primary) 60%, var(--color-primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -192,24 +190,34 @@ h1, h2, h3, h4 {
 
 section {
     position: relative;
-    padding: 12rem 0;
+    padding: 10rem 0;
 }
 
-/* Curved Separator Dividers */
+/* Flowing wave dividers */
 .divider-container {
-    height: 160px;
+    height: 120px;
     overflow: hidden;
     position: relative;
     z-index: 5;
     background: transparent;
+    margin-top: -1px;
 }
 .divider-container svg {
     height: 100%;
     width: 100%;
-    fill: var(--color-bg-dark);
 }
 
-/* Navigation Header */
+.divider-to-light svg {
+    fill: var(--color-bg-deep);
+}
+.divider-to-dark svg {
+    fill: var(--color-bg-dark);
+}
+.divider-to-navy svg {
+    fill: var(--color-bg-navy);
+}
+
+/* Common Header navbar styling (Dark navy background) */
 header {
     position: fixed;
     top: 0;
@@ -222,8 +230,8 @@ header {
 }
 
 header.scrolled {
-    background: rgba(1, 5, 13, 0.85);
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(6, 28, 48, 0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
     backdrop-filter: var(--glass-blur);
     -webkit-backdrop-filter: var(--glass-blur);
 }
@@ -240,23 +248,31 @@ header.scrolled .nav-container {
     height: 85px;
 }
 
-.logo-text {
-    font-family: 'Syne', sans-serif;
-    font-size: 2.3rem;
-    font-weight: 800;
-    letter-spacing: -0.06em;
+/* White text for header elements since navigation is over dark navy or scrolled background */
+header .logo-text {
     background: linear-gradient(135deg, #ffffff 50%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
 }
 
-.logo-icon {
-    width: 34px;
-    height: 34px;
-    fill: var(--color-accent);
+header .nav-item a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+header .nav-item a:hover {
+    color: #ffffff;
+}
+
+header .nav-item.active a {
+    color: var(--color-accent);
+}
+
+header .nav-item a::after {
+    background-color: var(--color-accent);
+}
+
+.logo-link {
+    text-decoration: none;
 }
 
 .nav-menu {
@@ -268,9 +284,9 @@ header.scrolled .nav-container {
 .nav-item a {
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--color-text-secondary);
     padding: 0.5rem 0;
     position: relative;
+    text-decoration: none;
 }
 
 .nav-item a::after {
@@ -280,21 +296,12 @@ header.scrolled .nav-container {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--color-accent);
     transition: var(--transition-normal);
-}
-
-.nav-item a:hover {
-    color: #fff;
 }
 
 .nav-item a:hover::after,
 .nav-item.active a::after {
     width: 100%;
-}
-
-.nav-item.active a {
-    color: var(--color-accent);
 }
 
 .nav-toggle {
@@ -306,7 +313,7 @@ header.scrolled .nav-container {
     cursor: pointer;
 }
 
-/* Hero Section */
+/* Hero Section (Dark Blue Backdrop) */
 #hero-canvas {
     position: absolute;
     top: 0;
@@ -318,9 +325,10 @@ header.scrolled .nav-container {
 }
 
 .hero {
-    min-height: 100vh;
-    padding-top: 200px;
-    padding-bottom: 120px;
+    background-color: var(--color-bg-navy);
+    min-height: 90vh;
+    padding-top: 180px;
+    padding-bottom: 100px;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -336,19 +344,19 @@ header.scrolled .nav-container {
 }
 
 .hero-content h1 {
-    font-size: 5.5rem;
-    line-height: 1.0;
+    font-size: 5.2rem;
+    line-height: 1.1;
     margin-bottom: 2rem;
-    background: linear-gradient(135deg, #ffffff 40%, #a5f3ffd4 100%);
+    background: linear-gradient(135deg, #ffffff 50%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 4rem;
     max-width: 650px;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.75);
     line-height: 1.8;
 }
 
@@ -369,48 +377,49 @@ header.scrolled .nav-container {
     cursor: pointer;
     transition: var(--transition-normal);
     border: none;
+    text-decoration: none;
 }
 
 .btn-primary {
-    background: #ffffff;
-    color: var(--color-bg-deep);
+    background: var(--color-primary);
+    color: #ffffff;
 }
 
 .btn-primary:hover {
-    background: var(--color-accent);
-    color: var(--color-bg-deep);
-    box-shadow: 0 0 40px rgba(0, 229, 255, 0.45);
+    background: var(--color-secondary);
+    color: #ffffff;
+    box-shadow: 0 10px 25px rgba(42, 127, 186, 0.35);
 }
 
 .btn-outline {
     background: transparent;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
     color: #fff;
 }
 
 .btn-outline:hover {
     border-color: #fff;
-    background: rgba(255, 255, 255, 0.04);
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .hero-stats-hero {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .hero-stat-card {
     padding: 2.2rem;
     border-left: 4px solid var(--color-accent);
-    background: rgba(6, 21, 43, 0.25);
-    border-top: 1px solid var(--glass-border);
-    border-right: 1px solid var(--glass-border);
-    border-bottom: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 0 12px 12px 0;
 }
 
 .hero-stat-number {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 3.5rem;
     font-weight: 800;
     line-height: 1;
@@ -422,11 +431,33 @@ header.scrolled .nav-container {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--color-text-muted);
+    color: rgba(255,255,255,0.5);
     font-weight: 700;
 }
 
-/* About & Storytelling layout */
+/* Subpage Header Banner */
+.subpage-header {
+    background-color: var(--color-bg-navy);
+    padding: 160px 0 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.subpage-header h1 {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.subpage-header p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* About & Editorial layout */
 .about-grid-editorial {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
@@ -440,27 +471,27 @@ header.scrolled .nav-container {
 }
 
 .about-quote {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 2.4rem;
-    line-height: 1.3;
-    font-weight: 700;
-    color: #fff;
+    line-height: 1.35;
+    font-weight: 800;
+    color: var(--color-text-primary);
     margin-bottom: 2.5rem;
     position: relative;
 }
 
 .about-quote span {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .about-quote::before {
     content: '“';
-    font-size: 7.5rem;
-    color: rgba(0, 229, 255, 0.15);
+    font-size: 8rem;
+    color: rgba(42, 127, 186, 0.08);
     position: absolute;
-    top: -4rem;
+    top: -4.5rem;
     left: -1.5rem;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
 }
 
 .about-quote-author {
@@ -479,40 +510,38 @@ header.scrolled .nav-container {
 
 .story-card {
     padding: 3.5rem;
-    border-radius: 16px;
-    background: rgba(6, 21, 43, 0.2);
-    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .story-card h4 {
     font-size: 1.6rem;
     margin-bottom: 1.5rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
-/* 1. Immersive Storytelling Corporate Journey (Redesigned) */
-.journey-storytelling {
-    position: relative;
-    padding: 12rem 0;
-    background: var(--color-bg-dark);
+.story-card p {
+    color: var(--color-text-secondary);
 }
 
+/* 1. Immersive Storytelling Corporate Journey (Timeline utilizing clean photographs) */
 .journey-container {
     display: flex;
     flex-direction: column;
-    gap: 12rem;
+    gap: 10rem;
     position: relative;
     margin-top: 5rem;
 }
 
-/* Custom vertical water-flow line in background */
 .journey-flow-line {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 50%;
     width: 2px;
-    background: linear-gradient(to bottom, var(--color-accent), var(--color-primary), var(--color-teal), transparent);
+    background: linear-gradient(to bottom, var(--color-accent), var(--color-primary), var(--color-bg-light), transparent);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -522,11 +551,11 @@ header.scrolled .nav-container {
     top: 0;
     left: 50%;
     width: 4px;
-    background: var(--color-accent);
+    background: var(--color-primary);
     transform: translateX(-50%);
     z-index: 2;
-    box-shadow: 0 0 15px var(--color-accent);
-    height: 0%; /* Fills while scrolling via JS */
+    box-shadow: 0 0 15px rgba(42, 127, 186, 0.4);
+    height: 0%;
     transition: height 0.1s ease-out;
 }
 
@@ -540,20 +569,20 @@ header.scrolled .nav-container {
 }
 
 .journey-block.reverse {
-    direction: rtl; /* Alternating layouts */
+    direction: rtl;
 }
 
 .journey-block.reverse > * {
-    direction: ltr; /* Reset text direction for content */
+    direction: ltr;
 }
 
 .journey-visual-wrapper {
     position: relative;
     height: 380px;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.5);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .journey-visual-wrapper img {
@@ -567,15 +596,14 @@ header.scrolled .nav-container {
     position: relative;
 }
 
-/* Oversized watermark background year typography */
 .journey-watermark-year {
     position: absolute;
     top: -2.5rem;
     left: 2rem;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 9rem;
     font-weight: 800;
-    color: rgba(0, 229, 255, 0.04);
+    color: rgba(42, 127, 186, 0.04);
     line-height: 1;
     z-index: 0;
     pointer-events: none;
@@ -595,7 +623,7 @@ header.scrolled .nav-container {
 
 .journey-card h3 {
     font-size: 2.2rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .journey-card p {
@@ -603,7 +631,7 @@ header.scrolled .nav-container {
     color: var(--color-text-secondary);
 }
 
-/* Solutions Circular Cycle Hub */
+/* Solutions Circular Cycle Hub (Bright Theme) */
 .solutions-editorial {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -626,19 +654,19 @@ header.scrolled .nav-container {
     width: 130px;
     height: 130px;
     border-radius: 50%;
-    background: rgba(0, 129, 201, 0.08);
-    border: 1px solid rgba(0, 129, 201, 0.25);
+    background: rgba(42, 127, 186, 0.05);
+    border: 1px solid rgba(42, 127, 186, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 5;
-    box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.15);
+    box-shadow: inset 0 0 30px rgba(42, 127, 186, 0.08);
 }
 
 .circular-center svg {
     width: 54px;
     height: 54px;
-    fill: var(--color-accent);
+    fill: var(--color-primary);
 }
 
 .circular-node {
@@ -646,8 +674,8 @@ header.scrolled .nav-container {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    background: var(--color-bg-dark);
-    border: 1.5px solid var(--glass-border);
+    background: #ffffff;
+    border: 1.5px solid var(--card-border);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -655,6 +683,7 @@ header.scrolled .nav-container {
     cursor: pointer;
     transition: var(--transition-normal);
     z-index: 6;
+    box-shadow: 0 10px 25px rgba(42, 127, 186, 0.06);
 }
 
 .circular-node svg {
@@ -675,17 +704,17 @@ header.scrolled .nav-container {
 
 .circular-node:hover,
 .circular-node.active {
-    border-color: var(--color-accent);
-    background: rgba(0, 229, 255, 0.04);
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
+    border-color: var(--color-primary);
+    background: var(--color-bg-light);
+    box-shadow: 0 0 25px rgba(42, 127, 186, 0.25);
 }
 
 .circular-node.active svg {
-    fill: var(--color-accent);
+    fill: var(--color-primary);
 }
 
 .circular-node.active span {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .node-1 { top: 0; left: 50%; transform: translateX(-50%); }
@@ -709,34 +738,26 @@ header.scrolled .nav-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-radius: 20px;
-    background: rgba(6, 21, 43, 0.25);
-    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .circular-spec-card h3 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
 }
 
 .circular-spec-card p {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     margin-bottom: 2.5rem;
     line-height: 1.7;
+    color: var(--color-text-secondary);
 }
 
-/* Custom SVG Icons set */
-.svg-icon-set {
-    width: 48px;
-    height: 48px;
-    fill: none;
-    stroke: var(--color-accent);
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* 2. Premium Case-Study Dashboard (Redesigned Portfolio) */
+/* Case-Study Dashboard (Redesigned Portfolio - Bright) */
 .projects-dashboard {
     display: grid;
     grid-template-columns: 0.85fr 1.15fr;
@@ -745,18 +766,17 @@ header.scrolled .nav-container {
     align-items: start;
 }
 
-/* 3. Redesigned Project Navigation Sidebar */
+/* Sidebar navigation */
 .project-index-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    background: rgba(6, 21, 43, 0.2);
-    border: 1px solid var(--glass-border);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     padding: 1.5rem;
-    border-radius: 16px;
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
 }
 
 .project-index-item {
@@ -770,25 +790,25 @@ header.scrolled .nav-container {
     border: 1px solid transparent;
     position: relative;
     overflow: hidden;
+    background: var(--color-bg-dark);
 }
 
 .project-index-item:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(42, 127, 186, 0.03);
 }
 
 .project-index-item.active {
-    background: rgba(0, 229, 255, 0.05);
-    border-color: rgba(0, 229, 255, 0.15);
-    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.05);
+    background: var(--color-bg-light);
+    border-color: rgba(42, 127, 186, 0.15);
+    box-shadow: inset 0 2px 10px rgba(42, 127, 186, 0.05);
 }
 
-/* Navigation Thumbnail preview */
 .project-nav-thumb {
     width: 50px;
     height: 50px;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--card-border);
     flex-shrink: 0;
 }
 
@@ -806,20 +826,15 @@ header.scrolled .nav-container {
 }
 
 .project-index-title {
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--color-text-secondary);
+    color: var(--color-text-primary);
     transition: var(--transition-normal);
     text-align: left;
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
-.project-index-item.active .project-index-title {
-    color: #fff;
-}
-
-/* Badge Layouts inside list items */
 .project-index-badges {
     display: flex;
     gap: 0.5rem;
@@ -836,16 +851,15 @@ header.scrolled .nav-container {
 }
 
 .nav-badge-year {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.05);
     color: var(--color-text-secondary);
 }
 
 .nav-badge-tech {
-    background: rgba(0, 229, 255, 0.15);
-    color: var(--color-accent);
+    background: rgba(42, 127, 186, 0.12);
+    color: var(--color-primary);
 }
 
-/* Active slider indicator border */
 .project-index-item::before {
     content: '';
     position: absolute;
@@ -854,7 +868,7 @@ header.scrolled .nav-container {
     transform: translateY(-50%);
     width: 3px;
     height: 0%;
-    background: var(--color-accent);
+    background: var(--color-primary);
     transition: var(--transition-normal);
 }
 
@@ -870,16 +884,16 @@ header.scrolled .nav-container {
 
 .cs-layout-card {
     padding: 4.5rem;
-    border-radius: 20px;
-    background: rgba(6, 21, 43, 0.25);
-    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
-/* Tab controls inside Case Study */
 .cs-tab-controls {
     display: flex;
     gap: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     padding-bottom: 1rem;
     margin-bottom: 2.5rem;
 }
@@ -888,21 +902,21 @@ header.scrolled .nav-container {
     background: none;
     border: none;
     color: var(--color-text-muted);
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 1.1rem;
     font-weight: 700;
     cursor: pointer;
     position: relative;
     padding: 0.5rem 0;
-    transition: var(--transition-fast);
+    transition: var(--transition-normal);
 }
 
 .cs-tab-btn:hover {
-    color: #fff;
+    color: var(--color-text-primary);
 }
 
 .cs-tab-btn.active {
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .cs-tab-btn.active::after {
@@ -912,35 +926,33 @@ header.scrolled .nav-container {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
 }
 
-/* Primary Visual Frame (Hero Photo) */
 .cs-photo-frame {
     position: relative;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     height: 420px;
-    background: #041021;
+    background: var(--color-bg-dark);
 }
 
 .cs-photo-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover for real photographs */
+    object-fit: cover;
 }
 
-/* Blueprint Frame for technical slides */
 .blueprint-frame {
     position: relative;
-    border-radius: 12px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    border: 1px solid rgba(0, 229, 255, 0.25);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    border: 1.5px solid rgba(42, 127, 186, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     height: 420px;
-    background: #020814;
+    background: #f0f7ff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -949,10 +961,9 @@ header.scrolled .nav-container {
 .blueprint-frame img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Technical slides contain */
+    object-fit: contain;
 }
 
-/* Clean Gallery inside Case Study */
 .cs-gallery-grid {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -965,7 +976,7 @@ header.scrolled .nav-container {
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--card-border);
     transition: var(--transition-normal);
 }
 
@@ -977,11 +988,10 @@ header.scrolled .nav-container {
 
 .cs-gallery-thumbnail:hover,
 .cs-gallery-thumbnail.active {
-    border-color: var(--color-accent);
+    border-color: var(--color-primary);
     transform: scale(1.05);
 }
 
-/* Case study narrative blocks */
 .cs-narrative-row {
     display: grid;
     grid-template-columns: 1.25fr 0.75fr;
@@ -997,7 +1007,7 @@ header.scrolled .nav-container {
 
 .cs-block h4 {
     font-size: 1.15rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -1006,23 +1016,25 @@ header.scrolled .nav-container {
 .cs-block p {
     font-size: 0.95rem;
     line-height: 1.7;
+    color: var(--color-text-secondary);
 }
 
 .cs-specs-panel {
     padding: 2.5rem;
     border-radius: 12px;
-    background: rgba(3, 13, 27, 0.4);
-    border: 1px solid var(--glass-border);
+    background: var(--color-bg-dark);
+    border: 1px solid var(--card-border);
     height: fit-content;
 }
 
 .cs-specs-panel h4 {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
     padding-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    color: var(--color-text-primary);
 }
 
 .cs-spec-row {
@@ -1041,18 +1053,49 @@ header.scrolled .nav-container {
 }
 
 .cs-spec-row span {
-    color: #fff;
+    color: var(--color-text-primary);
     font-weight: 700;
 }
 
-/* 6. Redesigned Interactive Partners Grid */
+/* Category Filter Tabs */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    background: var(--color-bg-dark);
+    border: 1px solid var(--card-border);
+    color: var(--color-text-secondary);
+    padding: 0.75rem 1.75rem;
+    border-radius: 30px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+}
+
+.filter-btn:hover {
+    background: var(--color-bg-light);
+    color: var(--color-primary);
+}
+
+.filter-btn.active {
+    background: var(--color-primary);
+    color: #ffffff;
+    border-color: var(--color-primary);
+    box-shadow: 0 10px 20px rgba(42, 127, 186, 0.25);
+}
+
+/* Redesigned Interactive Partners Grid */
 .partners-grid-section {
-    padding: 10rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    background: rgba(3, 13, 27, 0.12);
-    position: relative;
-    overflow: hidden;
+    padding: 8rem 0;
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    background: var(--color-bg-dark);
 }
 
 .partners-filter-bar {
@@ -1064,12 +1107,12 @@ header.scrolled .nav-container {
 }
 
 .partners-filter-btn {
-    background: rgba(6, 21, 43, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #ffffff;
+    border: 1px solid var(--card-border);
     color: var(--color-text-secondary);
     padding: 0.75rem 1.75rem;
     border-radius: 30px;
-    font-family: 'Syne', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     cursor: pointer;
@@ -1077,30 +1120,28 @@ header.scrolled .nav-container {
 }
 
 .partners-filter-btn:hover {
-    border-color: rgba(0, 229, 255, 0.3);
-    color: #fff;
-    background: rgba(0, 229, 255, 0.02);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: var(--color-bg-light);
 }
 
 .partners-filter-btn.active {
-    background: rgba(0, 229, 255, 0.08);
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(42, 127, 186, 0.2);
 }
 
 .partners-interactive-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 2rem;
-    position: relative;
-    z-index: 5;
 }
 
 .partner-card {
-    background: #ffffff; /* Clean high-contrast background to ensure all colored logos are perfectly visible */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    background: #ffffff; /* Clean high-contrast white well for colored logos */
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
     height: 150px;
     display: flex;
     align-items: center;
@@ -1109,7 +1150,7 @@ header.scrolled .nav-container {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(42, 127, 186, 0.04);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1126,7 +1167,6 @@ header.scrolled .nav-container {
     max-width: 85%;
     max-height: 80%;
     object-fit: contain;
-    filter: none; /* Display partner logos in their original colors */
 }
 
 .partner-tooltip {
@@ -1135,7 +1175,7 @@ header.scrolled .nav-container {
     left: 0;
     width: 100%;
     padding: 0.85rem 1rem;
-    background: rgba(1, 6, 14, 0.95);
+    background: var(--color-bg-navy);
     border-top: 1.5px solid var(--color-accent);
     transform: translateY(100%);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1152,10 +1192,9 @@ header.scrolled .nav-container {
     line-height: 1.4;
 }
 
-/* Hover effects */
 .partner-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(0, 229, 255, 0.15);
+    box-shadow: 0 20px 45px rgba(42, 127, 186, 0.12);
 }
 
 .partner-card:hover .partner-logo-container {
@@ -1166,8 +1205,7 @@ header.scrolled .nav-container {
     transform: translateY(0);
 }
 
-
-/* 4. Enterprise Product Catalog (Redesigned Shop) */
+/* Industrial Shop Catalog (Bright) */
 .shop-editorial-layout {
     display: grid;
     grid-template-columns: 0.90fr 1.10fr;
@@ -1177,15 +1215,15 @@ header.scrolled .nav-container {
 
 .product-showcase-visual {
     height: 540px;
-    border-radius: 20px;
-    background: #020a14;
-    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: var(--color-bg-dark);
+    border: 1px solid var(--card-border);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
-    box-shadow: var(--glass-shadow);
+    box-shadow: var(--card-shadow);
     padding: 3rem;
 }
 
@@ -1195,9 +1233,9 @@ header.scrolled .nav-container {
 
 .product-placeholder-icon {
     font-size: 4.5rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
     margin-bottom: 1.5rem;
-    filter: drop-shadow(0 0 15px rgba(0, 229, 255, 0.4));
+    filter: drop-shadow(0 0 15px rgba(42, 127, 186, 0.2));
 }
 
 .product-highlight-points {
@@ -1210,24 +1248,24 @@ header.scrolled .nav-container {
 .product-highlight-card {
     padding: 1.75rem;
     border-radius: 12px;
-    background: rgba(6, 21, 43, 0.15);
-    border: 1px solid var(--glass-border);
-    border-left: 3px solid var(--color-accent);
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    border-left: 3px solid var(--color-primary);
+    box-shadow: 0 10px 25px rgba(42, 127, 186, 0.04);
 }
 
 .product-highlight-card h4 {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
 }
 
 .product-highlight-card p {
     font-size: 0.85rem;
     line-height: 1.6;
-    color: var(--color-text-muted);
+    color: var(--color-text-secondary);
 }
 
-/* Modern Specs list grid */
 .specs-list-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1246,7 +1284,7 @@ header.scrolled .nav-container {
 
 .specs-list-grid li::before {
     content: '✓';
-    color: var(--color-accent);
+    color: var(--color-primary);
     font-weight: 700;
 }
 
@@ -1259,36 +1297,36 @@ header.scrolled .nav-container {
 .comparison-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-align: left;
 }
 
 .comparison-table th, .comparison-table td {
     padding: 1.25rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .comparison-table th {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    color: #fff;
-    background: rgba(6, 21, 43, 0.3);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    color: var(--color-text-primary);
+    background: var(--color-bg-dark);
     text-transform: uppercase;
     font-size: 0.8rem;
     letter-spacing: 0.05em;
 }
 
 .comparison-table tr:hover td {
-    background: rgba(0, 229, 255, 0.02);
+    background: rgba(42, 127, 186, 0.02);
 }
 
 .comparison-table td strong {
-    color: #fff;
+    color: var(--color-text-primary);
 }
 
 .comparison-table .highlight-col {
-    color: var(--color-accent);
-    font-weight: 600;
+    color: var(--color-primary);
+    font-weight: 700;
 }
 
 /* Sustainability Economy Circle */
@@ -1320,14 +1358,15 @@ header.scrolled .nav-container {
 .impact-metric-card {
     padding: 2.2rem;
     border-radius: 12px;
-    background: rgba(6, 21, 43, 0.2);
-    border: 1px solid var(--glass-border);
-    border-top: 2px solid var(--color-accent);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    border-top: 2px solid var(--color-primary);
 }
 
 .impact-metric-card h4 {
     font-size: 2.8rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
     margin-bottom: 0.25rem;
     line-height: 1;
 }
@@ -1340,10 +1379,11 @@ header.scrolled .nav-container {
 }
 
 .featured-press-card {
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    border: 1px solid var(--glass-border);
-    background: rgba(6, 21, 43, 0.2);
+    border: 1px solid var(--card-border);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
     display: flex;
     flex-direction: column;
 }
@@ -1371,20 +1411,48 @@ header.scrolled .nav-container {
 .press-feed-item {
     padding: 2.2rem;
     border-radius: 12px;
-    background: rgba(6, 21, 43, 0.2);
-    border: 1px solid var(--glass-border);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .press-feed-item h4 {
     font-size: 1.3rem;
-    line-height: 1.4;
-    color: #fff;
+    line-height: 1.45;
+    color: var(--color-text-primary);
     margin-top: 0.25rem;
 }
 
-/* Enquiry Form Section */
+/* Testimonials section placeholder */
+.testimonials-placeholder {
+    padding: 4rem;
+    border-radius: var(--border-radius);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.testimonials-placeholder-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.testimonials-placeholder h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.testimonials-placeholder p {
+    color: var(--color-text-secondary);
+}
+
+/* Enquiry Form Styling */
 .enquiry {
-    border-top: 1px solid rgba(255,255,255,0.03);
+    background-color: var(--color-bg-dark);
 }
 
 .enquiry-grid {
@@ -1403,8 +1471,9 @@ header.scrolled .nav-container {
 .enquiry-method-card {
     padding: 1.75rem;
     border-radius: 12px;
-    background: rgba(6, 21, 43, 0.2);
-    border: 1px solid var(--glass-border);
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 10px 25px rgba(42, 127, 186, 0.04);
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -1412,11 +1481,11 @@ header.scrolled .nav-container {
 
 .enquiry-method-icon {
     font-size: 1.8rem;
-    color: var(--color-accent);
+    color: var(--color-primary);
     width: 55px;
     height: 55px;
     border-radius: 50%;
-    background: rgba(0, 229, 255, 0.08);
+    background: rgba(42, 127, 186, 0.08);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1432,15 +1501,21 @@ header.scrolled .nav-container {
 
 .enquiry-method-details p {
     font-size: 1.1rem;
-    color: #fff;
+    color: var(--color-text-primary);
     font-weight: 700;
+}
+
+.enquiry-method-details a {
+    text-decoration: none;
+    color: var(--color-primary);
 }
 
 .enquiry-form-card {
     padding: 4rem;
-    border-radius: 20px;
-    background: rgba(6, 21, 43, 0.25);
-    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
 }
 
 .form-grid {
@@ -1467,21 +1542,21 @@ header.scrolled .nav-container {
 }
 
 .form-control {
-    background: rgba(2, 8, 19, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #fff;
+    background: var(--color-bg-dark);
+    border: 1px solid var(--card-border);
+    color: var(--color-text-primary);
     padding: 0.9rem 1.2rem;
     border-radius: 8px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     transition: var(--transition-normal);
 }
 
 .form-control:focus {
     outline: none;
-    border-color: var(--color-accent);
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
-    background: rgba(2, 8, 19, 0.7);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px rgba(42, 127, 186, 0.15);
+    background: #ffffff;
 }
 
 textarea.form-control {
@@ -1489,14 +1564,54 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* 7. Redesigned Premium Footer & Contact cards */
+/* Footer Section (Dark Blue Backdrop) */
 footer {
-    background: #01040a;
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    background: var(--color-bg-navy);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding: 7rem 0 3rem 0;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     position: relative;
     overflow: hidden;
+}
+
+/* Adjust colors inside footer since background is dark navy */
+footer h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    background: var(--color-accent);
+}
+
+footer .logo-text {
+    background: linear-gradient(135deg, #ffffff 50%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+footer p, footer .footer-contact-item {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.6) !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--color-accent) !important;
 }
 
 .footer-grid {
@@ -1512,32 +1627,6 @@ footer {
     gap: 1.5rem;
 }
 
-.footer-brand p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--color-text-muted);
-}
-
-.footer-links-col h4 {
-    font-size: 1.1rem;
-    color: #fff;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.footer-links-col h4::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 25px;
-    height: 2px;
-    background: var(--color-accent);
-}
-
 .footer-links {
     list-style: none;
     display: flex;
@@ -1547,12 +1636,10 @@ footer {
 
 .footer-links li a {
     font-size: 0.9rem;
-    color: var(--color-text-muted);
     transition: var(--transition-normal);
 }
 
 .footer-links li a:hover {
-    color: var(--color-accent);
     padding-left: 6px;
 }
 
@@ -1568,7 +1655,6 @@ footer {
     display: flex;
     align-items: flex-start;
     gap: 0.85rem;
-    color: var(--color-text-muted);
 }
 
 .footer-contact-item span:first-child {
@@ -1577,36 +1663,28 @@ footer {
     flex-shrink: 0;
 }
 
-.footer-contact-item a:hover {
-    color: var(--color-accent);
-}
-
 .map-container {
     height: 160px;
     border-radius: 12px;
     overflow: hidden;
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     margin-top: 1rem;
     position: relative;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.85rem;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.4);
 }
 
 .footer-bottom-links {
     display: flex;
     gap: 2rem;
-}
-
-.footer-bottom-links a:hover {
-    color: var(--color-accent);
 }
 
 /* Floating Scroll Top button */
@@ -1623,7 +1701,7 @@ footer {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     z-index: 100;
     border: 1px solid rgba(255,255,255,0.1);
     opacity: 0;
@@ -1638,7 +1716,7 @@ footer {
 
 .scroll-top-btn:hover {
     background: var(--color-accent);
-    color: var(--color-bg-deep);
+    color: var(--color-bg-navy);
     transform: translateY(-5px);
 }
 
@@ -1649,7 +1727,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(1, 6, 14, 0.88);
+    background: rgba(6, 28, 48, 0.7);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     z-index: 2000;
@@ -1672,8 +1750,8 @@ footer {
     height: 100vh;
     border-radius: 0;
     border: none;
-    border-left: 1px solid var(--glass-border);
-    background: var(--color-bg-dark);
+    border-left: 1px solid var(--card-border);
+    background: #ffffff;
     box-shadow: var(--glass-shadow);
     overflow-y: auto;
     position: relative;
@@ -1692,9 +1770,9 @@ footer {
     position: fixed;
     top: 2rem;
     right: 2rem;
-    background: rgba(6, 21, 43, 0.9);
-    border: 1.5px solid rgba(0, 229, 255, 0.3);
-    color: var(--color-accent);
+    background: #ffffff;
+    border: 1.5px solid var(--card-border);
+    color: var(--color-primary);
     width: 46px;
     height: 46px;
     border-radius: 50%;
@@ -1705,23 +1783,23 @@ footer {
     font-size: 1.5rem;
     z-index: 10000;
     transition: var(--transition-normal);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .modal-close-btn:hover {
-    background: var(--color-accent);
-    color: var(--color-bg-deep);
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+    background: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(42, 127, 186, 0.35);
     transform: rotate(90deg);
 }
 
 .modal-hero-img-container {
-    background: #020814;
+    background: var(--color-bg-dark);
     height: 420px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .modal-hero-img {
@@ -1737,8 +1815,8 @@ footer {
 
 .modal-badge {
     display: inline-block;
-    background: rgba(0, 229, 255, 0.1);
-    color: var(--color-accent);
+    background: rgba(42, 127, 186, 0.1);
+    color: var(--color-primary);
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.3rem 0.9rem;
@@ -1746,12 +1824,13 @@ footer {
     margin-bottom: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border: 1px solid rgba(0, 229, 255, 0.2);
+    border: 1px solid rgba(42, 127, 186, 0.15);
 }
 
 .modal-title {
     font-size: 2.5rem;
     margin-bottom: 2.5rem;
+    color: var(--color-text-primary);
 }
 
 /* Fullscreen Lightbox */
@@ -1761,7 +1840,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(1, 4, 10, 0.95);
+    background: rgba(6, 28, 48, 0.95);
     z-index: 3000;
     display: flex;
     align-items: center;
@@ -1780,8 +1859,8 @@ footer {
     max-width: 90%;
     max-height: 90%;
     object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    border-radius: var(--border-radius);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
 .lightbox-close {
@@ -1810,7 +1889,7 @@ footer {
 /* Responsive Media Queries overrides */
 @media (max-width: 1024px) {
     section {
-        padding: 9rem 0;
+        padding: 8rem 0;
     }
     .hero-content h1 {
         font-size: 4.2rem;
@@ -1934,14 +2013,14 @@ footer {
         left: -100%;
         width: 100%;
         height: calc(100vh - 110px);
-        background: rgba(1, 6, 14, 0.98);
+        background: rgba(6, 28, 48, 0.98);
         flex-direction: column;
         align-items: center;
         padding: 4rem 0;
         transition: var(--transition-normal);
         backdrop-filter: var(--glass-blur);
         -webkit-backdrop-filter: var(--glass-blur);
-        border-top: 1px solid var(--glass-border);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
     .nav-menu.active {
         left: 0;
