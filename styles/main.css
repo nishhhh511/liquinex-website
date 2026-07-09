@@ -7,10 +7,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
 
 :root {
-    /* Bright, Water-Inspired Backgrounds */
-    --color-bg-deep: #ffffff;
-    --color-bg-dark: #f8fcff;
-    --color-bg-light: #eaf8fb;
+    /* Bright, Water-Inspired Backgrounds (Balanced Ice Blue & Sky Blue) */
+    --color-bg-deep: #f4f9fd; /* Premium soft ice-blue */
+    --color-bg-dark: #e1f0fa;  /* Rich sky-blue */
+    --color-bg-light: #d6f0f8; /* Soft aqua-blue */
     
     /* Deep Water Navy & Ocean Blue accents */
     --color-bg-navy: #061c30; /* Primary background for dark sections */
@@ -36,6 +36,13 @@
     --transition-magnetic: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
     --transition-normal: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-slow: 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Advanced 3D Tilt Card Transformations */
+.story-card, .partner-logo-card, .featured-press-card, .press-feed-item, .solution-detail-card, .milestone-card, .spec-card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
 }
 
 /* Reset & Scrollbar */

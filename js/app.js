@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCaseStudyDashboard();
     initPartnersGrid();
     initInteractiveCards();
+    init3DTilt();
     initMobileNav();
     initModalDrawer();
     initShopBrochure();
@@ -149,10 +150,29 @@ function initCanvasParticles() {
     
     function loop() {
         ctx.clearRect(0, 0, width, height);
-        particles.forEach(p => {
-            p.update(cursorMouseX, cursorMouseY);
-            p.draw();
-        });
+        
+        // Draw molecular lines between close bubbles
+        for (let i = 0; i < particles.length; i++) {
+            const p1 = particles[i];
+            p1.update(cursorMouseX, cursorMouseY);
+            p1.draw();
+            
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p1.x - p2.x;
+                const dy = p1.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 90) {
+                    ctx.beginPath();
+                    ctx.moveTo(p1.x, p1.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    const lineAlpha = (1 - (dist / 90)) * 0.15;
+                    ctx.strokeStyle = `rgba(0, 184, 217, ${lineAlpha})`;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+            }
+        }
         requestAnimationFrame(loop);
     }
     loop();
@@ -332,11 +352,10 @@ function initCaseStudyDashboard() {
             solution: 'Installed modular vertical SiC ceramic ultrafiltration skids that operate with constant flux and high tolerance to abrasive sand grains.',
             results: 'Delivered clean potable water below 0.1 NTU reliably to remote villages in Siput, with zero polymeric fiber breakage.',
             photos: [
-                'assets/projects/perak_1.jpg',
-                'assets/projects/perak_2.jpg',
-                'assets/projects/perak_3.jpg'
+                'assets/images/page_12_img_3.jpeg',
+                'assets/images/page_12_img_5.jpeg'
             ],
-            blueprint: 'assets/slides/slide_36.png'
+            blueprint: 'assets/slides/slide_12.png'
         },
         2: {
             title: 'Zoo aquaculture RAS recycle loop',
@@ -348,10 +367,10 @@ function initCaseStudyDashboard() {
             solution: 'Implemented high-flux ceramic membranes with automated air-scour backwash cycles to purge organic load instantly.',
             results: 'Maintained crystal clear water quality inside animal habitats with a 98% water recovery rate, protecting sensitive wildlife.',
             photos: [
-                'assets/projects/zoo_1.jpg',
-                'assets/projects/zoo_2.jpg'
+                'assets/images/page_22_img_2.jpeg',
+                'assets/images/page_22_img_4.jpeg'
             ],
-            blueprint: 'assets/slides/slide_37.png'
+            blueprint: 'assets/slides/slide_22.png'
         },
         3: {
             title: 'REC Solar cooling tower blowdown recycle',
@@ -363,10 +382,9 @@ function initCaseStudyDashboard() {
             solution: 'A combination of silica precipitation chemical dosing followed by robust SiC ceramic filtration modules protecting the RO stage.',
             results: 'Achieved a stable clean recycle stream saving thousands of cubic meters of industrial tap water costs daily.',
             photos: [
-                'assets/projects/solar_1.jpg',
-                'assets/projects/solar_2.jpg'
+                'assets/images/page_16_img_2.jpeg'
             ],
-            blueprint: 'assets/slides/slide_38.png'
+            blueprint: 'assets/slides/slide_16.png'
         }
     };
     
@@ -697,6 +715,39 @@ function initInteractiveCards() {
             
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+}
+
+/* 14. Advanced 3D Tilt Card Animation */
+function init3DTilt() {
+    const selectors = '.story-card, .partner-logo-card, .featured-press-card, .press-feed-item, .solution-detail-card, .milestone-card, .spec-card';
+    const cards = document.querySelectorAll(selectors);
+    if (cards.length === 0) return;
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const xc = rect.width / 2;
+            const yc = rect.height / 2;
+            
+            const dx = x - xc;
+            const dy = y - yc;
+            
+            // Limit tilt angle to max 8 degrees
+            const rx = -(dy / yc) * 8;
+            const ry = (dx / xc) * 8;
+            
+            card.style.setProperty('--rx', `${rx}deg`);
+            card.style.setProperty('--ry', `${ry}deg`);
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.setProperty('--rx', '0deg');
+            card.style.setProperty('--ry', '0deg');
         });
     });
 }
