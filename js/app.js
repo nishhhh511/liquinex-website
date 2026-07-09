@@ -55,7 +55,6 @@ function initCustomCursor() {
     }
     animateCursor();
 
-    // Hover effect on links and interactive elements
     const hoverables = document.querySelectorAll('a, button, .circular-node, .project-index-item, .cs-gallery-thumbnail, .btn, .cs-tab-btn');
     hoverables.forEach(item => {
         item.addEventListener('mouseenter', () => {
@@ -316,7 +315,7 @@ function animateCounter(counterEl) {
     }, intervalTime);
 }
 
-/* 8. Redesigned Case-Study Dashboard Data */
+/* 8. Redesigned Case-Study Dashboard Data (Slide Screenshots removed, photographs mapped) */
 const caseStudiesData = [
     {
         id: 'perak-river',
@@ -333,9 +332,14 @@ const caseStudiesData = [
         solution: 'Liquinex designed and deployed a compact, modular ultrafiltration (UF) system utilizing robust hollow-fiber membranes. The system utilizes physical filtration barriers that completely capture suspended solids and pathogens without chemical additions.',
         implementation: 'Constructed as a pre-fabricated, skid-mounted layout to enable rapid field installation. The plant integrates automated backwash cycles using raw water flushes to keep the membranes clear, minimizing downtime and human monitoring.',
         results: 'Delivers 200,000 liters of safe drinking water per day. Laboratory results verify turbidity is reduced to under 1.12 NTU (far below the target of 5 NTU), ensuring compliant, chemical-free drinking water for local consumers.',
-        image: 'assets/images/page_12_img_1.jpeg',
-        slide: 'assets/slides/slide_12.png',
-        gallery: [12, 42]
+        image: 'assets/images/page_12_img_3.jpeg', // Clean photograph
+        slide: 'assets/slides/slide_12.png',       // Technical diagram slide
+        gallery: [
+            'assets/images/page_12_img_3.jpeg',
+            'assets/images/page_12_img_5.jpeg',
+            'assets/images/page_42_img_1.jpeg',
+            'assets/images/page_42_img_3.jpeg'
+        ]
     },
     {
         id: 'singapore-zoo-aquaculture',
@@ -352,9 +356,13 @@ const caseStudiesData = [
         solution: 'Developed a high-performance Recirculating Aquaculture System using compact hollow-fiber membranes. The system replaces sand tanks, operating a physical barrier loop that filters out microalgae, bacteria, and particulates.',
         implementation: 'Installed inline directly on the River Safari tank circulation loops. The system includes compact automatic reverse flushes that clean the filter in seconds using minimal water.',
         results: 'Maintains optimal tank water clarity with a significantly reduced footprint. Water loss during backwashing was slashed, and manual maintenance cycles were cut down, ensuring a clean, organic environment for aquatic animals.',
-        image: 'assets/images/page_22_img_3.jpeg',
+        image: 'assets/images/page_22_img_2.jpeg',
         slide: 'assets/slides/slide_22.png',
-        gallery: [22, 21]
+        gallery: [
+            'assets/images/page_22_img_2.jpeg',
+            'assets/images/page_22_img_6.jpeg',
+            'assets/images/page_21_img_6.jpeg'
+        ]
     },
     {
         id: 'rec-cooling-uf',
@@ -371,9 +379,13 @@ const caseStudiesData = [
         solution: 'Installed a premium silicon carbide (SiC) ceramic membrane ultrafiltration system. Silicon carbide offers extreme physical hardness, oleophobic oil resistance, and handles high chemical backwash cycles.',
         implementation: 'Integrated with REC Solar\'s cooling loop system. Features automated high-pressure backwashing and air scouring to clear deposits, running continuously with minimal fouling.',
         results: 'Maintains stable flux rates, reducing overall cooling tower water consumption by recycling blowdown, and reducing membrane replacement expenses (OPEX) by over 50%.',
-        image: 'assets/images/page_14_img_1.jpeg',
+        image: 'assets/images/page_14_img_2.jpeg',
         slide: 'assets/slides/slide_14.png',
-        gallery: [14, 46]
+        gallery: [
+            'assets/images/page_14_img_2.jpeg',
+            'assets/images/page_14_img_4.jpeg',
+            'assets/images/page_14_img_1.jpeg'
+        ]
     },
     {
         id: 'rec-blowdown-dboo',
@@ -392,7 +404,9 @@ const caseStudiesData = [
         results: 'Supplies up to 40 m³/hr of recycled water 24/7 at a highly competitive rate of $1.35/m³, yielding direct OPEX savings from day one without client capital investment.',
         image: 'assets/images/page_16_img_2.jpeg',
         slide: 'assets/slides/slide_16.png',
-        gallery: [16]
+        gallery: [
+            'assets/images/page_16_img_2.jpeg'
+        ]
     },
     {
         id: 'alcon-wastewater',
@@ -409,9 +423,12 @@ const caseStudiesData = [
         solution: 'Engineered a highly compact skid-mounted wastewater treatment plant. The design features integrated chemical dosing, automatic pH neutralization, and physical membrane separators.',
         implementation: 'Installed within the Alcon facility floor. The plant runs in a fully automated sequence, auto-adjusting acid/alkali dosing based on real-time pH sensor feedback.',
         results: 'Processes 35 m³/day of manufacturing wastewater safely, consistently ensuring compliance with national environmental standards within a space-saving layout.',
-        image: 'assets/images/page_17_img_1.jpeg',
+        image: 'assets/images/page_17_img_3.jpeg',
         slide: 'assets/slides/slide_17.png',
-        gallery: [17]
+        gallery: [
+            'assets/images/page_17_img_3.jpeg',
+            'assets/images/page_17_img_2.jpeg'
+        ]
     },
     {
         id: 'humanitarian-suitcase',
@@ -428,9 +445,15 @@ const caseStudiesData = [
         solution: 'Invented an award-winning portable water filtration system integrated inside a rugged suitcase. Utilizing advanced ceramic membranes and Deep UVC LED sterilization, it filters pathogens physically.',
         implementation: 'Housed in a durable case weighing under 30kg. Operates on 24V DC batteries, easily linked to portable solar panels, and requires zero chemical consumables.',
         results: 'Successfully deployed by the Red Cross in Laos during the 2018 flood disaster, Sulawesi (Indonesia) post-earthquake, and Kerala (India) floods, delivering 500 liters/hour of clean water.',
-        image: 'assets/images/page_29_img_1.png',
+        image: 'assets/images/page_29_img_3.jpeg',
         slide: 'assets/slides/slide_29.png',
-        gallery: [29, 30, 31, 32, 33, 34, 35]
+        gallery: [
+            'assets/images/page_29_img_3.jpeg',
+            'assets/images/page_32_img_3.jpeg',
+            'assets/images/page_33_img_2.jpeg',
+            'assets/images/page_34_img_4.jpeg',
+            'assets/images/page_35_img_1.jpeg'
+        ]
     }
 ];
 
@@ -497,7 +520,7 @@ function loadCaseStudy(cs) {
                     <img id="cs-blueprint-img" src="${cs.slide}" alt="${cs.title} technical drawing" style="cursor: zoom-in;">
                 </div>
                 
-                <!-- Gallery thumbnails -->
+                <!-- Gallery thumbnails of clean JPEGs -->
                 <div class="cs-gallery-grid" id="cs-gallery">
                     <!-- Thumbnails will be injected here -->
                 </div>
@@ -575,22 +598,21 @@ function loadCaseStudy(cs) {
         if (activePhoto) activePhoto.addEventListener('click', () => openLightbox(activePhoto.src));
         if (activeBlueprint) activeBlueprint.addEventListener('click', () => openLightbox(activeBlueprint.src));
 
-        // Render secondary technical slides/images thumbnails
+        // Render secondary technical slides/images thumbnails (strictly using clean JPEGs)
         const galleryContainer = viewer.querySelector('#cs-gallery');
         if (galleryContainer && cs.gallery && cs.gallery.length > 0) {
-            cs.gallery.forEach((slideNum, idx) => {
+            cs.gallery.forEach((imgUrl, idx) => {
                 const thumb = document.createElement('div');
                 thumb.className = `cs-gallery-thumbnail ${idx === 0 ? 'active' : ''}`;
-                const slideUrl = `assets/slides/slide_${slideNum}.png`;
-                thumb.innerHTML = `<img src="${slideUrl}" alt="Technical slide ${slideNum}">`;
+                thumb.innerHTML = `<img src="${imgUrl}" alt="Case Study Photo">`;
                 
                 thumb.addEventListener('click', () => {
                     galleryContainer.querySelectorAll('.cs-gallery-thumbnail').forEach(t => t.classList.remove('active'));
                     thumb.classList.add('active');
                     
-                    // Update blueprint panel source and activate tab
-                    activeBlueprint.src = slideUrl;
-                    tabBlueprint.click();
+                    // Update active photo panel image
+                    activePhoto.src = imgUrl;
+                    tabPhoto.click();
                 });
                 galleryContainer.appendChild(thumb);
             });
@@ -704,7 +726,6 @@ function initShopBrochure() {
     if (!brochureBtn) return;
     
     brochureBtn.addEventListener('click', () => {
-        // Target is the processed PDF we placed in assets/presentation.pdf
         const link = document.createElement('a');
         link.href = 'assets/presentation.pdf';
         link.download = 'Liquinex_Corporate_Brochure.pdf';
