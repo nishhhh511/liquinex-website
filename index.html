@@ -3,29 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liquinex - Singapore Water & Wastewater Treatment Specialist</title>
-    <meta name="description" content="Liquinex specializes in advanced water and wastewater treatment technologies, ceramic membranes, UVC disinfection, and off-grid drinking water solutions.">
+    <title>Liquinex | Advanced Water & Wastewater Engineering Specialists</title>
+    <meta name="description" content="Liquinex specializes in advanced water and wastewater treatment, silicon carbide ceramic membranes, UVC disinfection systems, and circular water infrastructure.">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+
+    <!-- Custom Cursor Ring (Desktop Only) -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-dot"></div>
+
+    <!-- Grid Texture Overlay & Atmospheric Background Lighting -->
+    <div class="grid-texture"></div>
+    <div class="glow-blob glow-1"></div>
+    <div class="glow-blob glow-2"></div>
+    <div class="glow-blob glow-3"></div>
 
     <!-- Header & Navigation -->
     <header>
         <div class="container nav-container">
             <a href="#home" class="logo-link">
-                <div>
-                    <div class="logo-text">LIQUINEX</div>
-                    <div class="logo-sub">Water & Wastewater Specialists</div>
+                <div class="logo-text">
+                    <!-- Custom Water-themed Logo Icon -->
+                    <svg class="logo-icon" viewBox="0 0 24 24">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                    LIQUINEX
                 </div>
             </a>
             <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
             <ul class="nav-menu">
                 <li class="nav-item active" data-section="home"><a href="#home">Home</a></li>
-                <li class="nav-item" data-section="about"><a href="#about">About Us</a></li>
+                <li class="nav-item" data-section="about"><a href="#about">About</a></li>
                 <li class="nav-item" data-section="solutions"><a href="#solutions">Solutions</a></li>
                 <li class="nav-item" data-section="projects"><a href="#projects">Projects</a></li>
+                <li class="nav-item" data-section="sustainability"><a href="#sustainability">Sustainability</a></li>
                 <li class="nav-item" data-section="shop"><a href="#shop">Shop</a></li>
-                <li class="nav-item" data-section="news"><a href="#news">News</a></li>
                 <li class="nav-item" data-section="enquiry"><a href="#enquiry">Enquiry</a></li>
             </ul>
         </div>
@@ -33,283 +49,335 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <canvas id="hero-canvas"></canvas>
         <div class="container hero-grid">
-            <div class="hero-content">
-                <span class="section-subtitle">Pioneering Clean Water Technology</span>
-                <h1>Advanced Water & Wastewater <span>Treatment Specialists</span></h1>
-                <p>Engineering sustainable, high-efficiency water recycling and purification systems. Utilizing next-generation silicon carbide ceramic membranes and Deep UVC disinfection to deliver robust water security globally.</p>
+            <div class="hero-content reveal-on-scroll">
+                <span class="section-subtitle">Singapore Water Technology Specialists</span>
+                <h1>ENGINEERING THE FUTURE OF WATER</h1>
+                <p>We design and construct high-performance, compact water and wastewater treatment systems. Powered by advanced silicon carbide membranes and chemical-free Deep UVC sterilization.</p>
                 <div class="hero-btns">
-                    <a href="#projects" class="btn btn-primary">View Track Record</a>
-                    <a href="#enquiry" class="btn btn-outline">Request Consultation</a>
+                    <div class="btn-wrapper">
+                        <a href="#projects" class="btn btn-primary">Explore Case Studies</a>
+                    </div>
+                    <div class="btn-wrapper">
+                        <a href="#enquiry" class="btn btn-outline">Request Consultation</a>
+                    </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <!-- Slideshow of actual project slides -->
-                <div class="hero-slide active" style="background-image: url('assets/slides/slide_12.png');">
-                    <div class="hero-slide-overlay"></div>
-                    <div class="hero-slide-caption">
-                        <h4>Lembaga Air Perak</h4>
-                        <p>30 m³/hr River Water Treatment System, Kampung Perlop</p>
-                    </div>
+            <!-- Integrated Stats within Hero (No Template Feel) -->
+            <div class="hero-stats-hero reveal-on-scroll">
+                <div class="hero-stat-card glass-card">
+                    <div class="hero-stat-number">25+</div>
+                    <div class="hero-stat-label">Years Experience</div>
                 </div>
-                <div class="hero-slide" style="background-image: url('assets/slides/slide_16.png');">
-                    <div class="hero-slide-overlay"></div>
-                    <div class="hero-slide-caption">
-                        <h4>REC Solar DBOO</h4>
-                        <p>40 m³/hr Industrial Cooling Tower Blowdown Recycling</p>
-                    </div>
+                <div class="hero-stat-card glass-card">
+                    <div class="hero-stat-number">>50%</div>
+                    <div class="hero-stat-label">OPEX Saved</div>
                 </div>
-                <div class="hero-slide" style="background-image: url('assets/slides/slide_29.png');">
-                    <div class="hero-slide-overlay"></div>
-                    <div class="hero-slide-caption">
-                        <h4>Humanitarian Suitcase</h4>
-                        <p>500 L/hr Solar-Powered Mobile Ultrafiltration Unit</p>
-                    </div>
-                </div>
-                <div class="hero-slide" style="background-image: url('assets/slides/slide_13.png');">
-                    <div class="hero-slide-overlay"></div>
-                    <div class="hero-slide-caption">
-                        <h4>CAAS Pilot Pool</h4>
-                        <p>100 m³/hr Chlorine-Free Membrane Pool System</p>
-                    </div>
+                <div class="hero-stat-card glass-card">
+                    <div class="hero-stat-number">18+</div>
+                    <div class="hero-stat-label">Global Projects</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container stats-grid">
-            <div class="stat-card glass-card">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Years Engineering Experience</div>
-            </div>
-            <div class="stat-card glass-card">
-                <div class="stat-number">>50%</div>
-                <div class="stat-label">OPEX Reduction Enabled</div>
-            </div>
-            <div class="stat-card glass-card">
-                <div class="stat-number">18+</div>
-                <div class="stat-label">Global Track Records</div>
-            </div>
-            <div class="stat-card glass-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Chemical-Free Sterilization</div>
-            </div>
-        </div>
-    </section>
+    <!-- Wave Divider -->
+    <div style="height: 150px; overflow: hidden; position: relative; z-index: 5;">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%; fill: #030d1b;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"></path>
+        </svg>
+    </div>
 
-    <!-- About Us Section -->
-    <section id="about" class="about">
+    <!-- Editorial Storytelling Section (About Us) -->
+    <section id="about" class="about" style="background-color: #030d1b; padding-top: 5rem;">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-on-scroll">
                 <span class="section-subtitle">Who We Are</span>
-                <h2>About Liquinex</h2>
+                <h2>Clean Water Engineering</h2>
             </div>
             
-            <div class="about-grid">
-                <div class="about-intro">
-                    <div class="about-text">
-                        <h3>Our Capabilities</h3>
+            <div class="about-grid-editorial">
+                <!-- Left Quote (Sticky Storytelling) -->
+                <div class="about-quote-container reveal-on-scroll">
+                    <div class="about-quote">
+                        "We do not just filter water; we design <span>circular ecosystems</span> that protect our environment and optimize industrial assets."
+                    </div>
+                    <div class="about-quote-author">
+                        Bashir Ahmad — CEO & Co-Founder
+                    </div>
+                </div>
+
+                <!-- Right Detailed narrative -->
+                <div class="about-story-container reveal-on-scroll">
+                    <div class="story-card glass-card">
+                        <h4>Our Capabilities</h4>
                         <p>Established in 2015, Liquinex has grown from a specialized water technology developer into a premier, integrated Engineering Procurement Construction (EPC) and Operations & Maintenance (O&M) solutions provider. We specialize in the custom engineering, fabrication, and systems integration of compact, highly efficient water and wastewater treatment platforms.</p>
+                        <br>
                         <p>By leveraging next-generation advanced membrane filtration—including silicon carbide ceramic, biomimetic, and graphene membranes—coupled with advanced physical oxidation processes such as Deep UVC disinfection and titanium oxide catalysts, we deliver robust, eco-friendly water purification systems. Our proven track record ranges from ultra-compact, solar-powered humanitarian water suitcases for disaster relief to massive, automated industrial recycling systems for multinational corporations.</p>
                     </div>
-                    <div class="about-image">
-                        <img src="assets/slides/slide_2.png" alt="Liquinex Office & Founders">
-                    </div>
-                </div>
 
-                <!-- History Timeline -->
-                <div class="founders-title">
-                    <h3>Our Corporate Journey</h3>
-                </div>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2012 - 2014</span>
-                            <h4>Danish Principal Collaboration</h4>
-                            <p>Collaborated with Danish principal LiqTech International to support their exhibition presence in the Singapore International Water Week (SIWW).</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2015</span>
-                            <h4>Incorporation of Liquinex</h4>
-                            <p>Officially founded in Singapore as a Water and Wastewater Treatment Technology Specialist, focusing on compact ceramic membrane systems.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2017</span>
-                            <h4>Technology Expansion</h4>
-                            <p>Strengthened technical ties with LiqTech International, exploring silicon carbide membrane application in industrial wastewater recycling.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2018</span>
-                            <h4>Humanitarian Deployments</h4>
-                            <p>Successfully deployed the Suitcase-sized Ultrafiltration units for disaster relief with the Red Cross in Laos, Sulawesi (Indonesia), and Kerala (India).</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2020</span>
-                            <h4>Global Accolades & Recognition</h4>
-                            <p>Won 1st Place at the Mohammed bin Rashid Al Maktoum Global Water Award in Dubai and awarded a Gold Medal at the AsianInvent Show for patented UVC-ceramic filter systems.</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content glass-card">
-                            <span class="timeline-date">2023 - Present</span>
-                            <h4>LiqTech Distribution Agreement</h4>
-                            <p>Entered an exclusive distribution agreement with LiqTech to supply silicon carbide ceramic membranes in Singapore and Southeast Asia, solidifying our EPC and O&M systems integration reach.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Founders Profiles -->
-                <div class="founders-title">
-                    <h3>Executive Leadership</h3>
-                </div>
-
-                <div class="founders-grid">
-                    <!-- Bashir Ahmad Card -->
-                    <div class="founder-card glass-card">
-                        <div class="founder-header">
-                            <div class="founder-info">
-                                <h4>BASHIR AHMAD</h4>
-                                <span class="founder-role">Co-Founder & CEO</span>
-                            </div>
-                            <span class="founder-experience-badge">Since 2000</span>
-                        </div>
-                        <p class="founder-bio">Bashir Ahmad is the Co-founder and CEO of Liquinex, bringing over 25 years of pioneering engineering experience in the water and wastewater treatment industry. Since 2000, he has been at the forefront of designing, constructing, and maintaining state-of-the-art treatment plants, as well as advancing air pollution control and marine technologies.</p>
-                        <ul class="founder-credentials">
-                            <li>Former Deputy Director at Singapore's National Environment Agency (NEA)</li>
-                            <li>Former Senior Engineer at Public Utilities Board (PUB), Singapore's National Water Agency</li>
-                            <li>Bachelor's Degree in Mechanical Engineering from National University of Singapore (NUS)</li>
-                            <li>Member of the Institution of Engineers Singapore</li>
-                        </ul>
+                    <!-- Executive Founders Profiles -->
+                    <div class="founders-title" style="text-align: left; margin: 3rem 0 1rem 0;">
+                        <h3>Executive Leadership</h3>
                     </div>
 
-                    <!-- Riaz Deen Card -->
-                    <div class="founder-card glass-card">
-                        <div class="founder-header">
-                            <div class="founder-info">
-                                <h4>RIAZ DEEN</h4>
-                                <span class="founder-role">Co-Founder & Technical Director</span>
-                            </div>
-                            <span class="founder-experience-badge">Since 2013</span>
+                    <div class="story-card glass-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h4 style="margin-bottom: 0;">BASHIR AHMAD</h4>
+                            <span class="case-study-badge" style="margin:0;">CEO & Co-Founder</span>
                         </div>
-                        <p class="founder-bio">Riaz Deen is the Co-founder and Technical Director of Liquinex. Since 2013, he has led industrial and marine engineering projects, fabrication, and manufacturing operations. He has successfully executed numerous complex water treatment plants, membrane system integrations, offshore rigs, and shipping systems across Asia and global markets.</p>
-                        <ul class="founder-credentials">
-                            <li>Expert in marine and industrial engineering, fabrication, and system design</li>
-                            <li>Over 13 years of technical leadership in membrane integration and rig technologies</li>
-                            <li>Bachelor's Degree in Marine Engineering (1st Class Honors) from Madurai Kamaraj University, India</li>
-                        </ul>
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">Bashir Ahmad brings over 25 years of pioneering engineering experience in the water and wastewater treatment industry. <strong>Since 2000</strong>, he has been at the forefront of designing, constructing, and maintaining state-of-the-art treatment plants, as well as advancing air pollution control and marine technologies. His distinguished career includes leadership roles such as Deputy Director at Singapore's National Environment Agency (NEA) and Senior Engineer at the Public Utilities Board (PUB).</p>
+                        <p style="font-size: 0.85rem; color: var(--color-text-muted);">Bachelor's Degree in Mechanical Engineering from National University of Singapore (NUS) | Member of the Institution of Engineers Singapore</p>
                     </div>
+
+                    <div class="story-card glass-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <h4 style="margin-bottom: 0;">RIAZ DEEN</h4>
+                            <span class="case-study-badge" style="margin:0;">Technical Director</span>
+                        </div>
+                        <p style="font-size: 0.95rem; margin-bottom: 1rem;">Riaz Deen leads industrial and marine engineering projects, fabrication, and manufacturing operations. <strong>Since 2013</strong>, he has successfully executed numerous complex water treatment plants, membrane system integrations, offshore rigs, and shipping systems across Asia and global markets. Riaz is an expert in rig and shipping water system engineering.</p>
+                        <p style="font-size: 0.85rem; color: var(--color-text-muted);">Bachelor's Degree in Marine Engineering (1st Class Honors) from Madurai Kamaraj University, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Horizontal Journey Timeline -->
+            <div class="founders-title" style="margin-top: 8rem;">
+                <h3>Our Corporate Journey</h3>
+            </div>
+            
+            <div class="timeline-horizontal reveal-on-scroll">
+                <div class="timeline-node">
+                    <span class="timeline-year">2012 - 2014</span>
+                    <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Principal Partnership</h4>
+                    <p style="font-size: 0.85rem;">Partnered with Danish principal LiqTech International to deploy advanced silicon carbide ceramic membranes in Singapore.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="timeline-year">2015</span>
+                    <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Liquinex Incorporated</h4>
+                    <p style="font-size: 0.85rem;">Officially founded in Singapore as a Water and Wastewater Treatment Technology Specialist, focusing on compact, high-efficiency plants.</p>
+                </div>
+                <div class="timeline-node">
+                    <span class="timeline-year">2018 - 2020</span>
+                    <h4 style="font-size: 1rem; color: #fff; margin-bottom: 0.5rem;">Global Awards & Deployments</h4>
+                    <p style="font-size: 0.85rem;">Won 1st Place at the Mohammed bin Rashid Al Maktoum Global Water Award in Dubai and deployed humanitarian units with the Red Cross.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision Section -->
-    <section class="mission-vision">
-        <div class="container mv-grid">
-            <div class="mv-card glass-card">
-                <div class="mv-icon">☉</div>
-                <h3>Our Mission</h3>
-                <p>Our mission is to engineer and deliver sustainable, highly efficient, and innovative water and wastewater treatment solutions that address global water challenges. Through cutting-edge membrane technologies, compact system designs, and a commitment to operational excellence, we empower industries, municipalities, and humanitarian organizations to optimize water resources and achieve environmental compliance.</p>
-            </div>
-            <div class="mv-card glass-card">
-                <div class="mv-icon">👁</div>
-                <h3>Our Vision</h3>
-                <p>Our vision is to be the premier global partner in water sustainability, recognized for our breakthrough technologies that safeguard the world's most precious resource. We strive to inspire a future where clean, recycled water is universally accessible, partnering with organizations that share our profound respect for water and environmental stewardship.</p>
-            </div>
-        </div>
-    </section>
+    <!-- Wave Divider -->
+    <div style="height: 100px; overflow: hidden; position: relative; z-index: 5;">
+        <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%; fill: #030d1b;">
+            <path d="M0.00,49.98 C150.00,150.00 349.20,-49.98 500.00,49.98 L500.00,0.00 L0.00,0.00 Z"></path>
+        </svg>
+    </div>
 
-    <!-- Solutions Section -->
+    <!-- Circular Solutions Section -->
     <section id="solutions" class="solutions">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-on-scroll">
                 <span class="section-subtitle">What We Solve</span>
                 <h2>Technology Solutions</h2>
             </div>
             
-            <div class="solutions-grid">
-                <!-- Solution 1 -->
-                <div class="solution-card glass-card">
-                    <div class="solution-icon-container">⛨</div>
-                    <h3>Ceramic Membrane UF</h3>
-                    <p>High flux, chemically inert silicon carbide membranes offering low fouling, flat-sheet configuration, and over 50% savings in operating expenses.</p>
-                    <a href="#projects" class="solution-link">Explore projects →</a>
+            <div class="solutions-editorial reveal-on-scroll">
+                <!-- Left: Circular Cycle Diagram -->
+                <div class="circular-hub-visual">
+                    <div class="circular-center">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- SVG Flowing Loop Lines -->
+                    <svg class="solutions-svg-flow" viewBox="0 0 450 450">
+                        <circle cx="225" cy="225" r="160" fill="none" stroke="rgba(0, 229, 255, 0.15)" stroke-width="2" stroke-dasharray="8 8"/>
+                    </svg>
+
+                    <!-- Interactive nodes -->
+                    <div class="circular-node active node-1" data-id="ceramic-uf">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2zm0 3.99L18.8 19H5.2L12 5.99z"/></svg>
+                        <span>Ceramic UF</span>
+                    </div>
+                    <div class="circular-node node-2" data-id="desalination">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                        <span>RO Desal</span>
+                    </div>
+                    <div class="circular-node node-3" data-id="waterwall">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/></svg>
+                        <span>WaterWall</span>
+                    </div>
+                    <div class="circular-node node-4" data-id="humanitarian">
+                        <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-10-2h4v2h-4V4z"/></svg>
+                        <span>Suitcase</span>
+                    </div>
                 </div>
-                <!-- Solution 2 -->
-                <div class="solution-card glass-card">
-                    <div class="solution-icon-container">💧</div>
-                    <h3>RO & Desalination</h3>
-                    <p>Energy-efficient Reverse Osmosis custom-engineered to reclaim waste streams, manage high-salinity, and support closed-loop water reuse.</p>
-                    <a href="#projects" class="solution-link">Explore projects →</a>
-                </div>
-                <!-- Solution 3 -->
-                <div class="solution-card glass-card">
-                    <div class="solution-icon-container">🧱</div>
-                    <h3>WaterWall Smart Recycling</h3>
-                    <p>Award-winning, wall-mounted building greywater and condensate purifier combining ultrafiltration and Deep UVC with IoT smart sensors.</p>
-                    <a href="#projects" class="solution-link">Explore projects →</a>
-                </div>
-                <!-- Solution 4 -->
-                <div class="solution-card glass-card">
-                    <div class="solution-icon-container">💼</div>
-                    <h3>Humanitarian Suitcases</h3>
-                    <p>Solar-compatible, portable suitcase ultrafiltration units delivering up to 500 liters/hour chemical-free water for off-grid communities and disaster relief.</p>
-                    <a href="#projects" class="solution-link">Explore projects →</a>
+
+                <!-- Right: Specifications Card -->
+                <div class="circular-spec-card glass-card">
+                    <h3>Silicon Carbide Ceramic Ultrafiltration (UF)</h3>
+                    <p>Engineered for extreme performance and aggressive chemical loads. Utilizing flat-sheet silicon carbide membranes, this system delivers exceptional recovery rates, is highly oleophobic for oil-water separation, and cuts membrane operating expenses (OPEX) by over 50% through minimal fouling and thermal backwash resistance.</p>
+                    <ul class="shop-specs-list" style="grid-template-columns: 1fr;">
+                        <li>Over 50% OPEX savings</li>
+                        <li>Oleophobic Oil-Water separation</li>
+                        <li>Fully automated chemical-free backwash</li>
+                        <li>Flat sheet high solid loading</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sustainability Section -->
-    <section id="sustainability" class="about" style="background: rgba(5,19,41,0.25);">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Circular Economy</span>
-                <h2>Sustainability at Our Core</h2>
-            </div>
-            <div class="about-intro">
-                <div class="about-image">
-                    <img src="assets/slides/slide_47.png" alt="End of Life Membranes Recycling">
-                </div>
-                <div class="about-text">
-                    <h3>Refurbishing End-of-Life Membranes</h3>
-                    <p>At Liquinex, sustainability is not just a goal; it is our engineering core. We actively contribute to the circular economy by recycling End-of-Life (EOL) membranes from municipal water agencies like Singapore's PUB, refurbishing them for secondary industrial applications.</p>
-                    <p>By replacing chemical-heavy water treatment with chemical-free ceramic filtration and physical UVC sterilization, we minimize secondary pollution and chemical discharge. Our systems are engineered to optimize energy efficiency, reducing operational carbon footprints and delivering cost-effective water security to vulnerable and remote communities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
+    <!-- Projects Case Studies (Featured Section - Highest Priority) -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Our Track Record</span>
-                <h2>Projects & Deployments</h2>
+            <div class="section-header reveal-on-scroll">
+                <span class="section-subtitle">Our Achievements</span>
+                <h2>Featured Case Studies</h2>
+            </div>
+            
+            <div class="featured-projects">
+                <!-- Case Study 1: Lembaga Air Perak -->
+                <div class="case-study reveal-on-scroll">
+                    <div class="case-study-visual">
+                        <img src="assets/slides/slide_12.png" alt="Lembaga Air Perak River Water Treatment">
+                    </div>
+                    <div class="case-study-details">
+                        <span class="case-study-badge">MUNICIPAL PLANT</span>
+                        <h3>Lembaga Air Perak River Treatment</h3>
+                        <p class="case-study-summary">A high-efficiency municipal water treatment plant deployed to draw raw water from the Sungei Siput River and supply high-quality potable drinking water to the rural community of Kampung Perlop in Perak, Malaysia.</p>
+                        
+                        <div style="font-size: 0.95rem; color: var(--color-text-secondary);">
+                            <strong>Challenge:</strong> Severe seasonal turbidity and organic loading in the river water that rendered standard sand filters inoperable.<br><br>
+                            <strong>Solution:</strong> Installed a compact, fully automated ultrafiltration (UF) system utilizing robust hollow-fiber membrane modules.<br><br>
+                            <strong>Outcome:</strong> Delivers 200,000 liters of safe, clean drinking water per day directly to consumers, fully compliant with national potability metrics.
+                        </div>
+
+                        <div class="case-study-meta-grid">
+                            <div class="case-study-meta-item">
+                                <label>Client Name</label>
+                                <val>Lembaga Air Perak</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Location</label>
+                                <val>Perak, Malaysia</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Capacity</label>
+                                <val>30 m³/hr (200k L/day)</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Technology</label>
+                                <val>Ultrafiltration System</val>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Singapore Zoo Aquaculture (Before/After Slider) -->
+                <div class="case-study reverse reveal-on-scroll">
+                    <div class="case-study-details">
+                        <span class="case-study-badge">AQUACULTURE SYSTEM</span>
+                        <h3>Singapore Zoo Recirculating RAS</h3>
+                        <p class="case-study-summary">A specialized Recirculating Aquaculture System (RAS) deployed at the River Safari at Singapore Zoo to filter fish tank effluent, excrement, and algae blooms, replacing space-consuming sand filters.</p>
+                        
+                        <div style="font-size: 0.95rem; color: var(--color-text-secondary);">
+                            <strong>Challenge:</strong> Heavy fish fecal loading, algae blooms, and organic waste causing high turbidity and clogging in traditional sand filters, requiring significant maintenance and water waste.<br><br>
+                            <strong>Solution:</strong> Installed a custom compact membrane filtration loop with physical anti-fouling backwashing cycles.<br><br>
+                            <strong>Outcome:</strong> Dramatically lowered backwash water loss, eliminated chemical dosing, reduced floor space usage, and reduced manual labor. Drag the visual slider to inspect water clarity!
+                        </div>
+
+                        <div class="case-study-meta-grid">
+                            <div class="case-study-meta-item">
+                                <label>Client Name</label>
+                                <val>River Safari, Singapore Zoo</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Location</label>
+                                <val>Singapore Zoo</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Capacity</label>
+                                <val>1 m³/hr (RAS Loop)</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Technology</label>
+                                <val>Compact RAS Membrane</val>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Drag-to-Reveal Before/After Visual -->
+                    <div class="case-study-visual">
+                        <div class="before-after-slider">
+                            <div class="before-image">
+                                <img src="assets/images/page_22_img_1.jpeg" alt="Before purification (turbid water)">
+                                <span class="slider-label label-before">Before Treatment</span>
+                            </div>
+                            <div class="after-image">
+                                <img src="assets/images/page_22_img_2.jpeg" alt="After purification (clear water)">
+                                <span class="slider-label label-after">After Treatment</span>
+                            </div>
+                            <div class="slider-handle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: REC Solar DBOO -->
+                <div class="case-study reveal-on-scroll">
+                    <div class="case-study-visual">
+                        <img src="assets/slides/slide_14.png" alt="REC Solar Cooling Tower Blowdown UF System">
+                    </div>
+                    <div class="case-study-details">
+                        <span class="case-study-badge">INDUSTRIAL RECYCLING</span>
+                        <h3>REC Cooling Tower DBOO</h3>
+                        <p class="case-study-summary">A 5+5 year Design-Build-Own-Operate (DBOO) water-as-a-service plant delivering processed, recycled water to REC Solar from cooling tower blowdown wastewater.</p>
+                        
+                        <div style="font-size: 0.95rem; color: var(--color-text-secondary);">
+                            <strong>Challenge:</strong> Heavy industrial wastewater loading containing suspended silica and chemical antiscalants that fouled organic membranes.<br><br>
+                            <strong>Solution:</strong> Deployed a containerized, automated silicon carbide ceramic membrane plant operating on direct filtration metrics.<br><br>
+                            <strong>Outcome:</strong> Recycles up to 40 m³/hr of wastewater 24/7, supplying it back to REC Solar at a rate of $1.35/m³, yielding direct OPEX savings without initial capital expenditure.
+                        </div>
+
+                        <div class="case-study-meta-grid">
+                            <div class="case-study-meta-item">
+                                <label>Client Name</label>
+                                <val>REC Solar Group</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Location</label>
+                                <val>Tuas Industrial Estate, Singapore</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Capacity</label>
+                                <val>Up to 40 m³/hr (24/7)</val>
+                            </div>
+                            <div class="case-study-meta-item">
+                                <label>Technology</label>
+                                <val>Ceramic Membrane DBOO</val>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Grid (Masonry for other projects) -->
+            <div class="projects-portfolio-title reveal-on-scroll">
+                <h3>Explore Our Full Portfolio</h3>
+                <p style="margin-top: 1rem; color: var(--color-text-muted);">Use the filters below to view specialized industrial, municipal, and humanitarian installations.</p>
             </div>
 
             <!-- Filter Buttons -->
-            <div class="filter-container">
+            <div class="filter-container reveal-on-scroll">
                 <button class="filter-btn active" data-filter="all">All Projects</button>
                 <button class="filter-btn" data-filter="industrial">Industrial Recycling</button>
                 <button class="filter-btn" data-filter="municipal">Municipal & Community</button>
-                <button class="filter-btn" data-filter="humanitarian">Humanitarian Relief</button>
                 <button class="filter-btn" data-filter="specialized">Specialized Systems</button>
             </div>
 
-            <!-- Projects Grid -->
-            <div class="projects-grid">
+            <!-- Masonry Grid -->
+            <div class="portfolio-grid reveal-on-scroll">
                 <!-- Dynamically populated by app.js -->
             </div>
         </div>
@@ -321,7 +389,6 @@
             <h3>Trusted by Municipal & Global Enterprise Partners</h3>
             <div class="marquee-container">
                 <div class="marquee-content">
-                    <!-- Row of customer logos in original colors, looped twice for infinite scrolling -->
                     <div class="marquee-logo"><img src="assets/logos/logo_1.png" alt="Partner Logo"></div>
                     <div class="marquee-logo"><img src="assets/logos/logo_2.png" alt="Partner Logo"></div>
                     <div class="marquee-logo"><img src="assets/logos/logo_4.png" alt="Partner Logo"></div>
@@ -364,36 +431,60 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <!-- Sustainability Section (Circular Economy Editorial Layout) -->
+    <section id="sustainability" class="sustainability" style="background: rgba(5,19,41,0.25);">
         <div class="container">
-            <div class="section-header">
-                <span class="section-subtitle">Client Feedback</span>
-                <h2>Client Testimonials</h2>
-            </div>
-            
-            <div class="testimonials-placeholder glass-card">
-                <div class="testimonials-placeholder-icon">💬</div>
-                <h4>Testimonials Coming Soon</h4>
-                <p>We are currently compiling verified testimonials and project feedback from our industrial clients and municipal water board partners. Check back soon to read customer case studies.</p>
+            <div class="sustainability-composition reveal-on-scroll">
+                <!-- Left: Circular Economy SVG Diagram -->
+                <div class="sustainability-diagram-container">
+                    <svg class="sustainability-svg" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" r="75" fill="none" stroke="rgba(0, 229, 255, 0.1)" stroke-width="8"/>
+                        <!-- Glowing segment representing recycling loop -->
+                        <path d="M100 25 A 75 75 0 0 1 175 100" fill="none" stroke="var(--color-accent)" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M175 100 A 75 75 0 0 1 100 175" fill="none" stroke="var(--color-primary)" stroke-width="8" stroke-linecap="round"/>
+                        <!-- Central Water Drop Icon -->
+                        <path d="M100 70 C 85 85 85 105 100 120 C 115 105 115 85 100 70 Z" fill="var(--color-accent)"/>
+                    </svg>
+                </div>
+                <!-- Right: Copy & Key Metrics -->
+                <div class="sustainability-details">
+                    <span class="section-subtitle">Zero Waste Water</span>
+                    <h3>Sustainability at Our Core</h3>
+                    <p>At Liquinex, sustainability is not just a goal; it is our engineering core. We actively contribute to the circular economy by recycling End-of-Life (EOL) membranes from municipal water agencies like Singapore's PUB, refurbishing them for secondary industrial applications.</p>
+                    <p>By replacing chemical-heavy water treatment with chemical-free ceramic filtration and physical UVC sterilization, we minimize secondary pollution and chemical discharge. Our systems are engineered to optimize energy efficiency, reducing operational carbon footprints and delivering cost-effective water security to vulnerable and remote communities.</p>
+                    
+                    <div class="impact-metric-grid">
+                        <div class="impact-metric-card glass-card">
+                            <h4>100%</h4>
+                            <p style="font-size:0.85rem; color: var(--color-text-muted);">Membranes Recycled from PUB</p>
+                        </div>
+                        <div class="impact-metric-card glass-card">
+                            <h4>Zero</h4>
+                            <p style="font-size:0.85rem; color: var(--color-text-muted);">Secondary Chemical Discharges</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Shop Section -->
+    <!-- Premium Apple-style Shop Product Showcase -->
     <section id="shop" class="shop">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-on-scroll">
                 <span class="section-subtitle">Products</span>
                 <h2>Online Product Shop</h2>
             </div>
             
-            <div class="shop-grid">
-                <div class="shop-gallery">
+            <div class="shop-editorial-layout reveal-on-scroll">
+                <div class="shop-gallery glass-card product-showcase-visual">
                     <div class="shop-placeholder-img">
-                        <div class="shop-placeholder-icon">🛡</div>
-                        <h4>UV Disinfection System Image Placeholder</h4>
-                        <p>Official product photographs will be uploaded here shortly.</p>
+                        <!-- Custom Inline UVC Shield SVG Logo -->
+                        <svg class="shop-placeholder-icon" viewBox="0 0 24 24" style="fill: var(--color-accent); width: 80px; height: 80px; margin-bottom: 1.5rem;">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 15l-4-4 1.41-1.41L10 13.17l7.59-7.59L19 7l-9 9z"/>
+                        </svg>
+                        <h4>UVC-UF Water Disinfection System</h4>
+                        <p style="color: var(--color-text-muted);">Official product photography will be uploaded soon.</p>
                     </div>
                 </div>
                 <div class="shop-content">
@@ -401,14 +492,24 @@
                     <h3>Liquinex UVC-UF Water Disinfection System</h3>
                     <p class="shop-desc">A state-of-the-art, chemical-free water purification and sterilization system designed for residential, commercial, and laboratory applications. Combining advanced ultrafiltration with Deep UVC LED technology, it neutralizes 99.999% of bacteria, viruses, and pathogens in real-time, providing immediate safe drinking water from any tap source.</p>
                     
-                    <ul class="shop-specs-list">
-                        <li>Zero Chemical Additives (100% physical disinfection)</li>
-                        <li>Real-time Deep UVC sterilization</li>
-                        <li>High flow rate with low pressure drop</li>
-                        <li>Integrated smart monitoring & filter indicator</li>
-                        <li>Easy wall-mount or inline installation</li>
-                        <li>Robust corrosion-resistant housing</li>
-                    </ul>
+                    <div class="product-highlight-points">
+                        <div class="product-highlight-card glass-card">
+                            <h4>UVC LED Technology</h4>
+                            <p>Real-time physical pathogen inactivation without chemical additions.</p>
+                        </div>
+                        <div class="product-highlight-card glass-card">
+                            <h4>Ultrafiltration Barrier</h4>
+                            <p>0.01-micron hollow fiber barrier to stop micro-particulates.</p>
+                        </div>
+                        <div class="product-highlight-card glass-card">
+                            <h4>IoT Smart Monitoring</h4>
+                            <p>Automated filter lifespan warnings and water quality diagnostics.</p>
+                        </div>
+                        <div class="product-highlight-card glass-card">
+                            <h4>Inline Installation</h4>
+                            <p>Sleek wall-mounted setup with zero pressure loss.</p>
+                        </div>
+                    </div>
 
                     <div class="shop-action">
                         <a href="#enquiry" class="btn btn-primary" onclick="document.getElementById('message').value = 'Hello Liquinex Team, I would like to request a quote and more information about the Liquinex UVC-UF Water Disinfection System. Please send the product catalog and pricing. Thank you.';">Request a Quote</a>
@@ -418,50 +519,66 @@
         </div>
     </section>
 
-    <!-- News & Awards Section -->
-    <section id="news" class="news">
+    <!-- News & Awards Section (Newsroom composition) -->
+    <section id="news" class="news" style="background: rgba(5,19,41,0.25);">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal-on-scroll">
                 <span class="section-subtitle">Credentials & Media</span>
-                <h2>Awards & Recognition</h2>
+                <h2>Newsroom & Awards</h2>
             </div>
             
-            <div class="news-grid">
-                <!-- Card 1 -->
-                <div class="news-card glass-card">
-                    <div class="news-card-img" style="background-image: url('assets/slides/slide_36.png');"></div>
-                    <div class="news-card-body">
+            <div class="newsroom-editorial reveal-on-scroll">
+                <!-- Left: Large Cover Story Card -->
+                <div class="featured-press-card glass-card">
+                    <div class="featured-press-img" style="background-image: url('assets/slides/slide_36.png');"></div>
+                    <div class="featured-press-body">
                         <span class="news-date">January 2020</span>
-                        <h4>1st Place Winner of Global Water Award</h4>
+                        <h3>1st Place Winner at the Global Water Award</h3>
                         <p>Sheikh Ahmed bin Mohammed bin Rashid Al Maktoum hands over the 1st place award to Liquinex Group Pte Ltd from Singapore in the category of Innovative Research and Development (International Institutions) during the Mohammed bin Rashid Al Maktoum Global Water Award in Dubai.</p>
                     </div>
                 </div>
-                <!-- Card 2 -->
-                <div class="news-card glass-card">
-                    <div class="news-card-img" style="background-image: url('assets/slides/slide_37.png');"></div>
-                    <div class="news-card-body">
+                <!-- Right: Timelines List -->
+                <div class="press-feed-list">
+                    <div class="press-feed-item glass-card">
                         <span class="news-date">April 2020</span>
-                        <h4>Gold Medal in AsianInvent Singapore 2020</h4>
-                        <p>Liquinex was awarded the prestigious Gold Medal certificate of award at the Singapore International Invention Show in recognition of our invention: "Water Purification Using Novel Ceramic Filter and UVC Technology."</p>
+                        <h4>Gold Medal in AsianInvent Singapore</h4>
+                        <p style="font-size:0.9rem; margin-top:0.5rem;">Liquinex was awarded the Gold Medal certificate of award at the Singapore International Invention Show in recognition of our invention: "Water Purification Using Novel Ceramic Filter and UVC Technology."</p>
                     </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="news-card glass-card">
-                    <div class="news-card-img" style="background-image: url('assets/slides/slide_10.png');"></div>
-                    <div class="news-card-body">
+                    <div class="press-feed-item glass-card">
                         <span class="news-date">PUB recognition</span>
                         <h4>Water Sustainability Champion by PUB</h4>
-                        <p>Liquinex is officially recognized as a Water Innovation Company by IPI Singapore and designated as a Water Sustainability Champion by Singapore’s Public Utilities Board (PUB) under the campaign "Because Every Drop Count."</p>
+                        <p style="font-size:0.9rem; margin-top:0.5rem;">Liquinex is officially recognized as a Water Innovation Company by IPI Singapore and designated as a Water Sustainability Champion by Singapore’s Public Utilities Board (PUB) under the campaign "Because Every Drop Count."</p>
+                    </div>
+                    <div class="press-feed-item glass-card">
+                        <span class="news-date">LiqTech Agreement</span>
+                        <h4>Distribution Agreement with LiqTech</h4>
+                        <p style="font-size:0.9rem; margin-top:0.5rem;">Entered a formal distribution agreement with Danish principal LiqTech International to distribute silicon carbide ceramic membranes in Singapore, integrating them into our regional water recycling systems.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal-on-scroll">
+                <span class="section-subtitle">Client Feedback</span>
+                <h2>Client Testimonials</h2>
+            </div>
+            
+            <div class="testimonials-placeholder glass-card reveal-on-scroll">
+                <div class="testimonials-placeholder-icon">💬</div>
+                <h4>Testimonials Coming Soon</h4>
+                <p>We are currently compiling verified testimonials and project feedback from our industrial clients and municipal water board partners. Check back soon to read customer case studies.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Enquiry Form Section -->
-    <section id="enquiry" class="enquiry">
+    <section id="enquiry" class="enquiry" style="border-top: 1px solid var(--glass-border);">
         <div class="container enquiry-grid">
-            <div class="enquiry-info">
+            <div class="enquiry-info reveal-on-scroll">
                 <span class="section-subtitle">Get in Touch</span>
                 <h3>Project Enquiry</h3>
                 <p>Have a water purification or wastewater recycling requirement? Fill out the form to contact our engineering team. We will review your raw water specifications and design a customized, compact treatment plant.</p>
@@ -484,7 +601,7 @@
                 </div>
             </div>
 
-            <div class="enquiry-form-card glass-card">
+            <div class="enquiry-form-card glass-card reveal-on-scroll">
                 <form id="enquiry-form">
                     <div class="form-grid">
                         <div class="form-group">
@@ -524,20 +641,25 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-brand">
-                <div class="logo-text">LIQUINEX</div>
-                <p>Singapore-based Water and Wastewater Treatment Specialist. Providing high-performance compact membrane solutions, chemical-free purification systems, and off-grid disaster relief technologies globally.</p>
-                <p class="copyright">&copy; 2026 Liquinex Group Pte Ltd. All rights reserved.</p>
+                <div class="logo-text">
+                    <svg class="logo-icon" viewBox="0 0 24 24">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                    LIQUINEX
+                </div>
+                <p style="margin-top: 1rem;">Singapore-based Water and Wastewater Treatment Specialist. Providing high-performance compact membrane solutions, chemical-free purification systems, and off-grid disaster relief technologies globally.</p>
+                <p class="copyright" style="margin-top: 2rem;">&copy; 2026 Liquinex Group Pte Ltd. All rights reserved.</p>
             </div>
             
             <div class="footer-links-col">
                 <h4>Navigation</h4>
                 <ul class="footer-links">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#solutions">Solutions</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#sustainability">Sustainability</a></li>
                     <li><a href="#shop">Shop</a></li>
-                    <li><a href="#news">News</a></li>
                     <li><a href="#enquiry">Enquiry</a></li>
                 </ul>
             </div>
@@ -566,8 +688,8 @@
             
             <div class="footer-links-col">
                 <h4>Our Headquarters</h4>
-                <!-- Real Google Maps Iframe Embedded -->
-                <div class="map-container">
+                <!-- Google Maps Frame in elegant glass card wrapper -->
+                <div class="map-container glass-card">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.75618413645!2d103.75471431475412!3d1.322079099035659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da10639d6fffff%3A0xe54c1fbb4ef0c9b7!2s2021+Bukit+Batok+St+23%2C+Singapore+659526!5e0!3m2!1sen!2ssg!4v1563278912345!5m2!1sen!2ssg" 
                         width="100%" 
@@ -592,10 +714,10 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top & Lightbox Modal Structure -->
+    <!-- Scroll to Top Button -->
     <button class="scroll-top-btn" aria-label="Scroll to Top">▲</button>
 
-    <!-- Modal Detail Overlay -->
+    <!-- Case Study Modal Drawer -->
     <div class="modal-overlay">
         <div class="modal-card glass-card">
             <button class="modal-close-btn">&times;</button>

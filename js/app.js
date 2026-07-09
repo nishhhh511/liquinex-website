@@ -1,171 +1,389 @@
-// Liquinex App Logic
-// Dynamic Projects Database, Filters, Modal, and Navigation
+// Liquinex Premium Agency-Grade Core JavaScript
+// Canvas Water Particles, Magnetic Buttons, Before/After Slider, Solutions Cycle, Scroll Reveal, Modal Drawer
 
 document.addEventListener('DOMContentLoaded', () => {
-    initNavigation();
-    initHeroSlideshow();
-    initProjects();
-    initEnquiryForm();
+    initScrollProgress();
+    initCustomCursor();
+    initCanvasParticles();
+    initMagneticButtons();
+    initSolutionsHub();
+    initBeforeAfterSlider();
+    initScrollReveal();
+    initPortfolioGrid();
+    initMobileNav();
 });
 
-/* Navigation Scrolling Effect & Active Item Tracking */
-function initNavigation() {
-    const header = document.querySelector('header');
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-item');
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-
-    // Add scrolled class to header
+/* 1. Scroll Progress Bar Indicator */
+function initScrollProgress() {
+    const progressBar = document.getElementById('scroll-progress');
+    if (!progressBar) return;
+    
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+}
 
-        // Active link tracking on scroll
-        let currentSectionId = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                currentSectionId = section.getAttribute('id');
-            }
-        });
+/* 2. Custom Magnetic Cursor (Desktop Only) */
+function initCustomCursor() {
+    const cursor = document.querySelector('.custom-cursor');
+    const dot = document.querySelector('.custom-cursor-dot');
+    if (!cursor || !dot) return;
 
-        if (currentSectionId) {
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.dataset.section === currentSectionId) {
-                    item.classList.add('active');
-                }
-            });
-        }
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + 'px';
+        dot.style.top = mouseY + 'px';
     });
 
-    // Mobile Hamburger Toggle
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = navToggle.querySelector('i') || navToggle;
-            if (navMenu.classList.contains('active')) {
-                icon.textContent = '✕';
-            } else {
-                icon.textContent = '☰';
-            }
-        });
-
-        // Close menu on link click
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                navToggle.textContent = '☰';
-            });
-        });
+    // Add lag to the outer cursor ring for a premium organic feel
+    function animateCursor() {
+        const dx = mouseX - cursorX;
+        const dy = mouseY - cursorY;
+        cursorX += dx * 0.15;
+        cursorY += dy * 0.15;
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+        requestAnimationFrame(animateCursor);
     }
+    animateCursor();
 
-    // Scroll to top button
-    const scrollTopBtn = document.querySelector('.scroll-top-btn');
-    if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollTopBtn.classList.add('active');
-            } else {
-                scrollTopBtn.classList.remove('active');
-            }
+    // Hover effect on links and buttons
+    const hoverables = document.querySelectorAll('a, button, .circular-node, .portfolio-card, .btn');
+    hoverables.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            cursor.style.width = '40px';
+            cursor.style.height = '40px';
+            cursor.style.borderColor = 'var(--color-accent)';
+            cursor.style.backgroundColor = 'rgba(0, 229, 255, 0.05)';
         });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        item.addEventListener('mouseleave', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.borderColor = 'var(--color-accent)';
+            cursor.style.backgroundColor = 'transparent';
         });
-    }
+    });
 }
 
-/* Hero Slideshow Animation */
-function initHeroSlideshow() {
-    const slides = document.querySelectorAll('.hero-slide');
-    if (slides.length === 0) return;
+/* 3. HTML5 Canvas Water Particle Engine (Hero Section) */
+function initCanvasParticles() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = canvas.parentElement.clientWidth;
+    let height = canvas.height = canvas.parentElement.clientHeight;
+
+    // Track dimensions on window resize
+    window.addEventListener('resize', () => {
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+    });
+
+    // Mouse coordinates inside hero
+    let mouse = { x: null, y: null, radius: 120 };
+    const heroSection = document.getElementById('home');
+    if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        });
+        heroSection.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+    }
+
+    // Particle class
+    class Bubble {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = height + Math.random() * 100;
+            this.radius = Math.random() * 8 + 3;
+            this.baseSpeed = Math.random() * 1.5 + 0.5;
+            this.speedY = this.baseSpeed;
+            this.speedX = Math.random() * 0.4 - 0.2;
+            this.opacity = Math.random() * 0.3 + 0.1;
+            this.wobble = Math.random() * Math.PI;
+            this.wobbleSpeed = Math.random() * 0.02 + 0.01;
+        }
+
+        update() {
+            this.y -= this.speedY;
+            this.wobble += this.wobbleSpeed;
+            this.x += Math.sin(this.wobble) * 0.3 + this.speedX;
+
+            // Mouse repulsion physics
+            if (mouse.x !== null && mouse.y !== null) {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < mouse.radius) {
+                    const force = (mouse.radius - distance) / mouse.radius;
+                    // Push particles away from cursor
+                    this.x += (dx / distance) * force * 4;
+                    this.y += (dy / distance) * force * 4;
+                }
+            }
+
+            // Loop reset when bubbles float off top screen
+            if (this.y < -20 || this.x < -20 || this.x > width + 20) {
+                this.y = height + Math.random() * 100;
+                this.x = Math.random() * width;
+                this.speedY = this.baseSpeed;
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 229, 255, ${this.opacity})`;
+            ctx.fill();
+            
+            // Subtle water drop reflection highlights
+            ctx.beginPath();
+            ctx.arc(this.x - this.radius * 0.3, this.y - this.radius * 0.3, this.radius * 0.15, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity * 1.5})`;
+            ctx.fill();
+        }
+    }
+
+    // Initialize 45 bubble particles
+    const bubbleArray = [];
+    for (let i = 0; i < 45; i++) {
+        bubbleArray.push(new Bubble());
+    }
+
+    // Drawing animation loop
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+        bubbleArray.forEach(bubble => {
+            bubble.update();
+            bubble.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
+}
+
+/* 4. Magnetic Buttons Hover Physics */
+function initMagneticButtons() {
+    const magneticBtns = document.querySelectorAll('.btn-wrapper');
+    magneticBtns.forEach(btnWrapper => {
+        const btn = btnWrapper.querySelector('.btn');
+        if (!btn) return;
+
+        btnWrapper.addEventListener('mousemove', (e) => {
+            const rect = btnWrapper.getBoundingClientRect();
+            // Mouse distance from button center
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            // Translate the button wrapper towards cursor by 35%
+            btn.style.transform = `translate(${x * 0.35}px, ${y * 0.35}px)`;
+        });
+
+        btnWrapper.addEventListener('mouseleave', () => {
+            // Smoothly reset
+            btn.style.transform = 'translate(0px, 0px)';
+        });
+    });
+}
+
+/* 5. Circular Solutions Hub Specifications Selector */
+const solutionsData = {
+    'ceramic-uf': {
+        title: 'Silicon Carbide Ceramic Ultrafiltration (UF)',
+        description: 'Engineered for extreme performance and aggressive chemical loads. Utilizing flat-sheet silicon carbide membranes, this system delivers exceptional recovery rates, is highly oleophobic for oil-water separation, and cuts membrane operating expenses (OPEX) by over 50% through minimal fouling and thermal backwash resistance.',
+        specs: ['Over 50% OPEX savings', 'Oleophobic Oil-Water separation', 'Fully automated chemical-free backwash', 'Flat sheet high solid loading']
+    },
+    'desalination': {
+        title: 'Reverse Osmosis & Desalination (RO)',
+        description: 'Advanced membrane engineering for industrial wastewater recycling, greywater polishing, and seawater desalination. Designed to achieve zero-liquid-discharge (ZLD) boundaries, recycling contaminated chemical wash water and high-salinity discharge loops at low specific energy footprints.',
+        specs: ['ZLD compliance ready', '99.5% Salt rejection rate', 'Energy recovery turbine compatibility', 'Automated antiscalant dosing control']
+    },
+    'waterwall': {
+        title: 'WaterWall Building Water Management',
+        description: 'A wall-mounted, IoT-enabled building greywater recycling system. WaterWall recovers waste streams from washing basins, air-con condensates, and rainwater, processing it through combined ultrafiltration and Deep UVC LED systems for reuse in toilet flushing and local landscape irrigation.',
+        specs: ['Integrated IoT cloud tracking', 'Wall-mounted compact layout', 'Pathogen reduction > 99.999%', 'Treated greywater recycle ready']
+    },
+    'humanitarian': {
+        title: 'Humanitarian & Disaster Relief Suitcase',
+        description: 'Our award-winning, suitcase-sized portable ultrafiltration system. Weighing under 30kg and completely solar-powered, it delivers up to 500 liters/hour of safe drinking water from any freshwater source. Extensively deployed in flood and earthquake relief zones by the Red Cross.',
+        specs: ['Ultra-portable < 30kg packaging', 'Fully solar-compatible battery system', 'Chemical-free physical purification', 'Proven Red Cross field track record']
+    }
+};
+
+function initSolutionsHub() {
+    const nodes = document.querySelectorAll('.circular-node');
+    const specCard = document.querySelector('.circular-spec-card');
     
-    let currentSlide = 0;
-    const slideInterval = 5000; // 5 seconds
+    if (nodes.length === 0 || !specCard) return;
 
-    function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-    }
+    const titleEl = specCard.querySelector('h3');
+    const descEl = specCard.querySelector('p');
+    const specsList = specCard.querySelector('.shop-specs-list');
 
-    setInterval(nextSlide, slideInterval);
+    nodes.forEach(node => {
+        node.addEventListener('click', () => {
+            // Update active states
+            nodes.forEach(n => n.classList.remove('active'));
+            node.classList.add('active');
+
+            const id = node.dataset.id;
+            const data = solutionsData[id];
+            if (!data) return;
+
+            // Animate spec card content transition
+            specCard.style.opacity = 0;
+            specCard.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                titleEl.textContent = data.title;
+                descEl.textContent = data.description;
+                
+                specsList.innerHTML = '';
+                data.specs.forEach(spec => {
+                    const li = document.createElement('li');
+                    li.textContent = spec;
+                    specsList.appendChild(li);
+                });
+                
+                specCard.style.opacity = 1;
+                specCard.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    });
 }
 
-/* Projects & Track Record Database */
-const projectsData = [
+/* 6. Drag-to-Reveal Before/After Slider (Aquaculture Case Study) */
+function initBeforeAfterSlider() {
+    const slider = document.querySelector('.before-after-slider');
+    if (!slider) return;
+
+    const afterImage = slider.querySelector('.after-image');
+    const handle = slider.querySelector('.slider-handle');
+    let isDragging = false;
+
+    function moveSlider(clientX) {
+        const rect = slider.getBoundingClientRect();
+        // Calculate slider position between 0% and 100%
+        let position = ((clientX - rect.left) / rect.width) * 100;
+        
+        // Clamp boundaries
+        if (position < 0) position = 0;
+        if (position > 100) position = 100;
+        
+        afterImage.style.width = position + '%';
+        handle.style.left = position + '%';
+    }
+
+    // Touch and mouse click listeners
+    handle.addEventListener('mousedown', () => isDragging = true);
+    window.addEventListener('mouseup', () => isDragging = false);
+    
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        moveSlider(e.clientX);
+    });
+
+    // Touch events for mobile responsiveness
+    handle.addEventListener('touchstart', () => isDragging = true);
+    window.addEventListener('touchend', () => isDragging = false);
+    
+    slider.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        moveSlider(e.touches[0].clientX);
+    });
+
+    // Support clicking on the slider to slide directly
+    slider.addEventListener('click', (e) => {
+        if (e.target !== handle) {
+            moveSlider(e.clientX);
+        }
+    });
+}
+
+/* 7. Scroll-Triggered Reveal & Counter Animation Engine */
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    const counterElements = document.querySelectorAll('.stat-number, .hero-stat-number');
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    // Viewport Intersection Observer
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Stats Counter Animation Observer
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    counterElements.forEach(el => counterObserver.observe(el));
+}
+
+function animateCounter(counterEl) {
+    const text = counterEl.textContent.trim();
+    // Parse target number
+    const target = parseInt(text.replace(/[^0-9]/g, ''));
+    if (isNaN(target)) return;
+
+    const suffix = text.replace(/[0-9]/g, ''); // Keep '+', '%', '>'
+    let count = 0;
+    const duration = 1500; // 1.5 seconds
+    const intervalTime = Math.min(Math.ceil(duration / target), 30);
+    const step = Math.ceil(target / (duration / intervalTime));
+
+    const interval = setInterval(() => {
+        count += step;
+        if (count >= target) {
+            counterEl.textContent = target + suffix;
+            clearInterval(interval);
+        } else {
+            counterEl.textContent = count + suffix;
+        }
+    }, intervalTime);
+}
+
+/* 8. Portfolio Masonry Grid (Remaining Projects Database) */
+const portfolioData = [
     {
-        id: 'perak-river',
-        title: 'River Water Treatment System for Lembaga Air Perak',
-        client: 'Lembaga Air Perak (Perak Water Board)',
-        location: 'Kampung Perlop, Perak, Malaysia',
-        technology: 'Ultrafiltration (UF) Membrane Filtration',
-        capacity: '30 m³/hr (200,000 Liters/Day)',
-        category: 'municipal',
-        description: 'A custom-engineered river water treatment system designed to supply clean, potable water directly to the rural consumers in Kampung Perlop and surrounding areas. Sourced from the Sungei Siput River, this plant operates at a capacity of 30 m³/hr. It successfully reduces heavy river turbidity and bacterial contaminants using advanced ultrafiltration, ensuring a stable, safe water supply that meets public health and regulatory criteria.',
-        image: 'assets/slides/slide_12.png',
-        slidePage: 12
-    },
-    {
-        id: 'caas-pool',
-        title: 'Chlorine-Free Swimming Pool Filtration System',
-        client: 'Civil Aviation Authority Singapore (CAAS)',
-        location: 'Pilot Training Pool, Singapore',
-        technology: 'Chemical-Free Membrane Water Purification',
-        capacity: '100 m³/hr',
-        category: 'municipal',
-        description: 'A high-flow water treatment system installed at the Civil Aviation Authority Singapore pilot training pool. Operating at 100 m³/hr, this system eliminates the need for chemical chlorine dosing, utilizing physical membrane filtration to keep the pool sterile and clear. It requires only 1/3 of the physical footprint of common pool filtration setups, greatly minimizing maintenance overhead and chemical handling risks.',
-        image: 'assets/slides/slide_13.png',
-        slidePage: 13
-    },
-    {
-        id: 'rec-cooling-uf',
-        title: 'Ceramic Membrane UF System for Cooling Towers',
-        client: 'REC Solar',
-        location: 'Singapore',
-        technology: 'Silicon Carbide (SiC) Ceramic Ultrafiltration',
-        capacity: '20 m³/hr',
-        category: 'industrial',
-        description: 'An advanced ceramic membrane ultrafiltration system deployed to treat cooling tower blowdown. Designed for heavy industrial loads, this 20 m³/hr system utilizes silicon carbide ceramic membranes which provide exceptional flux rates, extreme thermal and chemical resilience, and a longer lifespan compared to polymer alternatives.',
-        image: 'assets/slides/slide_14.png',
-        slidePage: 14
-    },
-    {
-        id: 'chem-drum-recycle',
-        title: 'Combined UF & RO Industrial Water Recycling',
-        client: 'Industrial Chemical Drum Supplier',
-        location: 'Singapore',
-        technology: 'Combined Ultra-Filtration (UF) & Reverse Osmosis (RO)',
-        capacity: '1 m³/hr',
-        category: 'industrial',
-        description: 'A specialized water recycling solution designed to handle heavily contaminated wash water from chemical drum cleaning operations. By combining robust ultrafiltration with fine reverse osmosis membranes, this system removes chemical residues and organic compounds, permitting the factory to reuse wash water in a closed loop, lowering municipal water costs and wastewater discharge volumes.',
-        image: 'assets/slides/slide_15.png',
-        slidePage: 15
-    },
-    {
-        id: 'rec-blowdown-dboo',
         title: 'REC Cooling Tower Blowdown DBOO Project',
         client: 'REC Solar',
         location: 'Singapore',
         technology: 'Design-Build-Own-Operate (DBOO) / Water-as-a-Service',
         capacity: 'Up to 40 m³/hr (24/7)',
         category: 'industrial',
-        description: 'A full-scale commercial Design-Build-Own-Operate project delivering processed, recycled water to REC Solar as a utility service. Operating 24/7 with a capacity of up to 40 m³/hr under a 5+5 year contract, this containerized, highly automated system recycles cooling tower blowdown water directly, offering immediate operational savings at a competitive rate of $1.35/m³ without client capital expenditure.',
+        description: 'A commercial Design-Build-Own-Operate project delivering processed, recycled water to REC Solar as a utility service. Operating 24/7 with a capacity of up to 40 m³/hr under a 5+5 year contract, this containerized, highly automated system recycles cooling tower blowdown water directly, offering immediate operational savings at a competitive rate of $1.35/m³ without client capital expenditure.',
         image: 'assets/slides/slide_16.png',
         slidePage: 16
     },
     {
-        id: 'alcon-wastewater',
         title: 'Alcon Wastewater Treatment System',
         client: 'Alcon',
         location: 'Singapore',
@@ -177,7 +395,17 @@ const projectsData = [
         slidePage: 17
     },
     {
-        id: 'pipe-cleaning-offshore',
+        title: 'Chemical Wash Combined UF & RO Water Recycling',
+        client: 'Industrial Chemical Drum Supplier',
+        location: 'Singapore',
+        technology: 'Combined Ultra-Filtration (UF) & Reverse Osmosis (RO)',
+        capacity: '1 m³/hr',
+        category: 'industrial',
+        description: 'A specialized water recycling solution designed to handle heavily contaminated wash water from chemical drum cleaning operations. By combining robust ultrafiltration with fine reverse osmosis membranes, this system removes chemical residues and organic compounds, permitting the factory to reuse wash water in a closed loop, lowering municipal water costs and wastewater discharge volumes.',
+        image: 'assets/slides/slide_15.png',
+        slidePage: 15
+    },
+    {
         title: 'Containerized Wastewater System for Offshore Pipe Cleaning',
         client: 'Offshore & Marine Engineering Services',
         location: 'Singapore / Offshore',
@@ -189,7 +417,6 @@ const projectsData = [
         slidePage: 18
     },
     {
-        id: 'oil-water-separation',
         title: 'Industrial Oil-Water Separation System',
         client: 'Marine & Offshore Operators, Mining & F&B Industries',
         location: 'Asia-Pacific Region',
@@ -201,7 +428,6 @@ const projectsData = [
         slidePage: 19
     },
     {
-        id: 'rice-water-recycling',
         title: 'Starchy Wastewater Rice Water Recycling System',
         client: 'Rice Noodle Manufacturing Factory',
         location: 'Southeast Asia',
@@ -213,7 +439,6 @@ const projectsData = [
         slidePage: 20
     },
     {
-        id: 'algae-harvester',
         title: 'Compact Microalgae Harvester & Water Clarifier',
         client: 'Bioenergy Developers & Aquaculture Farms',
         location: 'Southeast Asia',
@@ -225,19 +450,6 @@ const projectsData = [
         slidePage: 21
     },
     {
-        id: 'singapore-zoo-aquaculture',
-        title: 'Aquaculture Water Treatment for River Safari',
-        client: 'Singapore Zoo (Wildlife Reserves Singapore)',
-        location: 'River Safari, Singapore',
-        technology: 'Compact Recirculating Aquaculture System (RAS)',
-        capacity: '1 m³/hr',
-        category: 'municipal',
-        description: 'A specialized water purification system installed at the Singapore Zoo\'s River Safari. Unlike conventional, bulky sand filters that require substantial space, backwash water volumes, and frequent manual replacement, this compact membrane-based system removes fish excrement, bacteria, and algae at 1 m³/hr, keeping aquariums clean while saving water and labor.',
-        image: 'assets/slides/slide_22.png',
-        slidePage: 22
-    },
-    {
-        id: 'oman-fishmeal',
         title: 'Ultrafiltration System at Oman Fishmeal Plant',
         client: 'Fishmeal Manufacturing Facility',
         location: 'Oman',
@@ -249,7 +461,6 @@ const projectsData = [
         slidePage: 23
     },
     {
-        id: 'mining-tailings-recovery',
         title: 'Compact Wastewater Recovery for Mining Tailings',
         client: 'Coal Handling & Ore Extraction Mines',
         location: 'Southeast Asia',
@@ -261,7 +472,6 @@ const projectsData = [
         slidePage: 24
     },
     {
-        id: 'aerospace-solvent',
         title: 'Ceramic Membrane Solvent Recovery System',
         client: 'Aerospace Engineering Facility',
         location: 'Singapore',
@@ -273,7 +483,6 @@ const projectsData = [
         slidePage: 25
     },
     {
-        id: 'rio-tinto-drinking',
         title: 'Potable Drinking Water System for Rio Tinto',
         client: 'Rio Tinto Mining Operations',
         location: 'Remote Mining Site',
@@ -285,31 +494,6 @@ const projectsData = [
         slidePage: 26
     },
     {
-        id: 'waterwall-system',
-        title: 'WaterWall Building Water Management & Recycling',
-        client: 'Commercial & Residential Buildings',
-        location: 'Singapore',
-        technology: 'Ultrafiltration & Deep UVC Disinfection',
-        capacity: 'Custom Scalable',
-        category: 'specialized',
-        description: 'The WaterWall is a wall-mounted greywater recycling system designed for modern buildings. It captures and treats greywater, washbasin runoff, and air-con condensate using ultrafiltration and physical Deep UVC sterilization. The treated water is recycled for toilet flushing and garden irrigation, monitored in real-time via integrated IoT sensors.',
-        image: 'assets/slides/slide_27.png',
-        slidePage: 27
-    },
-    {
-        id: 'humanitarian-suitcase',
-        title: 'Suitcase-Sized Portable Ultrafiltration System',
-        client: 'Red Cross, International NGOs & Emergency Relief Units',
-        location: 'Global Deployments (Laos, Indonesia, India, Myanmar, Philippines)',
-        technology: 'Solar-Powered Mobile Ceramic Ultrafiltration',
-        capacity: '500 Liters/Hour',
-        category: 'humanitarian',
-        description: 'An award-winning, ultra-portable water purification system housed in a rugged suitcase. Weighing under 30kg and fully solar-compatible, it filters mud, suspended solids, bacteria, and virus pathogens using advanced ceramic membranes and Deep UVC without chemical additions. Widely deployed during major disaster relief operations by the Red Cross and NGOs.',
-        image: 'assets/slides/slide_29.png',
-        slidePage: 29
-    },
-    {
-        id: 'grahamtek-ro',
         title: 'Collaboration with GrahamTek Nuwater on 16" RO System',
         client: 'GrahamTek Nuwater Joint Collaboration',
         location: 'Southeast Asia',
@@ -322,15 +506,14 @@ const projectsData = [
     }
 ];
 
-function initProjects() {
-    const grid = document.querySelector('.projects-grid');
+function initPortfolioGrid() {
+    const grid = document.querySelector('.portfolio-grid');
     const filterContainer = document.querySelector('.filter-container');
     const modal = document.querySelector('.modal-overlay');
     
     if (!grid || !filterContainer || !modal) return;
 
-    // Render Cards
-    function renderCards(filteredData) {
+    function renderGrid(filteredData) {
         grid.innerHTML = '';
         if (filteredData.length === 0) {
             grid.innerHTML = '<div class="no-projects" style="grid-column: 1/-1; text-align: center; padding: 3rem;">No projects found in this category.</div>';
@@ -339,55 +522,35 @@ function initProjects() {
 
         filteredData.forEach(project => {
             const card = document.createElement('div');
-            card.className = 'project-card glass-card';
-            card.dataset.id = project.id;
-            
-            // Format category name for badge
-            const badgeText = project.category.charAt(0).toUpperCase() + project.category.slice(1);
-
+            card.className = 'portfolio-card';
             card.innerHTML = `
-                <div class="project-img-wrapper">
-                    <img src="${project.image}" alt="${project.title}" loading="lazy">
-                    <span class="project-badge">${badgeText}</span>
-                </div>
-                <div class="project-info">
-                    <h3>${project.title}</h3>
-                    <div class="project-meta-list">
-                        <div class="project-meta-item">
-                            <span>Client:</span>
-                            <span>${project.client.split(' (')[0]}</span>
-                        </div>
-                        <div class="project-meta-item">
-                            <span>Capacity:</span>
-                            <span>${project.capacity.split(' (')[0]}</span>
-                        </div>
-                    </div>
+                <img src="${project.image}" alt="${project.title}" loading="lazy">
+                <div class="portfolio-card-overlay">
+                    <span>${project.category.toUpperCase()}</span>
+                    <h4>${project.title}</h4>
                 </div>
             `;
-
             card.addEventListener('click', () => openProjectModal(project));
             grid.appendChild(card);
         });
     }
 
-    // Initial render of all projects
-    renderCards(projectsData);
+    renderGrid(portfolioData);
 
     // Filter Logic
     filterContainer.addEventListener('click', (e) => {
         if (!e.target.classList.contains('filter-btn')) return;
 
-        // Update active class
         filterContainer.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active');
 
         const category = e.target.dataset.filter;
         
         if (category === 'all') {
-            renderCards(projectsData);
+            renderGrid(portfolioData);
         } else {
-            const filtered = projectsData.filter(p => p.category === category);
-            renderCards(filtered);
+            const filtered = portfolioData.filter(p => p.category === category);
+            renderGrid(filtered);
         }
     });
 
@@ -400,7 +563,6 @@ function initProjects() {
         if (e.target === modal) closeModal();
     });
 
-    // ESC Key to close modal
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
             closeModal();
@@ -417,16 +579,13 @@ function openProjectModal(project) {
     const modalBadge = modal.querySelector('.modal-badge');
     const modalDesc = modal.querySelector('.modal-description');
     
-    // Set text elements
     modalTitle.textContent = project.title;
     modalBadge.textContent = project.category.toUpperCase();
     modalDesc.textContent = project.description;
     
-    // Set slide/hero image
     modalImg.src = project.image;
     modalImg.alt = project.title;
 
-    // Set specifications table
     const specsList = modal.querySelector('.modal-specs-list');
     specsList.innerHTML = `
         <li class="modal-spec-item">
@@ -451,9 +610,8 @@ function openProjectModal(project) {
         </li>
     `;
 
-    // Show modal
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Lock background scroll
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal() {
@@ -461,50 +619,48 @@ function closeModal() {
     if (!modal) return;
     
     modal.classList.remove('active');
-    document.body.style.overflow = ''; // Unlock scroll
+    document.body.style.overflow = '';
 }
 
-/* Enquiry Form Submission Handling */
-function initEnquiryForm() {
-    const form = document.getElementById('enquiry-form');
-    if (!form) return;
+/* 9. Mobile Navigation Menu */
+function initMobileNav() {
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const header = document.querySelector('header');
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (!navToggle || !navMenu) return;
 
-        // Perform simple validation check
-        const name = form.querySelector('#name').value.trim();
-        const email = form.querySelector('#email').value.trim();
-        const message = form.querySelector('#message').value.trim();
-
-        if (!name || !email || !message) {
-            alert('Please fill out all required fields.');
-            return;
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        if (navMenu.classList.contains('active')) {
+            navToggle.textContent = '✕';
+            header.style.background = 'rgba(2, 8, 19, 0.98)';
+        } else {
+            navToggle.textContent = '☰';
+            if (window.scrollY <= 50) {
+                header.style.background = 'transparent';
+            }
         }
+    });
 
-        // Show a loading/submitting state on the button
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Sending Enquiry...';
+    // Close menu on link click
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.textContent = '☰';
+        });
+    });
 
-        // Mock API dispatch
-        setTimeout(() => {
-            submitBtn.innerHTML = 'Enquiry Sent Successfully ✓';
-            submitBtn.style.background = 'linear-gradient(135deg, #059669 0%, #10b981 100%)'; // Success Green
-
-            // Success feedback popup
-            alert(`Thank you, ${name}! Your water technology enquiry has been received. Our engineering team will contact you shortly.`);
-
-            // Reset form elements
-            form.reset();
-            
-            // Re-enable button after cooldown
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalText;
-                submitBtn.style.background = ''; // Revert to stylesheet default
-            }, 3000);
-        }, 1500);
+    // Sticky header background transition
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+            header.style.background = '';
+        } else {
+            header.classList.remove('scrolled');
+            if (!navMenu.classList.contains('active')) {
+                header.style.background = 'transparent';
+            }
+        }
     });
 }
