@@ -331,12 +331,27 @@
         </div>
     </section>
 
-    <!-- Clean Partners Placeholder Section -->
-    <section class="partners-placeholder">
+    <!-- 6. Partners Grid Section (Redesigned from scratch) -->
+    <section class="partners-grid-section">
         <div class="container">
-            <div class="partners-placeholder-card glass-card reveal-on-scroll">
-                <h3>Trusted Partners</h3>
-                <p>Official partner logos will be added in the next revision.</p>
+            <div class="section-header reveal-on-scroll" style="text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 5rem;">
+                <span class="section-subtitle" style="justify-content: center;">Global Network</span>
+                <h2>Trusted Partners & Clients</h2>
+                <p style="margin-top: 1rem; color: var(--color-text-muted);">Industrial enterprises, municipal bodies, and engineering partners using Liquinex solutions worldwide.</p>
+            </div>
+
+            <!-- Interactive Filters -->
+            <div class="partners-filter-bar reveal-on-scroll">
+                <button class="partners-filter-btn active" data-filter="all">All Partners</button>
+                <button class="partners-filter-btn" data-filter="municipal">Government & Municipal</button>
+                <button class="partners-filter-btn" data-filter="industrial">Industrial & Manufacturing</button>
+                <button class="partners-filter-btn" data-filter="marine">Marine & Offshore</button>
+                <button class="partners-filter-btn" data-filter="resources">Resources & Food</button>
+            </div>
+
+            <!-- Interactive Grid -->
+            <div class="partners-interactive-grid reveal-on-scroll">
+                <!-- Dynamically populated by app.js -->
             </div>
         </div>
     </section>

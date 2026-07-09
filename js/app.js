@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSolutionsHub();
     initScrollReveal();
     initCaseStudyDashboard();
+    initPartnersGrid();
     initMobileNav();
     initModalDrawer();
     initShopBrochure();
@@ -734,3 +735,56 @@ function initShopBrochure() {
         document.body.removeChild(link);
     });
 }
+
+/* 13. Redesigned Interactive Partners Grid Controller */
+const partnersData = [
+    { name: 'Civil Aviation Authority of Singapore (CAAS)', logo: 'assets/logos/logo_1.png', category: 'municipal', relation: 'Changi Airport Pool Filtration' },
+    { name: 'REC Solar', logo: 'assets/logos/logo_2.png', category: 'industrial', relation: 'Tuas DBOO Recycle Plant' },
+    { name: 'GWT (GrahamTek)', logo: 'assets/logos/logo_4.png', category: 'marine', relation: '16" RO Membrane Partner' },
+    { name: 'Western Digital', logo: 'assets/logos/logo_6.png', category: 'industrial', relation: 'Electronics Clean Room Water' },
+    { name: 'Alcon', logo: 'assets/logos/logo_8.png', category: 'industrial', relation: 'Lens Effluent Treatment Skid' },
+    { name: 'Royal HaskoningDHV', logo: 'assets/logos/logo_9.png', category: 'municipal', relation: 'Engineering Design Consultant' },
+    { name: 'Rio Tinto', logo: 'assets/logos/logo_10.png', category: 'resources', relation: 'Mining Site Potable UF System' },
+    { name: 'Lembaga Air Perak', logo: 'assets/logos/logo_12.png', category: 'municipal', relation: 'Siput River Potable Station' },
+    { name: 'AMOS', logo: 'assets/logos/logo_13.png', category: 'marine', relation: 'Offshore Vessel Filtration' },
+    { name: 'Hitachi', logo: 'assets/logos/logo_14.png', category: 'industrial', relation: 'High-Tech Coolant Recycling' },
+    { name: 'NSL OilChem', logo: 'assets/logos/logo_16.png', category: 'marine', relation: 'Bilge Water separation skid' },
+    { name: 'Abbott', logo: 'assets/logos/logo_17.png', category: 'industrial', relation: 'Pharma-Grade UF Filtration' },
+    { name: 'Yong Mei', logo: 'assets/logos/logo_22.png', category: 'industrial', relation: 'Process Water Pre-Treatment' },
+    { name: 'Janatha', logo: 'assets/logos/logo_25.png', category: 'resources', relation: 'Fishmeal Condensate Recovery' },
+    { name: 'JB Shipping', logo: 'assets/logos/logo_26.png', category: 'marine', relation: 'Scrubber Wastewater Treatment' },
+    { name: 'Singapore Zoo', logo: 'assets/logos/logo_28.png', category: 'municipal', relation: 'River Safari RAS Loop' }
+];
+
+function initPartnersGrid() {
+    renderPartnersGrid('all');
+    const btns = document.querySelectorAll('.partners-filter-btn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderPartnersGrid(btn.dataset.filter);
+        });
+    });
+}
+
+function renderPartnersGrid(filter = 'all') {
+    const grid = document.querySelector('.partners-interactive-grid');
+    if (!grid) return;
+    grid.innerHTML = '';
+    const filtered = filter === 'all' ? partnersData : partnersData.filter(p => p.category === filter);
+    filtered.forEach(partner => {
+        const card = document.createElement('div');
+        card.className = 'partner-card';
+        card.innerHTML = `
+            <div class="partner-logo-container">
+                <img src="${partner.logo}" alt="${partner.name}">
+            </div>
+            <div class="partner-tooltip">
+                <span>${partner.relation}</span>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
