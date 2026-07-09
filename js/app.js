@@ -738,22 +738,22 @@ function initShopBrochure() {
 
 /* 13. Redesigned Interactive Partners Grid Controller */
 const partnersData = [
-    { name: 'Civil Aviation Authority of Singapore (CAAS)', logo: 'assets/logos/logo_1.png', category: 'municipal', relation: 'Changi Airport Pool Filtration' },
-    { name: 'REC Solar', logo: 'assets/logos/logo_2.png', category: 'industrial', relation: 'Tuas DBOO Recycle Plant' },
-    { name: 'GWT (GrahamTek)', logo: 'assets/logos/logo_4.png', category: 'marine', relation: '16" RO Membrane Partner' },
-    { name: 'Western Digital', logo: 'assets/logos/logo_6.png', category: 'industrial', relation: 'Electronics Clean Room Water' },
-    { name: 'Alcon', logo: 'assets/logos/logo_8.png', category: 'industrial', relation: 'Lens Effluent Treatment Skid' },
-    { name: 'Royal HaskoningDHV', logo: 'assets/logos/logo_9.png', category: 'municipal', relation: 'Engineering Design Consultant' },
-    { name: 'Rio Tinto', logo: 'assets/logos/logo_10.png', category: 'resources', relation: 'Mining Site Potable UF System' },
-    { name: 'Lembaga Air Perak', logo: 'assets/logos/logo_12.png', category: 'municipal', relation: 'Siput River Potable Station' },
-    { name: 'AMOS', logo: 'assets/logos/logo_13.png', category: 'marine', relation: 'Offshore Vessel Filtration' },
-    { name: 'Hitachi', logo: 'assets/logos/logo_14.png', category: 'industrial', relation: 'High-Tech Coolant Recycling' },
-    { name: 'NSL OilChem', logo: 'assets/logos/logo_16.png', category: 'marine', relation: 'Bilge Water separation skid' },
-    { name: 'Abbott', logo: 'assets/logos/logo_17.png', category: 'industrial', relation: 'Pharma-Grade UF Filtration' },
-    { name: 'Yong Mei', logo: 'assets/logos/logo_22.png', category: 'industrial', relation: 'Process Water Pre-Treatment' },
-    { name: 'Janatha', logo: 'assets/logos/logo_25.png', category: 'resources', relation: 'Fishmeal Condensate Recovery' },
-    { name: 'JB Shipping', logo: 'assets/logos/logo_26.png', category: 'marine', relation: 'Scrubber Wastewater Treatment' },
-    { name: 'Singapore Zoo', logo: 'assets/logos/logo_28.png', category: 'municipal', relation: 'River Safari RAS Loop' }
+    { name: 'Civil Aviation Authority of Singapore (CAAS)', logo: 'assets/logos/caas.png', category: 'municipal', relation: 'Changi Airport Pool Filtration' },
+    { name: 'REC Solar', logo: 'assets/logos/rec.png', category: 'industrial', relation: 'Tuas DBOO Recycle Plant' },
+    { name: 'GWT (GrahamTek)', logo: 'assets/logos/gwt.png', category: 'marine', relation: '16" RO Membrane Partner' },
+    { name: 'Western Digital', logo: 'assets/logos/wd.png', category: 'industrial', relation: 'Electronics Clean Room Water' },
+    { name: 'Alcon', logo: 'assets/logos/alcon.png', category: 'industrial', relation: 'Lens Effluent Treatment Skid' },
+    { name: 'Royal HaskoningDHV', logo: 'assets/logos/haskoning.png', category: 'municipal', relation: 'Engineering Design Consultant' },
+    { name: 'Rio Tinto', logo: 'assets/logos/riotinto.png', category: 'resources', relation: 'Mining Site Potable UF System' },
+    { name: 'Lembaga Air Perak', logo: 'assets/logos/perak.png', category: 'municipal', relation: 'Siput River Potable Station' },
+    { name: 'AMOS', logo: 'assets/logos/amos.png', category: 'marine', relation: 'Offshore Vessel Filtration' },
+    { name: 'Hitachi', logo: 'assets/logos/hitachi.png', category: 'industrial', relation: 'High-Tech Coolant Recycling' },
+    { name: 'NSL OilChem', logo: 'assets/logos/nsl.png', category: 'marine', relation: 'Bilge Water separation skid' },
+    { name: 'Abbott', logo: 'assets/logos/abbott.png', category: 'industrial', relation: 'Pharma-Grade UF Filtration' },
+    { name: 'Yong Mei', logo: 'assets/logos/yongmei.png', category: 'industrial', relation: 'Process Water Pre-Treatment' },
+    { name: 'Janatha', logo: 'assets/logos/janatha.png', category: 'resources', relation: 'Fishmeal Condensate Recovery' },
+    { name: 'JB Shipping', logo: 'assets/logos/jb.png', category: 'marine', relation: 'Scrubber Wastewater Treatment' },
+    { name: 'Singapore Zoo', logo: 'assets/logos/zoo.png', category: 'municipal', relation: 'River Safari RAS Loop' }
 ];
 
 function initPartnersGrid() {
