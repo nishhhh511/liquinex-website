@@ -464,6 +464,42 @@ header .nav-item a::after {
     font-weight: 700;
 }
 
+/* Video Background container styling */
+.video-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.video-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.16; /* Soft blending with background */
+    transition: opacity 0.5s ease;
+}
+
+.video-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(6, 28, 48, 0.15) 0%, rgba(6, 28, 48, 0.75) 100%);
+    z-index: 2;
+}
+
+/* Ensure header contents sit above the background video */
+.hero .container, .subpage-header .container {
+    position: relative;
+    z-index: 10;
+}
+
 /* Subpage Header Banner */
 .subpage-header {
     background-color: var(--color-bg-navy);
