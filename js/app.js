@@ -80,7 +80,7 @@ function initCustomCursor() {
     });
 }
 
-/* 3. Canvas Bubbles Particle system with cursor repulsion */
+/* 3. 3D Rotating Molecular Sphere system with cursor perspective tracking */
 function initCanvasParticles() {
     const canvas = document.getElementById('hero-canvas');
     if (!canvas) return;
@@ -94,85 +94,107 @@ function initCanvasParticles() {
         height = canvas.height = canvas.offsetHeight;
     });
     
-    const particles = [];
-    const maxParticles = 65;
+    const points = [];
+    const numPoints = 85;
+    const sphereRadius = Math.min(width, height) * 0.28;
     
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = height + Math.random() * 100;
-            this.radius = Math.random() * 6 + 2;
-            this.speedX = Math.random() * 0.6 - 0.3;
-            this.speedY = -(Math.random() * 0.8 + 0.3);
-            this.alpha = Math.random() * 0.4 + 0.1;
-        }
-        update(mouseX, mouseY) {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            
-            // Cursor repulsion
-            if (mouseX !== undefined && mouseY !== undefined) {
-                const dx = this.x - mouseX;
-                const dy = this.y - mouseY;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 120) {
-                    const force = (120 - dist) / 120;
-                    this.x += (dx / dist) * force * 5;
-                    this.y += (dy / dist) * force * 5;
-                }
-            }
-            
-            // Reset particle when it floats past screen top
-            if (this.y < -20) {
-                this.y = height + 20;
-                this.x = Math.random() * width;
-                this.speedY = -(Math.random() * 0.8 + 0.3);
-            }
-        }
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(0, 184, 217, ${this.alpha})`;
-            ctx.fill();
-        }
+    for (let i = 0; i < numPoints; i++) {
+        const theta = Math.acos(Math.random() * 2 - 1);
+        const phi = Math.random() * Math.PI * 2;
+        
+        points.push({
+            x: sphereRadius * Math.sin(theta) * Math.cos(phi),
+            y: sphereRadius * Math.sin(theta) * Math.sin(phi),
+            z: sphereRadius * Math.cos(theta)
+        });
     }
     
-    for (let i = 0; i < maxParticles; i++) {
-        particles.push(new Particle());
-    }
+    let rotationX = 0.002;
+    let rotationY = 0.003;
+    let mouseX = 0;
+    let mouseY = 0;
     
-    let cursorMouseX, cursorMouseY;
     window.addEventListener('mousemove', (e) => {
         const rect = canvas.getBoundingClientRect();
-        cursorMouseX = e.clientX - rect.left;
-        cursorMouseY = e.clientY - rect.top;
+        mouseX = e.clientX - rect.left - width / 2;
+        mouseY = e.clientY - rect.top - height / 2;
+        rotationY = mouseX * 0.00002;
+        rotationX = mouseY * 0.00002;
     });
+    
+    function rotateX3D(p, angle) {
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const y = p.y * cos - p.z * sin;
+        const z = p.y * sin + p.z * cos;
+        p.y = y;
+        p.z = z;
+    }
+    
+    function rotateY3D(p, angle) {
+        const cos = Math.cos(angle);
+        const sin = Math.sin(angle);
+        const x = p.x * cos + p.z * sin;
+        const z = -p.x * sin + p.z * cos;
+        p.x = x;
+        p.z = z;
+    }
+    
+    const focalLength = 400;
     
     function loop() {
         ctx.clearRect(0, 0, width, height);
         
-        // Draw molecular lines between close bubbles
-        for (let i = 0; i < particles.length; i++) {
-            const p1 = particles[i];
-            p1.update(cursorMouseX, cursorMouseY);
-            p1.draw();
+        const centerX = width / 2;
+        const centerY = height / 2;
+        
+        points.forEach(p => {
+            rotateX3D(p, rotationX + 0.0005);
+            rotateY3D(p, rotationY + 0.0008);
+        });
+        
+        ctx.strokeStyle = 'rgba(0, 184, 217, 0.06)';
+        ctx.lineWidth = 0.8;
+        
+        for (let i = 0; i < points.length; i++) {
+            const p1 = points[i];
+            const scale1 = focalLength / (focalLength + p1.z);
+            const x1 = centerX + p1.x * scale1;
+            const y1 = centerY + p1.y * scale1;
             
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
+            for (let j = i + 1; j < points.length; j++) {
+                const p2 = points[j];
                 const dx = p1.x - p2.x;
                 const dy = p1.y - p2.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < 90) {
+                const dz = p1.z - p2.z;
+                const dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
+                
+                if (dist < sphereRadius * 0.72) {
+                    const scale2 = focalLength / (focalLength + p2.z);
+                    const x2 = centerX + p2.x * scale2;
+                    const y2 = centerY + p2.y * scale2;
+                    
                     ctx.beginPath();
-                    ctx.moveTo(p1.x, p1.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    const lineAlpha = (1 - (dist / 90)) * 0.15;
-                    ctx.strokeStyle = `rgba(0, 184, 217, ${lineAlpha})`;
-                    ctx.lineWidth = 1;
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    const alpha = (1 - dist / (sphereRadius * 0.72)) * 0.14 * scale1;
+                    ctx.strokeStyle = `rgba(0, 184, 217, ${alpha})`;
                     ctx.stroke();
                 }
             }
         }
+        
+        points.forEach(p => {
+            const scale = focalLength / (focalLength + p.z);
+            const x = centerX + p.x * scale;
+            const y = centerY + p.y * scale;
+            
+            ctx.beginPath();
+            ctx.arc(x, y, 2.8 * scale, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 184, 217, ${0.35 * scale})`;
+            ctx.fill();
+        });
+        
         requestAnimationFrame(loop);
     }
     loop();

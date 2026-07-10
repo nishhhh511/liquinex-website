@@ -38,11 +38,30 @@
     --transition-slow: 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Advanced 3D Tilt Card Transformations */
+/* Advanced 3D Tilt Card Transformations with Inner Depth Parallax */
 .story-card, .partner-logo-card, .featured-press-card, .press-feed-item, .solution-detail-card, .milestone-card, .spec-card {
     transform-style: preserve-3d;
     transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
     transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+}
+
+/* Translate children of the 3D cards along Z-axis on hover */
+.story-card:hover h4, .featured-press-card:hover h4, .solution-detail-card:hover h3, .milestone-card:hover h3, .spec-card:hover h4 {
+    transform: translateZ(45px);
+}
+.story-card:hover p, .featured-press-card:hover p, .solution-detail-card:hover p, .milestone-card:hover p, .spec-card:hover p {
+    transform: translateZ(25px);
+}
+.story-card:hover .story-card-icon, .featured-press-card:hover .featured-press-img, .solution-detail-card:hover .solution-icon-wrapper, .spec-card:hover .spec-card-icon {
+    transform: translateZ(60px);
+}
+/* Add transitions to all card children for smooth translateZ */
+.story-card h4, .story-card p, .story-card .story-card-icon,
+.featured-press-card h4, .featured-press-card p, .featured-press-card .featured-press-img,
+.solution-detail-card h3, .solution-detail-card p, .solution-detail-card .solution-icon-wrapper,
+.milestone-card h3, .milestone-card p,
+.spec-card h4, .spec-card p, .spec-card .spec-card-icon {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Reset & Scrollbar */
@@ -2113,15 +2132,17 @@ footer a:hover {
 }
 
 /* Scroll reveals */
+/* Scroll reveals with 3D perspective panels entry */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(35px);
+    transform: perspective(1200px) rotateX(12deg) translateY(45px);
     transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center top;
 }
 
 .reveal-on-scroll.revealed {
     opacity: 1;
-    transform: translateY(0);
+    transform: perspective(1200px) rotateX(0deg) translateY(0);
 }
 
 /* Responsive Media Queries overrides */
