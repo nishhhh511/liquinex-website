@@ -2308,3 +2308,404 @@ footer a:hover {
     top: 60%;
     font-size: 11vw;
 }
+
+/* Glassmorphic Custom Contact Section Layout */
+#enquiry {
+    background: url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1600') no-repeat center center;
+    background-size: cover;
+    padding: 10rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+#enquiry::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(244, 249, 253, 0.45);
+    z-index: 1;
+}
+
+#enquiry .container {
+    z-index: 5;
+    position: relative;
+}
+
+.custom-contact-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2.5rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 28px;
+    padding: 3rem;
+    box-shadow: 0 25px 55px rgba(15, 94, 156, 0.08);
+}
+
+.custom-contact-form-side {
+    padding-right: 1.5rem;
+}
+
+.custom-contact-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #061c30;
+    margin-bottom: 0.5rem;
+    font-family: 'Manrope', sans-serif;
+}
+
+.custom-contact-subtitle {
+    font-size: 1.1rem;
+    color: #475569;
+    margin-bottom: 1.5rem;
+}
+
+.custom-contact-subtitle .highlight-text {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.custom-contact-wave {
+    margin-bottom: 2.5rem;
+}
+
+.custom-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.custom-form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.custom-form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.form-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+}
+
+.custom-form-control {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(42, 127, 186, 0.15);
+    border-radius: 12px;
+    padding: 0.9rem 1.2rem;
+    font-size: 0.95rem;
+    color: #0f172a;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+.custom-form-control:focus {
+    background: #ffffff;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(42, 127, 186, 0.12);
+}
+
+.custom-phone-wrapper {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.custom-country-code {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(42, 127, 186, 0.15);
+    border-radius: 12px;
+    padding: 0 0.85rem;
+    font-size: 0.95rem;
+    color: #334155;
+    cursor: pointer;
+    user-select: none;
+}
+
+.phone-input {
+    flex: 1;
+}
+
+.custom-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.custom-pills-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+}
+
+.custom-pill {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(42, 127, 186, 0.15);
+    border-radius: 20px;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.custom-pill:hover {
+    background: rgba(42, 127, 186, 0.05);
+    border-color: var(--color-primary);
+}
+
+.custom-pill.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(42, 127, 186, 0.25);
+}
+
+.custom-submit-btn-wrapper {
+    margin-top: 2rem;
+}
+
+.custom-submit-btn {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 1.1rem 2.5rem;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 8px 25px rgba(42, 127, 186, 0.3);
+    transition: all 0.3s ease;
+}
+
+.custom-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(42, 127, 186, 0.45);
+}
+
+.btn-paper-plane {
+    font-size: 1.1rem;
+}
+
+/* Right Info Side Glass Card */
+.custom-contact-info-side {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: inset 0 0 15px rgba(255,255,255,0.2);
+}
+
+.info-splash-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(42, 127, 186, 0.1);
+}
+
+.headset-badge {
+    background: #ffffff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 8px 20px rgba(15, 94, 156, 0.08);
+}
+
+.info-header-text h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #061c30;
+    margin-bottom: 0.2rem;
+}
+
+.info-header-text p {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.4;
+}
+
+.info-detail-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.info-detail-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.info-row-icon {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-top: 0.2rem;
+}
+
+.info-row-cols {
+    display: flex;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.info-row-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.info-row-col-full {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.col-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.col-subtext {
+    font-size: 0.85rem;
+    color: #475569;
+    margin-bottom: 0.75rem;
+}
+
+.col-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #061c30;
+}
+
+.col-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.col-value a:hover {
+    color: var(--color-primary);
+}
+
+.phone-numbers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.phone-number-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.phone-number-item.border-left {
+    border-left: 1px solid rgba(42, 127, 186, 0.15);
+    padding-left: 1rem;
+}
+
+.country-name {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-bottom: 0.15rem;
+}
+
+.number-val {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #061c30;
+}
+
+.number-val a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.address-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #334155;
+    font-weight: 500;
+}
+
+.info-map-snippet {
+    height: 150px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 25px rgba(15, 94, 156, 0.05);
+}
+
+.open-maps-pill {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 0.5rem 1.1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #061c30;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.open-maps-pill:hover {
+    transform: translateX(-50%) translateY(-1px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: var(--color-bg-dark);
+}
+
+@media (max-width: 968px) {
+    .custom-contact-container {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+    }
+    .custom-contact-form-side {
+        padding-right: 0;
+    }
+}

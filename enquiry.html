@@ -58,75 +58,148 @@
     </div>
 
     <!-- Enquiry Contact Grid Section -->
-    <section id="enquiry" style="background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-dark) 100%);">
+    <section id="enquiry">
         <div class="container">
-            <div class="enquiry-grid">
-                <!-- Left details & direct contacts -->
-                <div class="enquiry-details-column reveal-on-scroll">
-                    <span class="section-subtitle">Consultation</span>
-                    <h3 style="font-size: 2.2rem; margin-bottom: 2rem;">Application Laboratory</h3>
-                    <p style="color: var(--color-text-secondary); font-size: 1.05rem;">Submit water sample analysis logs and system load requirements. Our Singapore laboratory will draft process flow blueprints and membrane selection matrices.</p>
+            <div class="custom-contact-container reveal-on-scroll">
+                <!-- Left: Form -->
+                <div class="custom-contact-form-side">
+                    <h2 class="custom-contact-title">Contact Us</h2>
+                    <p class="custom-contact-subtitle">Let's build a <span class="highlight-text">cleaner, sustainable future</span> together.</p>
+                    <div class="custom-contact-wave">
+                        <svg width="40" height="8" viewBox="0 0 40 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 4 C 10 0, 10 8, 20 4 C 30 0, 30 8, 39 4" stroke="#00b8d9" stroke-width="2" stroke-linecap="round" fill="none"/>
+                        </svg>
+                    </div>
                     
-                    <div class="enquiry-methods">
-                        <div class="enquiry-method-card">
-                            <div class="enquiry-method-icon">📍</div>
-                            <div class="enquiry-method-details">
-                                <h4>Headquarters Office</h4>
-                                <p>2021 Bukit Batok St23 #04-224, Singapore 659526</p>
+                    <form id="custom-contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent to the Liquinex engineering team.');">
+                        <div class="custom-form-row">
+                            <div class="custom-form-group">
+                                <label><span class="form-icon">👤</span> Full Name</label>
+                                <input type="text" class="custom-form-control" placeholder="Eg. Marvik Alex" required>
+                            </div>
+                            <div class="custom-form-group">
+                                <label><span class="form-icon">👤</span> Last Name</label>
+                                <input type="text" class="custom-form-control" placeholder="Eg. Johnson" required>
                             </div>
                         </div>
-                        <div class="enquiry-method-card">
-                            <div class="enquiry-method-icon">📞</div>
-                            <div class="enquiry-method-details">
-                                <h4>Direct Engineering Line</h4>
-                                <p>+65 6896 2380</p>
+                        
+                        <div class="custom-form-group">
+                            <label><span class="form-icon">✉</span> Email</label>
+                            <input type="email" class="custom-form-control" placeholder="Eg. marvik@gmail.com" required>
+                        </div>
+                        
+                        <div class="custom-form-group">
+                            <label><span class="form-icon">📞</span> Phone</label>
+                            <div class="custom-phone-wrapper">
+                                <div class="custom-country-code">
+                                    <span class="flag-icon">🇮🇳</span>
+                                    <span class="code-val">+91</span>
+                                    <span class="arrow-down">▼</span>
+                                </div>
+                                <input type="tel" class="custom-form-control phone-input" placeholder="Eg. 98765 43210" required>
                             </div>
                         </div>
-                        <div class="enquiry-method-card">
-                            <div class="enquiry-method-icon">✉</div>
-                            <div class="enquiry-method-details">
-                                <h4>Technical Inbox</h4>
-                                <p><a href="mailto:info@liquinex.com">info@liquinex.com</a></p>
+                        
+                        <div class="custom-form-group">
+                            <label><span class="form-icon">💬</span> Message</label>
+                            <textarea class="custom-form-control custom-textarea" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        
+                        <div class="custom-form-group">
+                            <label>Subject of Interest</label>
+                            <div class="custom-pills-selector">
+                                <div class="custom-pill active" data-value="water-treatment">Water Treatment</div>
+                                <div class="custom-pill" data-value="engineering">Engineering</div>
+                                <div class="custom-pill" data-value="oem">OEM</div>
+                                <div class="custom-pill" data-value="sustainability">Sustainability</div>
+                                <div class="custom-pill" data-value="partnership">Partnership</div>
+                                <div class="custom-pill" data-value="other">Other</div>
+                            </div>
+                            <input type="hidden" id="custom-subject-input" value="water-treatment">
+                        </div>
+                        
+                        <div class="custom-submit-btn-wrapper">
+                            <button type="submit" class="custom-submit-btn">
+                                <span class="btn-paper-plane">➦</span> Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Right: Info Card -->
+                <div class="custom-contact-info-side">
+                    <!-- Top Splashing Header -->
+                    <div class="info-splash-header">
+                        <div class="headset-badge">🎧</div>
+                        <div class="info-header-text">
+                            <h4>Talk with us</h4>
+                            <p>Please reach out to us, we are here to answer your questions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-detail-rows">
+                        <!-- Email -->
+                        <div class="info-detail-row">
+                            <div class="info-row-icon">✉</div>
+                            <div class="info-row-cols">
+                                <div class="info-row-col">
+                                    <span class="col-label">Send us an email</span>
+                                    <span class="col-value"><a href="mailto:customercare@liquinex.com">customercare@liquinex.com</a></span>
+                                </div>
+                                <div class="info-row-col">
+                                    <span class="col-label">General enquiries</span>
+                                    <span class="col-value"><a href="mailto:enquiry@liquinex.com">enquiry@liquinex.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Call -->
+                        <div class="info-detail-row">
+                            <div class="info-row-icon">📞</div>
+                            <div class="info-row-cols">
+                                <div class="info-row-col-full">
+                                    <span class="col-label">Give us a call</span>
+                                    <span class="col-subtext">Call us between Monday to Friday from 9:00 AM to 6:00 PM</span>
+                                    <div class="phone-numbers-grid">
+                                        <div class="phone-number-item">
+                                            <span class="country-name">India</span>
+                                            <span class="number-val"><a href="tel:+918068121900">+91 80 6812 1900</a></span>
+                                        </div>
+                                        <div class="phone-number-item border-left">
+                                            <span class="country-name">International</span>
+                                            <span class="number-val"><a href="tel:+6569091596">+65 6909 1596</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Address -->
+                        <div class="info-detail-row">
+                            <div class="info-row-icon">📍</div>
+                            <div class="info-row-cols">
+                                <div class="info-row-col-full">
+                                    <span class="col-label">Come visit</span>
+                                    <span class="col-subtext">We'd love to meet you.</span>
+                                    <p class="address-text">Liquinex Water Solutions Private Limited<br>No. 18, Subramanya Nilaya, 5th Cross,<br>Chamrajpet, Bengaluru - 560018, India.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Right Form Card -->
-                <div class="enquiry-form-wrapper reveal-on-scroll">
-                    <div class="enquiry-form-card">
-                        <h4 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--color-text-primary);">Process Configuration Form</h4>
-                        <form id="project-enquiry-form" onsubmit="event.preventDefault(); alert('Thank you! Your process configuration request has been sent to our engineering team.');">
-                            <div class="form-grid">
-                                <div class="form-group">
-                                    <label for="contact-name">Full Name</label>
-                                    <input type="text" id="contact-name" class="form-control" placeholder="John Doe" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-email">Corporate Email</label>
-                                    <input type="email" id="contact-email" class="form-control" placeholder="john@company.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="contact-phone">Contact Number</label>
-                                    <input type="tel" id="contact-phone" class="form-control" placeholder="+65 9123 4567" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="flow-rate">Target Flow Rate (m³/day)</label>
-                                    <input type="number" id="flow-rate" class="form-control" placeholder="150" required>
-                                </div>
-                                <div class="form-group form-group-full">
-                                    <label for="subject-field">Enquiry Subject</label>
-                                    <input type="text" id="subject-field" class="form-control" placeholder="Ceramic Membrane System Configuration" required>
-                                </div>
-                                <div class="form-group form-group-full">
-                                    <label for="project-details">Project challenges & feed water specs</label>
-                                    <textarea id="project-details" class="form-control" placeholder="Please outline feed water type (sea, river, wastewater), target contaminants, and spacing limits..." required></textarea>
-                                </div>
-                            </div>
-                            <div class="btn-wrapper" style="width: 100%;">
-                                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 1rem; padding: 1.2rem;">Submit Project Request</button>
-                            </div>
-                        </form>
+                    
+                    <!-- Map Snip Frame -->
+                    <div class="info-map-snippet">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.2435552391216!2d77.56306509999999!3d12.9562725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1606dfab86e3%3A0xe6bf44b76df479f6!2s5th%20Cross%20Rd%2C%20Chamrajpet%2C%20Bengaluru%2C%20Karnataka%20560018%2C%20India!5e0!3m2!1sen!2ssg!4v1689000000000!5m2!1sen!2ssg" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                        <a href="https://maps.google.com/?q=Liquinex+Water+Solutions+Bengaluru" target="_blank" class="open-maps-pill">
+                            <span class="pill-map-icon">🗺</span> Open in Maps
+                        </a>
                     </div>
                 </div>
             </div>

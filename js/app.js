@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileNav();
     initModalDrawer();
     initShopBrochure();
+    initContactPills();
 });
 
 /* 1. Scroll Progress Bar */
@@ -774,3 +775,18 @@ function init3DTilt() {
     });
 }
 
+
+/* 15. Custom Contact Pills Selector */
+function initContactPills() {
+    const pills = document.querySelectorAll('.custom-pill');
+    const input = document.getElementById('custom-subject-input');
+    if (pills.length === 0 || !input) return;
+    
+    pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            pills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            input.value = pill.dataset.value;
+        });
+    });
+}
