@@ -354,6 +354,7 @@ header .nav-item a::after {
 }
 
 .hero {
+    position: relative; /* Fix absolute video positioning */
     background-color: var(--color-bg-navy);
     min-height: 90vh;
     padding-top: 180px;
@@ -2262,4 +2263,27 @@ footer a:hover {
     .nav-menu.active {
         left: 0;
     }
+}
+
+/* Translucent Background watermark heading copy */
+.hero-watermark-bg, .subpage-watermark-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13vw;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.035); /* Translucent */
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    z-index: 2; /* Sits behind text content but above video overlay */
+    pointer-events: none;
+    user-select: none;
+    font-family: 'Manrope', sans-serif;
+    white-space: nowrap;
+    text-align: center;
+}
+.subpage-watermark-bg {
+    top: 60%;
+    font-size: 11vw;
 }
