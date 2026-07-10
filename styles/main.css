@@ -265,46 +265,66 @@ section {
     fill: var(--color-bg-navy);
 }
 
-/* Common Header navbar styling (Dark navy background) */
+/* Common Header navbar styling - Floating pill card matching mockup */
 header {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 25px; /* Float from screen top */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1150px;
     z-index: 1000;
-    background: transparent;
-    border-bottom: 1px solid transparent;
-    transition: var(--transition-normal);
+    background: rgba(10, 28, 48, 0.65); /* Translucent dark navy backdrop */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 40px; /* Pill shape */
+    padding: 0.6rem 2rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 header.scrolled {
-    background: rgba(6, 28, 48, 0.95);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
+    background: rgba(6, 22, 40, 0.82); /* Darker backdrop on scroll */
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+    top: 15px;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 110px;
-    transition: var(--transition-normal);
+    height: 60px; /* Standardize height */
+    width: 100%;
 }
 
-header.scrolled .nav-container {
-    height: 85px;
+.header-logo-img {
+    height: 34px;
+    width: auto;
+    display: block;
 }
 
-/* White text for header elements since navigation is over dark navy or scrolled background */
-header .logo-text {
-    background: linear-gradient(135deg, #ffffff 50%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2.2rem;
+    margin: 0;
+    padding: 0;
 }
 
 header .nav-item a {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 header .nav-item a:hover {
@@ -313,20 +333,39 @@ header .nav-item a:hover {
 
 header .nav-item.active a {
     color: var(--color-accent);
+    font-weight: 700;
 }
 
-header .nav-item a::after {
-    background-color: var(--color-accent);
+/* Style the last nav item (Enquiry) as the white CTA pill button */
+.nav-menu .nav-item:last-child {
+    margin-left: 0.5rem;
 }
 
-.logo-link {
-    text-decoration: none;
+.nav-menu .nav-item:last-child a {
+    background: #ffffff;
+    color: #061c30 !important;
+    font-weight: 700;
+    padding: 0.65rem 1.5rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 3rem;
+.nav-menu .nav-item:last-child a::after {
+    content: ' ›';
+    font-size: 1.15rem;
+    font-weight: 900;
+    transition: transform 0.3s ease;
+}
+
+.nav-menu .nav-item:last-child a:hover {
+    background: #f1f5f9;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .nav-item a {
