@@ -520,13 +520,15 @@ header .nav-item a::after {
     z-index: 10;
 }
 
-/* Subpage Header Banner */
+/* Subpage Header Banner - Re-styled matching Dribbble wavy banner mockup */
 .subpage-header {
-    background-color: var(--color-bg-navy);
-    padding: 160px 0 80px 0;
-    text-align: center;
+    background-color: #ffffff; /* White background */
+    padding: 110px 0 90px 0;
+    text-align: left; /* Left aligned text */
     position: relative;
     overflow: hidden;
+    min-height: 250px;
+    border-bottom: 1px solid rgba(42, 127, 186, 0.08);
 }
 
 .subpage-header h1 {
@@ -2934,4 +2936,40 @@ footer a:hover {
     max-width: 250px;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+}
+
+/* Wavy Mockup Banner Elements */
+.banner-headline {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #1b3f68; /* Deep blue headline */
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-family: 'Manrope', sans-serif;
+    margin-bottom: 0.4rem;
+}
+
+.banner-slogan {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #94a3b8; /* Slate gray slogan */
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+}
+
+.custom-header-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.custom-header-waves svg {
+    width: 100%;
+    height: 100%;
 }
