@@ -2311,7 +2311,7 @@ footer a:hover {
 
 /* Glassmorphic Custom Contact Section Layout */
 #enquiry {
-    background: url('https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?q=80&w=1600') no-repeat center center;
+    background: url('../assets/images/contact_bg.png') no-repeat center center;
     background-size: cover;
     padding: 10rem 0;
     position: relative;
@@ -2354,7 +2354,7 @@ footer a:hover {
 .custom-contact-title {
     font-size: 3rem;
     font-weight: 800;
-    color: #061c30;
+    color: #0a1c3a;
     margin-bottom: 0.5rem;
     font-family: 'Manrope', sans-serif;
 }
@@ -2487,7 +2487,7 @@ footer a:hover {
 .custom-submit-btn {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    background: linear-gradient(90deg, #1d6fc9 0%, #2a7fba 60%, #00b8d9 100%);
     border: none;
     border-radius: 25px;
     padding: 1.1rem 2.5rem;
@@ -2549,7 +2549,7 @@ footer a:hover {
 .info-header-text h4 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #061c30;
+    color: #0a1c3a;
     margin-bottom: 0.2rem;
 }
 
@@ -2612,7 +2612,7 @@ footer a:hover {
 .col-value {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #061c30;
+    color: #0a1c3a;
 }
 
 .col-value a {
@@ -2650,7 +2650,7 @@ footer a:hover {
 .number-val {
     font-size: 0.95rem;
     font-weight: 700;
-    color: #061c30;
+    color: #0a1c3a;
 }
 
 .number-val a {
@@ -2684,7 +2684,7 @@ footer a:hover {
     padding: 0.5rem 1.1rem;
     font-size: 0.8rem;
     font-weight: 700;
-    color: #061c30;
+    color: #0a1c3a;
     text-decoration: none;
     display: flex;
     align-items: center;
