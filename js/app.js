@@ -790,3 +790,41 @@ function initContactPills() {
         });
     });
 }
+
+/* ==========================================================================
+   Light / Dark Mode Theme Switcher Persistent Script
+   ========================================================================== */
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        const moonIcon = themeToggleBtn.querySelector('.moon-icon');
+        const sunIcon = themeToggleBtn.querySelector('.sun-icon');
+        
+        // Retrieve and apply active theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+            if (moonIcon) moonIcon.style.display = 'none';
+            if (sunIcon) sunIcon.style.display = 'block';
+        } else {
+            document.body.classList.remove('dark-theme');
+            if (moonIcon) moonIcon.style.display = 'block';
+            if (sunIcon) sunIcon.style.display = 'none';
+        }
+
+        // Toggle theme handler
+        themeToggleBtn.addEventListener('click', () => {
+            if (document.body.classList.contains('dark-theme')) {
+                document.body.classList.remove('dark-theme');
+                localStorage.setItem('theme', 'light');
+                if (moonIcon) moonIcon.style.display = 'block';
+                if (sunIcon) sunIcon.style.display = 'none';
+            } else {
+                document.body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark');
+                if (moonIcon) moonIcon.style.display = 'none';
+                if (sunIcon) sunIcon.style.display = 'block';
+            }
+        });
+    }
+});

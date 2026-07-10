@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liquinex | Advanced Ceramic Membrane Water Technologies</title>
-    <meta name="description" content="Pioneering robust and chemical-free ceramic ultrafiltration systems. Discover our sustainable municipal, industrial, and disaster water solutions.">
+    <title>Liquinex | Singapore Water & Wastewater Treatment Technology Specialist</title>
+    <meta name="description" content="Liquinex is a Singapore-based specialist in compact, chemical-free ceramic ultrafiltration, reverse osmosis, and UV water treatment systems.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Stylesheet -->
     <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-    <div id="scroll-progress"></div>
+
+    <!-- Custom Cursor Glow -->
     <div class="custom-cursor"></div>
     <div class="custom-cursor-dot"></div>
-    <div class="grid-texture"></div>
 
-    <!-- Header navigation bar -->
+    <!-- Floating Pill Navigation Header -->
     <header>
-        <div class="container">
-            <div class="nav-container">
-                <a href="index.html" class="logo-link">
-                    <img src="assets/logos/liquinex_brand_logo.png" alt="Liquinex Logo" class="header-logo-img">
-                </a>
-                <button class="nav-toggle" aria-label="Toggle Menu">☰</button>
+        <div class="nav-container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/logos/liquinex_brand_logo.png" alt="Liquinex Logo" class="header-logo-img">
+            </a>
+            <div style="display: flex; align-items: center; gap: 1.5rem;">
                 <ul class="nav-menu">
                     <li class="nav-item active"><a href="index.html">Home</a></li>
                     <li class="nav-item"><a href="about.html">About Us</a></li>
@@ -30,51 +36,78 @@
                     <li class="nav-item"><a href="shop.html">Shop</a></li>
                     <li class="nav-item"><a href="enquiry.html">Enquiry</a></li>
                 </ul>
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
             </div>
         </div>
     </header>
 
-        <!-- Mockup Hero Section -->
+    <!-- 1. Mockup Hero Section -->
     <section class="hero">
         <div class="hero-caustics-overlay"></div>
         <div class="container">
             <div class="hero-grid">
                 <!-- Left Content -->
                 <div class="hero-content reveal-on-scroll">
-                    <h1 class="hero-editorial-title">INTELLIGENT<br>WATER FILTRATION</h1>
-                    <p class="hero-editorial-lead">Pioneering chemical-free, compact Silicon Carbide ceramic filtration skids for municipal and industrial water treatment installations worldwide.</p>
-                    <div style="display: flex; gap: 1.2rem; margin-top: 2rem;">
+                    <span class="hero-badge">Innovative. Sustainable. Reliable.</span>
+                    <h1 class="hero-title">Singapore Water &<br>Wastewater Treatment<br>Technology Specialist</h1>
+                    <p class="hero-lead">Engineering advanced, chemical-free solutions for a cleaner tomorrow through cutting-edge filtration and disinfection technologies.</p>
+                    <div style="display: flex; gap: 1.2rem; margin-top: 2rem; align-items: center;">
                         <div class="btn-wrapper">
                             <a href="solutions.html" class="btn btn-primary">Explore Solutions</a>
                         </div>
-                        <div class="btn-wrapper">
-                            <a href="enquiry.html" class="btn btn-outline" style="border-color: #1b3f68; color: #1b3f68;">Request Quote</a>
-                        </div>
+                        <a href="solutions.html" class="btn-video"><span class="play-icon">▶</span> Watch Video</a>
                     </div>
                 </div>
 
-                <!-- Right Centerpiece with flow tracing overlay -->
+                <!-- Right Centerpiece Water City Globe -->
                 <div class="hero-centerpiece-container reveal-on-scroll">
-                    <img src="assets/images/hero_centerpiece.png" class="hero-centerpiece-img" alt="Water Purification Skid Centerpiece">
-                    
-                    <!-- SVG flow tracing lines -->
-                    <svg class="hero-flow-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                        <path d="M 50 180 Q 150 150 250 280 T 450 280" stroke="#00c5ff" stroke-width="4" stroke-linecap="round" class="flow-line"></path>
-                        <path d="M 250 280 Q 200 380 250 420 T 420 400" stroke="#00b8d9" stroke-width="3" stroke-linecap="round" class="flow-line-slow"></path>
-                    </svg>
-                    
-                    <!-- Pulsing Tech Labels -->
-                    <div class="tech-node" style="top: 28%; left: 35%;">
-                        <div class="tech-node-pulse"></div>
-                        <div class="tech-node-tooltip">Ceramic UF Membrane</div>
+                    <img src="assets/images/hero_globe.png" class="hero-centerpiece-img" alt="Water City Globe Centerpiece">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Statistics Dashboard Banner -->
+    <section class="stats-banner-section">
+        <div class="container">
+            <div class="stats-banner-grid">
+                <div class="stat-banner-item">
+                    <div class="stat-banner-icon">📅</div>
+                    <div>
+                        <div class="stat-banner-num">2015</div>
+                        <div class="stat-banner-label">Established</div>
                     </div>
-                    <div class="tech-node" style="top: 52%; left: 72%;">
-                        <div class="tech-node-pulse"></div>
-                        <div class="tech-node-tooltip">Reverse Osmosis (RO)</div>
+                </div>
+                <div class="stat-banner-item">
+                    <div class="stat-banner-icon">💼</div>
+                    <div>
+                        <div class="stat-banner-num">100+</div>
+                        <div class="stat-banner-label">Projects Delivered</div>
                     </div>
-                    <div class="tech-node" style="top: 76%; left: 48%;">
-                        <div class="tech-node-pulse"></div>
-                        <div class="tech-node-tooltip">UV Disinfection</div>
+                </div>
+                <div class="stat-banner-item">
+                    <div class="stat-banner-icon">⚙️</div>
+                    <div>
+                        <div class="stat-banner-num">30+</div>
+                        <div class="stat-banner-label">Technologies</div>
+                    </div>
+                </div>
+                <div class="stat-banner-item">
+                    <div class="stat-banner-icon">🌍</div>
+                    <div>
+                        <div class="stat-banner-num">12+</div>
+                        <div class="stat-banner-label">Countries Served</div>
+                    </div>
+                </div>
+                <div class="stat-banner-item">
+                    <div class="stat-banner-icon">⚡</div>
+                    <div>
+                        <div class="stat-banner-num">24/7</div>
+                        <div class="stat-banner-label">Support & Service</div>
                     </div>
                 </div>
             </div>
@@ -89,275 +122,455 @@
         </svg>
     </div>
 
-    <!-- Core Business Editorial Hub overview panel (Instead of repeating cards) -->
-    <section id="business-hub" style="background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-dark) 100%);">
+    <!-- 2. About Us Section & Executive Founders -->
+    <section id="about-section" class="section-padding">
         <div class="container">
-            <div class="section-header reveal-on-scroll" style="text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 5rem;">
-                <span class="section-subtitle" style="justify-content: center;">Bespoke Solutions</span>
-                <h2>Global Water Systems</h2>
-                <p style="margin-top: 1rem; color: var(--color-text-muted);">Explore our dedicated engineering channels and industrial products.</p>
+            <div class="section-grid">
+                <!-- Left text content -->
+                <div class="reveal-on-scroll">
+                    <span class="section-subtitle">About Liquinex</span>
+                    <h2>Engineering Better<br>Water Solutions</h2>
+                    <p class="section-desc">Founded in 2015, Liquinex is a Singapore-based specialist in water and wastewater treatment technologies. We design, fabricate, and integrate compact, high-performance systems using advanced membrane, UV, and oxidation technologies.</p>
+                    <p class="section-desc">Our solutions serve industries, municipalities, and disaster relief communities with a focus on innovation, efficiency, and sustainability.</p>
+                    <div class="btn-wrapper" style="margin-top: 2rem;">
+                        <a href="about.html" class="btn btn-primary">More About Us</a>
+                    </div>
+                </div>
+
+                <!-- Right image block -->
+                <div class="image-frame-container reveal-on-scroll">
+                    <img src="assets/images/about_skid.jpg" class="responsive-image" alt="Water Treatment Skid">
+                </div>
             </div>
 
-            <!-- Custom 3-Column Editorial Grid linking to subpages -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem;">
-                <!-- Card 1 -->
-                <div class="story-card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 380px;">
-                    <div>
-                        <div class="card-icon-wrapper">
-                            <svg class="card-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path class="gear-path" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.04,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
-                            </svg>
+            <!-- Founders Sub-Section -->
+            <div class="founders-intro-section">
+                <div class="section-header reveal-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+                    <span class="section-subtitle" style="justify-content: center;">Our Founders</span>
+                    <h3>Driven by Expertise. United by Purpose.</h3>
+                </div>
+                <div class="founders-mockup-grid">
+                    <!-- Founder 1 -->
+                    <div class="founder-mockup-card reveal-on-scroll">
+                        <div class="founder-img-wrapper">
+                            <img src="assets/images/founder_bashir.jpg" alt="Bashir Ahmad">
                         </div>
-                        <h4 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text-primary);">Capabilities & Team</h4>
-                        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary);">Learn about our Singapore engineering heritage, founders team, and historical corporate timeline milestones.</p>
+                        <div class="founder-info">
+                            <h4>BASHIR AHMAD</h4>
+                            <span class="founder-role">Co-Founder & Director</span>
+                            <span class="founder-since">Since 2000</span>
+                            <ul class="founder-bullets">
+                                <li>25+ years of experience in engineering design, construction, and operation of water & wastewater treatment plants.</li>
+                                <li>Former Deputy Director at National Environment Agency (NEA), Singapore.</li>
+                                <li>Senior Engineer at PUB, Singapore's National Water Agency.</li>
+                                <li>B.Eng (Mechanical), National University of Singapore (NUS).</li>
+                                <li>Member, Institution of Engineers Singapore.</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="about.html" style="font-weight: 700; color: var(--color-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">Meet the Team →</a>
+
+                    <!-- Founder 2 -->
+                    <div class="founder-mockup-card reveal-on-scroll">
+                        <div class="founder-img-wrapper">
+                            <img src="assets/images/founder_riaz.jpg" alt="Riaz Deen">
+                        </div>
+                        <div class="founder-info">
+                            <h4>RIAZ DEEN</h4>
+                            <span class="founder-role">Co-Founder & Director</span>
+                            <span class="founder-since">Since 2013</span>
+                            <ul class="founder-bullets">
+                                <li>15+ years of experience in industrial and marine engineering, fabrication, and manufacturing.</li>
+                                <li>Delivered projects across Asia and global markets in water treatment, membrane systems, rigs, and marine solutions.</li>
+                                <li>B.Eng (Marine) 1st Class Honours, Madurai Kamaraj University, India.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Mission & Vision Section -->
+    <section id="mission-section" class="section-padding" style="background: var(--color-bg-deep);">
+        <div class="container">
+            <div class="section-header reveal-on-scroll" style="text-align: center; margin-bottom: 5rem;">
+                <span class="section-subtitle" style="justify-content: center;">Direction & Purpose</span>
+                <h2>Mission & Vision</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+                <!-- Mission Card -->
+                <div class="mission-vision-card reveal-on-scroll">
+                    <div class="card-icon-wrapper">🎯</div>
+                    <h3>OUR MISSION</h3>
+                    <p>We deliver sustainable and efficient water treatment solutions through innovation, engineering excellence, and a commitment to environmental stewardship.</p>
+                    <p>Our mission is to create long-term value for our clients, communities, and the planet by transforming water challenges into opportunities.</p>
+                </div>
+
+                <!-- Vision Card -->
+                <div class="mission-vision-card reveal-on-scroll">
+                    <div class="card-icon-wrapper">👁️</div>
+                    <h3>OUR VISION</h3>
+                    <p>To be the global partner of choice for advanced water and wastewater treatment solutions, recognized for our innovation, integrity, and impact.</p>
+                    <p>We envision a world where water is managed responsibly and accessible for generations to come.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Advanced Technologies Grid -->
+    <section id="solutions-section" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal-on-scroll" style="text-align: center; margin-bottom: 5rem;">
+                <span class="section-subtitle" style="justify-content: center;">Solutions</span>
+                <h2>Advanced Technologies.<br>Reliable Results.</h2>
+            </div>
+
+            <div class="tech-solutions-grid">
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">💧</div>
+                    <h5>Reverse Osmosis<br>& UF Systems</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🧪</div>
+                    <h5>Wastewater<br>Treatment</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🏭</div>
+                    <h5>Industrial<br>Water Reuse</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🏊</div>
+                    <h5>Swimming Pool<br>Water Systems</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🧲</div>
+                    <h5>Oil - Iron<br>Separation</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🛠️</div>
+                    <h5>Operation &<br>Maintenance</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🔋</div>
+                    <h5>Off Grid<br>Water Systems</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">🌾</div>
+                    <h5>Algae Harvesting /<br>Aquaculture</h5>
+                </div>
+                <div class="tech-solution-item reveal-on-scroll">
+                    <div class="tech-icon">📐</div>
+                    <h5>Custom Engineered<br>Solutions</h5>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 4rem;" class="reveal-on-scroll">
+                <div class="btn-wrapper">
+                    <a href="solutions.html" class="btn btn-primary">View All Solutions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Featured Projects Slider Section -->
+    <section id="projects-section" class="section-padding" style="background: var(--color-bg-deep);">
+        <div class="container">
+            <div class="section-header reveal-on-scroll" style="text-align: space-between; display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 5rem;">
+                <div>
+                    <span class="section-subtitle">Featured Projects</span>
+                    <h2>Engineering Excellence<br>in Action</h2>
+                </div>
+                <div class="btn-wrapper">
+                    <a href="projects.html" class="btn btn-outline" style="border-color: #1d6fc9; color: #1d6fc9;">View All Projects</a>
+                </div>
+            </div>
+
+            <div class="featured-projects-grid">
+                <!-- Project 1 -->
+                <div class="project-mockup-card reveal-on-scroll">
+                    <div class="project-img-container">
+                        <img src="assets/images/page_12_img_3.jpeg" alt="River Water Treatment">
+                    </div>
+                    <div class="project-info">
+                        <h4>River Water Treatment System</h4>
+                        <span class="project-meta">Lembaga Air Perak</span>
+                        <span class="project-spec">30 m³/hr</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-mockup-card reveal-on-scroll">
+                    <div class="project-img-container">
+                        <img src="assets/images/page_16_img_2.jpeg" alt="Ceramic Membrane UF System">
+                    </div>
+                    <div class="project-info">
+                        <h4>Ceramic Membrane UF System</h4>
+                        <span class="project-meta">REC Solar</span>
+                        <span class="project-spec">20 m³/hr</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-mockup-card reveal-on-scroll">
+                    <div class="project-img-container">
+                        <img src="assets/images/page_22_img_2.jpeg" alt="Industrial Water Recycling">
+                    </div>
+                    <div class="project-info">
+                        <h4>Industrial Water Recycling System</h4>
+                        <span class="project-meta">Combined UF & RO</span>
+                        <span class="project-spec">1 m³/hr</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-mockup-card reveal-on-scroll">
+                    <div class="project-img-container">
+                        <img src="assets/images/page_10_img_3.jpeg" alt="Oil-Water Separation">
+                    </div>
+                    <div class="project-info">
+                        <h4>Oil-Water Separation System</h4>
+                        <span class="project-meta">5 m³/hr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Sustainability Section -->
+    <section id="sustainability-section" class="section-padding">
+        <div class="container">
+            <div class="section-grid">
+                <!-- Left text content -->
+                <div class="reveal-on-scroll">
+                    <span class="section-subtitle">Sustainability</span>
+                    <h2>Building a<br>Sustainable Future</h2>
+                    <p class="section-desc">At Liquinex, sustainability is at the core of everything we do. We design systems that reduce environmental impact, conserve water resources, and promote circular economy practices.</p>
+                    <p class="section-desc">Through innovation and responsible engineering, we help industries and communities achieve their sustainability goals while ensuring a cleaner, greener future.</p>
+                    <div class="btn-wrapper" style="margin-top: 2rem;">
+                        <a href="sustainability.html" class="btn btn-primary">Our Sustainability Approach</a>
+                    </div>
+                </div>
+
+                <!-- Right centerpiece -->
+                <div class="image-frame-container reveal-on-scroll" style="text-align: center;">
+                    <img src="assets/images/sustainability_leaf.png" class="responsive-image" alt="Sustainability Leaf Droplet" style="max-height: 480px; width: auto; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Shop Section -->
+    <section id="shop-section" class="section-padding" style="background: var(--color-bg-deep);">
+        <div class="container">
+            <div class="section-grid">
+                <!-- Left text content -->
+                <div class="reveal-on-scroll">
+                    <span class="section-subtitle">Online Shop</span>
+                    <h2>UV Disinfection Systems</h2>
+                    <p class="section-desc">High-performance UV Disinfection Systems designed and engineered by Liquinex for safe, chemical-free water treatment.</p>
+                    <ul class="founder-bullets" style="margin: 1.5rem 0;">
+                        <li>Effective against bacteria, viruses & pathogens</li>
+                        <li>Low maintenance & energy efficient</li>
+                        <li>Customizable for various flow rates</li>
+                        <li>Built with premium quality SS304/316</li>
+                    </ul>
+                    <div class="btn-wrapper" style="margin-top: 2rem;">
+                        <a href="shop.html" class="btn btn-primary">View Product Catalogue</a>
+                    </div>
+                </div>
+
+                <!-- Right centerpiece -->
+                <div class="image-frame-container reveal-on-scroll">
+                    <img src="assets/images/shop_skid.jpg" class="responsive-image" alt="UV Disinfection System Skid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. News & Media Section -->
+    <section id="newsroom" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal-on-scroll" style="text-align: center; margin-bottom: 5rem;">
+                <span class="section-subtitle" style="justify-content: center;">News & Media</span>
+                <h2>Latest Updates & Insights</h2>
+            </div>
+
+            <div class="newsroom-grid">
+                <!-- Card 1 -->
+                <div class="news-card reveal-on-scroll">
+                    <div class="news-img-container">
+                        <img src="assets/images/page_1_img_2.jpeg" alt="Global Water Award Winner">
+                    </div>
+                    <div class="news-content">
+                        <span class="news-date">May 15, 2024</span>
+                        <h4>Liquinex Recognized as Water Sustainability Champion by PUB</h4>
+                        <div class="btn-wrapper">
+                            <a href="sustainability.html" class="news-link">Read More →</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="story-card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 380px;">
-                    <div>
-                        <div class="card-icon-wrapper">
-                            <svg class="card-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path class="wave-path" d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8 S16.41,20,12,20z"/>
-                                <path class="drop-path" d="M12,6c-1.5,0-3,1.5-3,3.5c0,2,3,5.5,3,5.5s3-3.5,3-3.5C15,7.5,13.5,6,12,6z"/>
-                            </svg>
-                        </div>
-                        <h4 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text-primary);">Water Technologies</h4>
-                        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary);">Browse our advanced solutions including Ceramic Ultrafiltration, Reverse Osmosis, containerized WaterWall plants, and portable systems.</p>
+                <div class="news-card reveal-on-scroll">
+                    <div class="news-img-container">
+                        <img src="assets/images/page_5_img_4.jpeg" alt="Gold Medal Award">
                     </div>
-                    <div style="margin-top: 2rem;">
-                        <a href="solutions.html" style="font-weight: 700; color: var(--color-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">View Technology Circular Hub →</a>
+                    <div class="news-content">
+                        <span class="news-date">Mar 22, 2024</span>
+                        <h4>Liquinex Enters Distribution Agreement with LiqTech in Singapore</h4>
+                        <div class="btn-wrapper">
+                            <a href="about.html" class="news-link">Read More →</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
-                <div class="story-card reveal-on-scroll" style="display: flex; flex-direction: column; justify-content: space-between; min-height: 380px;">
-                    <div>
-                        <div class="card-icon-wrapper">
-                            <svg class="card-icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path class="chart-path" d="M19,3H5C3.9,3,3,3.9,3,5v14c0,1.1,0.9,2,2,2h14c1.1,0,2-0.9,2-2V5C21,3.9,20.1,3,19,3z M9,17H7v-7h2V17z M13,17h-2V7h2V17z M17,17h-2v-4h2V17z"/>
-                            </svg>
-                        </div>
-                        <h4 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-text-primary);">Projects & Catalog</h4>
-                        <p style="font-size: 0.95rem; line-height: 1.7; color: var(--color-text-secondary);">Inspect our case studies, download configuration brochures, and request quotes for standard industrial filtration skids.</p>
+                <div class="news-card reveal-on-scroll">
+                    <div class="news-img-container">
+                        <img src="assets/images/page_5_img_10.jpeg" alt="Award signing">
                     </div>
-                    <div style="margin-top: 2rem; display: flex; gap: 1.5rem;">
-                        <a href="projects.html" style="font-weight: 700; color: var(--color-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">Projects Portfolio →</a>
-                        <a href="shop.html" style="font-weight: 700; color: var(--color-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem;">Shop Skids →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wave divider transition to dark partners -->
-    <div class="divider-container divider-to-dark">
-        <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path-2" d="M0,60 C720,120 720,0 1440,60 C2160,120 2160,0 2880,60 L2880,120 L0,120 Z"></path>
-            <path class="wave-path-1" d="M0,40 C720,100 720,0 1440,40 C2160,100 2160,0 2880,40 L2880,120 L0,120 Z"></path>
-        </svg>
-    </div>
-
-    <!-- 6. Partners Grid Section (Bespoke Interactive logo hub) -->
-    <section class="partners-grid-section">
-        <div class="container">
-            <div class="section-header reveal-on-scroll" style="text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 5rem;">
-                <span class="section-subtitle" style="justify-content: center;">Global Network</span>
-                <h2>Trusted Partners & Clients</h2>
-                <p style="margin-top: 1rem; color: var(--color-text-muted);">Industrial enterprises, municipal bodies, and engineering partners using Liquinex solutions worldwide.</p>
-            </div>
-
-            <!-- Interactive Filters -->
-            <div class="partners-filter-bar reveal-on-scroll">
-                <button class="partners-filter-btn active" data-filter="all">All Partners</button>
-                <button class="partners-filter-btn" data-filter="municipal">Government & Municipal</button>
-                <button class="partners-filter-btn" data-filter="industrial">Industrial & Manufacturing</button>
-                <button class="partners-filter-btn" data-filter="marine">Marine & Offshore</button>
-                <button class="partners-filter-btn" data-filter="resources">Resources & Food</button>
-            </div>
-
-            <!-- Interactive Kinetic Marquees -->
-            <div class="partners-marquee-container reveal-on-scroll">
-                <!-- Row 1: Left scrolling track -->
-                <div class="marquee-row">
-                    <div class="marquee-track marquee-track-1" id="marquee-track-left">
-                        <!-- Populated by app.js -->
-                    </div>
-                </div>
-                <!-- Row 2: Right scrolling track -->
-                <div class="marquee-row">
-                    <div class="marquee-track marquee-track-2" id="marquee-track-right">
-                        <!-- Populated by app.js -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wave divider transition to light newsroom -->
-    <div class="divider-container divider-to-light">
-        <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path-2" d="M0,60 C720,120 720,0 1440,60 C2160,120 2160,0 2880,60 L2880,120 L0,120 Z"></path>
-            <path class="wave-path-1" d="M0,40 C720,100 720,0 1440,40 C2160,100 2160,0 2880,40 L2880,120 L0,120 Z"></path>
-        </svg>
-    </div>
-
-    <!-- Newsroom Section (Editorial grid layout) -->
-    <section id="newsroom" style="background: linear-gradient(180deg, var(--color-bg-deep) 0%, var(--color-bg-dark) 100%);">
-        <div class="container">
-            <div class="section-header reveal-on-scroll" style="text-align: center; margin-left: auto; margin-right: auto;">
-                <span class="section-subtitle" style="justify-content: center;">Press Feed</span>
-                <h2>Newsroom</h2>
-                <p style="margin-top: 1rem; color: var(--color-text-muted);">Stay updated with our latest project awards and water relief operations.</p>
-            </div>
-
-            <div class="newsroom-editorial">
-                <!-- Left Featured Card -->
-                <div class="featured-press-card reveal-on-scroll">
-                    <div class="featured-press-img" style="background-image: url('assets/images/page_1_img_2.jpeg');"></div>
-                    <div class="featured-press-body">
-                        <span style="font-size: 0.8rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase;">Award Winner</span>
-                        <h4 style="font-size: 1.8rem; line-height: 1.35; color: var(--color-text-primary);">Global Water Awards Sheikh Handover</h4>
-                        <p style="color: var(--color-text-secondary);">Liquinex CEO Bashir Ahmad receives international recognition in Dubai for emergency water relief suitcase deployments, delivering potable water to disaster relief zones.</p>
-                        <div style="margin-top: auto; padding-top: 1.5rem;">
-                            <a href="about.html" style="font-weight: 700; color: var(--color-primary); text-decoration: none;">Read Milestones →</a>
+                    <div class="news-content">
+                        <span class="news-date">Feb 10, 2024</span>
+                        <h4>Innovative Ceramic Membrane Technology in Action</h4>
+                        <div class="btn-wrapper">
+                            <a href="solutions.html" class="news-link">Read More →</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Right Press list -->
-                <div class="press-feed-list">
-                    <div class="press-feed-item reveal-on-scroll">
-                        <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 700; text-transform: uppercase;">04 Nov 2021</span>
-                        <h4>Lembaga Air Perak Sungei Siput Module Activation</h4>
-                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 0.5rem;">Successfully commissioned modular gravity-fed SiC ceramic ultrafiltration skids to supply drinking water to local villages.</p>
-                    </div>
-                    <div class="press-feed-item reveal-on-scroll">
-                        <span style="font-size: 0.75rem; color: var(--color-text-muted); font-weight: 700; text-transform: uppercase;">18 Aug 2020</span>
-                        <h4>Tuas DBOO Solar blowdown recycling launch</h4>
-                        <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 0.5rem;">Unveiled new silica precipitation and ceramic filtration plant loops for high-rate industrial wastewater reclamation.</p>
-                    </div>
+    <!-- 9. Trusted Partners Banner -->
+    <section class="partners-grid-section" style="background: var(--color-bg-deep); padding: 5rem 0;">
+        <div class="container">
+            <div class="section-header reveal-on-scroll" style="text-align: center; margin-bottom: 4rem;">
+                <span class="section-subtitle" style="justify-content: center;">Partnerships</span>
+                <h3>Trusted Partners & Clients</h3>
+            </div>
+            <!-- Kinetic Logo Marquee Slider -->
+            <div class="logo-marquee-container">
+                <div class="logo-marquee-track">
+                    <img src="assets/logos/zoo.png" alt="Singapore Zoo">
+                    <img src="assets/logos/nsl.png" alt="NSL OilChem">
+                    <img src="assets/logos/rec.png" alt="REC Solar">
+                    <img src="assets/logos/jb.png" alt="JB Shipping">
+                    <img src="assets/logos/riotinto.png" alt="Rio Tinto">
+                    <img src="assets/logos/caas.png" alt="CAAS">
+                    <img src="assets/logos/janatha.png" alt="Janatha">
+                    <img src="assets/logos/alcon.png" alt="Alcon">
+                    <img src="assets/logos/wd.png" alt="Western Digital">
+                    <img src="assets/logos/hitachi.png" alt="Hitachi">
+                    <img src="assets/logos/abbott.png" alt="Abbott">
+                    <img src="assets/logos/perak.png" alt="Lembaga Air Perak">
+                    <img src="assets/logos/haskoning.png" alt="Royal HaskoningDHV">
+                    <img src="assets/logos/yongmei.png" alt="Yong Mei">
+                    <img src="assets/logos/amos.png" alt="AMOS">
+                    <img src="assets/logos/gwt.png" alt="GWT">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Wave divider transition to dark testmonial -->
-    <div class="divider-container divider-to-dark">
-        <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path-2" d="M0,60 C720,120 720,0 1440,60 C2160,120 2160,0 2880,60 L2880,120 L0,120 Z"></path>
-            <path class="wave-path-1" d="M0,40 C720,100 720,0 1440,40 C2160,100 2160,0 2880,40 L2880,120 L0,120 Z"></path>
-        </svg>
-    </div>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" style="background: linear-gradient(135deg, #093153 0%, #061c30 100%); color: #ffffff;">
+    <!-- 10. Client Testimonials -->
+    <section id="testimonials" class="section-padding">
         <div class="container">
-            <div class="testimonials-placeholder reveal-on-scroll">
-                <div class="testimonials-placeholder-icon">❝</div>
-                <h4>Customer Testimonials Coming Soon</h4>
-                <p style="color: rgba(255, 255, 255, 0.7);">We are collecting verified project letters from our municipal partners. Case study results and partner feedback statements will be published soon.</p>
+            <div class="section-header reveal-on-scroll" style="text-align: center; margin-bottom: 5rem;">
+                <span class="section-subtitle" style="justify-content: center;">Customer Reviews</span>
+                <h2>What Our Clients Say</h2>
+            </div>
+            
+            <div class="testimonial-mockup-container reveal-on-scroll">
+                <div class="testimonial-bubble">
+                    <p class="testimonial-text">"Liquinex delivered beyond our expectations. Their system is efficient, reliable, and the support team is excellent."</p>
+                    <span class="testimonial-author">- Plant Manager, REC Solar</span>
+                    <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Wave divider transition to dark navy footer -->
-    <div class="divider-container divider-to-navy">
-        <svg viewBox="0 0 2880 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="wave-path-2" d="M0,60 C720,120 720,0 1440,60 C2160,120 2160,0 2880,60 L2880,120 L0,120 Z"></path>
-            <path class="wave-path-1" d="M0,40 C720,100 720,0 1440,40 C2160,100 2160,0 2880,40 L2880,120 L0,120 Z"></path>
-        </svg>
-    </div>
-
-    <!-- Editorial Footer -->
-        <!-- Floating Panel Footer -->
-    <footer class="custom-floating-footer">
+    <!-- 11. Get in Touch Section & Form -->
+    <section id="enquiry-section" class="section-padding" style="background: var(--color-bg-deep);">
         <div class="container">
-            <div class="custom-footer-card reveal-on-scroll">
+            <div class="section-grid" style="align-items: center;">
+                <!-- Left form card -->
+                <div class="reveal-on-scroll">
+                    <span class="section-subtitle">Get in Touch</span>
+                    <h2>Let's Build a Better Future Together</h2>
+                    <p class="section-desc" style="margin-bottom: 2rem;">Have questions or need a customized solution? Our team is here to help.</p>
+                    
+                    <div class="btn-wrapper">
+                        <a href="enquiry.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1rem;">Send An Enquiry</a>
+                    </div>
+                </div>
+
+                <!-- Right centerpiece Water Globe Splash -->
+                <div class="image-frame-container reveal-on-scroll" style="text-align: center;">
+                    <img src="assets/images/hero_globe.png" class="responsive-image" alt="Water Splash Globe" style="max-height: 400px; width: auto; object-fit: contain;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Custom Footer Card -->
+    <footer class="custom-floating-footer-section">
+        <div class="footer-bg-container">
+            <img src="assets/images/footer_bg.png" alt="Footer Wavy Backdrop" class="footer-bg-img">
+        </div>
+        <div class="container">
+            <div class="custom-floating-footer">
                 <!-- Left Column -->
                 <div class="footer-left-col">
                     <img src="assets/logos/liquinex_brand_logo.png" alt="Liquinex Logo" class="footer-brand-logo-img">
                     <p class="footer-left-tagline">Pioneering chemical-free, compact Silicon Carbide ceramic filtration skids for municipal and industrial water treatment.</p>
                     <div class="footer-copyright-text">All Rights Reserved 2026 by Liquinex Group</div>
                 </div>
-                
+
                 <!-- Middle Column -->
                 <div class="footer-middle-col">
                     <div class="footer-explore-card">
-                        <h4>Explore More!</h4>
+                        <h3>Explore More!</h3>
                         <div class="footer-explore-links">
-                            <div class="explore-links-col">
+                            <div class="footer-links-col">
                                 <a href="index.html">Home</a>
-                                <a href="projects.html">Our Work</a>
                                 <a href="about.html">About Us</a>
+                                <a href="solutions.html">Solutions</a>
                             </div>
-                            <div class="explore-links-col">
-                                <a href="solutions.html">Blog</a>
-                                <a href="enquiry.html">Contact Us</a>
+                            <div class="footer-links-col">
+                                <a href="projects.html">Projects</a>
+                                <a href="sustainability.html">Sustainability</a>
+                                <a href="shop.html">Shop</a>
                             </div>
                         </div>
                         <div class="footer-explore-contact">
-                            <div class="explore-contact-item">
-                                <span class="contact-icon">✉</span> info@liquinex.com
-                            </div>
-                            <div class="explore-contact-item">
-                                <span class="contact-icon">📞</span> +65 6896 2380
-                            </div>
+                            <div>📧 info@liquinex.com</div>
+                            <div>📞 +65 6896 2380 / +65 6565 4338</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Right Column -->
                 <div class="footer-right-col">
-                    <div class="footer-subscribe-card">
-                        <h4>Subscribe To Our Newsletter</h4>
-                        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to our newsletter!');">
-                            <div class="subscribe-form-group">
-                                <label>Email</label>
-                                <input type="email" placeholder="Eg. email@domain.com" required>
-                            </div>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                    
-                    <div class="footer-social-icons">
-                        <a href="https://instagram.com" target="_blank" class="social-icon-badge" aria-label="Instagram">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                        </a>
-                        <a href="https://facebook.com" target="_blank" class="social-icon-badge" aria-label="Facebook">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" class="social-icon-badge" aria-label="Twitter">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" class="social-icon-badge" aria-label="LinkedIn">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        </a>
+                    <div class="footer-newsletter-card">
+                        <h3>Subscribe To Our Newsletter</h3>
+                        <div class="footer-newsletter-form">
+                            <input type="email" placeholder="Enter your email" aria-label="Email for newsletter">
+                            <button type="button">Subscribe</button>
+                        </div>
+                        <div class="footer-social-icons">
+                            <a href="#" aria-label="Instagram">📸</a>
+                            <a href="#" aria-label="Facebook">📘</a>
+                            <a href="#" aria-label="Twitter">🐦</a>
+                            <a href="#" aria-label="LinkedIn">💼</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Scroll Top -->
-    <div class="scroll-top-btn"><span style="font-size: 1.5rem;">↑</span></div>
-
+    <!-- Core App JS -->
     <script src="js/app.js"></script>
-    <script>
-        const topBtn = document.querySelector('.scroll-top-btn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                topBtn.classList.add('active');
-            } else {
-                topBtn.classList.remove('active');
-            }
-        });
-        topBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
 </body>
 </html>
