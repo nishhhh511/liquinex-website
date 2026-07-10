@@ -2709,3 +2709,212 @@ footer a:hover {
         padding-right: 0;
     }
 }
+
+/* Floating Panel Footer Card styling matching mockup exactly */
+.custom-floating-footer {
+    background: url('../assets/images/footer_bg.png') no-repeat center center;
+    background-size: cover;
+    padding: 8rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.custom-footer-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr;
+    gap: 2.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+}
+
+.footer-left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-right: 1.5rem;
+}
+
+.footer-brand-logo {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #1b3f68; /* Ditto dark blue brand color */
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: -0.02em;
+}
+
+.footer-copyright-text {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
+
+/* Middle explore card - dark blue background */
+.footer-middle-col {
+    display: flex;
+}
+
+.footer-explore-card {
+    background: #1b3f68; /* Ditto dark blue background color */
+    border-radius: 16px;
+    padding: 2.2rem;
+    width: 100%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 10px 25px rgba(27, 63, 104, 0.15);
+}
+
+.footer-explore-card h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.footer-explore-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.explore-links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.explore-links-col a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.explore-links-col a:hover {
+    color: #00b8d9;
+}
+
+.footer-explore-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.25rem;
+}
+
+.explore-contact-item {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.85);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-icon {
+    font-size: 0.95rem;
+}
+
+/* Right subscribe card - light blue translucent texture */
+.footer-right-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-subscribe-card {
+    background: #f1f5f9;
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-subscribe-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1b3f68;
+    line-height: 1.3;
+}
+
+.subscribe-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.subscribe-form-group label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.subscribe-form-group input {
+    background: #ffffff;
+    border: 1px solid rgba(27, 63, 104, 0.15);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.85rem;
+    color: #0f172a;
+    outline: none;
+}
+
+.footer-subscribe-card button {
+    background: #1b3f68;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.footer-subscribe-card button:hover {
+    background: #153252;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-icon-badge {
+    background: #f1f5f9;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1b3f68;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(27, 63, 104, 0.05);
+}
+
+.social-icon-badge:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-color: rgba(27, 63, 104, 0.2);
+}
+
+@media (max-width: 968px) {
+    .custom-footer-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .footer-left-col {
+        gap: 1.5rem;
+        padding-right: 0;
+    }
+}
