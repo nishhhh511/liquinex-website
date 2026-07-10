@@ -34,45 +34,47 @@
         </div>
     </header>
 
-    <!-- Hero Section (Interactive Canvas Particles & Stats) -->
+        <!-- Mockup Hero Section -->
     <section class="hero">
-    <div class="hero-watermark-bg">LIQUINEX</div>
-    <div class="video-bg-container">
-        <video autoplay loop muted playsinline class="video-bg">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-liquid-blue-flow-background-40742-large.mp4" type="video/mp4">
-        </video>
-        <div class="video-bg-overlay"></div>
-    </div>
-        <canvas id="hero-canvas"></canvas>
+        <div class="hero-caustics-overlay"></div>
         <div class="container">
             <div class="hero-grid">
-                <!-- Left text content -->
+                <!-- Left Content -->
                 <div class="hero-content reveal-on-scroll">
-                    <h1>Clean Water.<br>Effortless Clarity.</h1>
-                    <p>Pioneering chemical-free, compact Silicon Carbide ceramic filtration skids for global municipal, industrial, and disaster relief systems.</p>
-                    <div style="display: flex; gap: 1.5rem;">
+                    <h1 class="hero-editorial-title">INTELLIGENT<br>WATER FILTRATION</h1>
+                    <p class="hero-editorial-lead">Pioneering chemical-free, compact Silicon Carbide ceramic filtration skids for municipal and industrial water treatment installations worldwide.</p>
+                    <div style="display: flex; gap: 1.2rem; margin-top: 2rem;">
                         <div class="btn-wrapper">
                             <a href="solutions.html" class="btn btn-primary">Explore Solutions</a>
                         </div>
                         <div class="btn-wrapper">
-                            <a href="enquiry.html" class="btn btn-outline">Request Quote</a>
+                            <a href="enquiry.html" class="btn btn-outline" style="border-color: #1b3f68; color: #1b3f68;">Request Quote</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right statistic blocks -->
-                <div class="hero-stats-hero reveal-on-scroll">
-                    <div class="hero-stat-card">
-                        <div class="hero-stat-number">25+</div>
-                        <div class="hero-stat-label">Years CEO Expertise</div>
+                <!-- Right Centerpiece with flow tracing overlay -->
+                <div class="hero-centerpiece-container reveal-on-scroll">
+                    <img src="assets/images/hero_centerpiece.png" class="hero-centerpiece-img" alt="Water Purification Skid Centerpiece">
+                    
+                    <!-- SVG flow tracing lines -->
+                    <svg class="hero-flow-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <path d="M 50 180 Q 150 150 250 280 T 450 280" stroke="#00c5ff" stroke-width="4" stroke-linecap="round" class="flow-line"></path>
+                        <path d="M 250 280 Q 200 380 250 420 T 420 400" stroke="#00b8d9" stroke-width="3" stroke-linecap="round" class="flow-line-slow"></path>
+                    </svg>
+                    
+                    <!-- Pulsing Tech Labels -->
+                    <div class="tech-node" style="top: 28%; left: 35%;">
+                        <div class="tech-node-pulse"></div>
+                        <div class="tech-node-tooltip">Ceramic UF Membrane</div>
                     </div>
-                    <div class="hero-stat-card">
-                        <div class="hero-stat-number">98%</div>
-                        <div class="hero-stat-label">Water Recovery Rate</div>
+                    <div class="tech-node" style="top: 52%; left: 72%;">
+                        <div class="tech-node-pulse"></div>
+                        <div class="tech-node-tooltip">Reverse Osmosis (RO)</div>
                     </div>
-                    <div class="hero-stat-card">
-                        <div class="hero-stat-number">0%</div>
-                        <div class="hero-stat-label">Chemical Dependency</div>
+                    <div class="tech-node" style="top: 76%; left: 48%;">
+                        <div class="tech-node-pulse"></div>
+                        <div class="tech-node-tooltip">UV Disinfection</div>
                     </div>
                 </div>
             </div>
